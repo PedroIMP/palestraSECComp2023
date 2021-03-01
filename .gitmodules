@@ -1,0 +1,3 @@
+[submodule "presentations/plugin/revealjs-ace-brython"]
+	path = presentations/plugin/revealjs-ace-brython
+	url = https://github.com/guludo/revealjs-ace-brython.git
