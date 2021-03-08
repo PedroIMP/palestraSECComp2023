@@ -1,0 +1,145 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+    <title>Aula 01</title>
+
+    <link rel="stylesheet" href="../dist/reset.css">
+    <link rel="stylesheet" href="../dist/reveal.css">
+    <link rel="stylesheet" href="../dist/theme/serif.css" id="theme">
+
+    <!-- Theme used for syntax highlighted code -->
+    <link rel="stylesheet" href="../plugin/highlight/monokai.css" id="highlight-theme">
+    <style>
+        .local-grid {
+            display: grid;
+            grid-auto-flow: column;
+            gap: 1em;
+            margin-top: 1em;
+            margin-bottom: 1em;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .ace-brython {
+            font-size: .7em;
+            min-width: 50%;
+            height: 20em
+        }
+    </style>
+  </head>
+  <body>
+    <div class="reveal">
+      <div class="slides">
+        <section data-markdown>
+            # Python 101
+            ## Aula 01
+        </section>
+        <section data-auto-animate>
+            <h2 style='display: flex; align-items: center;'>
+                O que é &nbsp;<img src='python-logo-generic.svg' alt='Python' />?
+            </h2>
+        </section>
+        <section data-auto-animate>
+            <h2 style='display: flex; align-items: center;'>
+                O que é &nbsp;<img src='python-logo-generic.svg' alt='Python' />?
+            </h2>
+
+            <span>É uma linguagem de programação</span><span class='fragment' data-fragment-index="1">, multiplataforma...</span>
+            <br/>
+            <div class='r-stack'>
+                <div class='fragment fade-out' data-fragment-index="1">
+                    <img data-src='programming-language.svg' />
+                </div>
+                <div class='fragment fade-in-then-out' data-fragment-index="1">
+                    <div
+                         style="display: flex; height: 10ex; justify-content: center;"
+                    >
+                        <img style='flex: none' data-src="Tux.svg" />
+                        <img style='flex: none; margin-left: 1ex' data-src="apple.png" />
+                        <img style='flex: none; margin-left: 1ex' data-src="windows.png" />
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section data-auto-animate>
+            <h2 style='display: flex; align-items: center;'>
+                O que é &nbsp;<img src='python-logo-generic.svg' alt='Python' />?
+            </h2>
+
+            <div>... e com amplo domínio de aplicação:</div>
+            <div class="r-stack">
+                <div class="fragment fade-in-then-out">
+                    <div class='local-grid'>
+                        <img data-src='django-logo-positive.svg' style='height: 1.5em' />
+                        <img data-src='flask.png' style='height: 3em' />
+                        <img data-src='tornado.png' style='height: 1.6em' />
+                    </div>
+                    Desenvolvimento Web
+                </div>
+                <div class="fragment fade-in-then-out">
+                    <div class='local-grid'>
+                        <img data-src='pygobject.svg' alt='PyGObject' style='height: 1.5em' />
+                        <img data-src='WxPython-logo.png' alt='wxPython' style='height: 2.5em; border: .2ex solid #484848; filter: saturate(.6);' />
+                        <img data-src='Python_and_Qt.svg.png' alt='PyQt' style='height: 2em' />
+                    </div>
+                    Desenvolvimento Desktop
+                </div>
+                <div class="fragment fade-in-then-out">
+                    <div class='local-grid' style='margin-bottom: 0;'>
+                        <img data-src='Scikit_learn_logo_small.svg' alt='Scikit-learn' style='height: 1.8em' />
+                        <img data-src='PyTorch_logo_black.svg' alt='PyTorch' style='height: 1.4em' />
+                        <img data-src='Tensorflow_logo.svg' alt='Tensorflow' style='height: 1.6em' />
+                    </div>
+                    <div class='local-grid' style='margin-top: 0;'>
+                        <img data-src='Pandas-logo.svg' alt='Pandas' style='height: 2em' />
+                        <img data-src='Matplotlib_logo.svg' alt='Matplotlib' style='height: 1em' />
+                        <img data-src='NumPy_logo_2020.svg' alt='NumPy' style='height: 2em' />
+                    </div>
+                    Data Science
+                </div>
+                <div class="fragment fade-in">
+                    <div class='local-grid'>
+                        <div style='display: flex; align-items: center'>
+                            <img data-src='ArcGIS-Pro.png' alt='PyGObject' style='height: 1.8em' /><span style='font-size: .8em; margin-left: 1ex;'>ArcGIS Pro</span>
+                        </div>
+                    </div>
+                    Extensões e Plugins para aplicações
+                </div>
+            </div>
+        </section>
+        <section data-auto-animate>
+            <h1 class='r-fit-text'>Vamos escrever nosso primeiro programa!</h1>
+        </section>
+        <section data-auto-animate>
+            <h1 class='r-fit-text'>Vamos escrever nosso primeiro programa!</h1>
+
+            <div class='ace-brython'>
+                <script type='text/x.ace-brython' data-id='x'>
+                    print('hello world')
+                </script>
+            </div>
+        </section>
+      </div>
+    </div>
+
+    <script src="../dist/reveal.js"></script>
+    <script src="../plugin/notes/notes.js"></script>
+    <script src="../plugin/markdown/markdown.js"></script>
+    <script src="../plugin/highlight/highlight.js"></script>
+    <script src="../plugin/revealjs-ace-brython/dist/main.js"></script>
+    <script>
+      // More info about initialization & config:
+      // - https://revealjs.com/initialization/
+      // - https://revealjs.com/config/
+      Reveal.initialize({
+        hash: true,
+
+        // Learn about plugins: https://revealjs.com/plugins/
+        plugins: [ RevealMarkdown, RevealHighlight, RevealNotes, RevealAceBrython ]
+      });
+    </script>
+  </body>
+</html>
