@@ -45,6 +45,10 @@
             min-width: 50%;
             height: 3em
         }
+
+        * {
+            line-height: 1 !important; /* reset.css is using line-height: inherit, which cause problems with auto-animate */
+        }
     </style>
   </head>
   <body>
