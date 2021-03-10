@@ -62,6 +62,18 @@
                 transform: translateX(-10%);
             }
         }
+
+        @keyframes local-glowing {
+            from {
+                filter: brightness(1) drop-shadow(0 0 10px #fff0);
+            }
+            50% {
+                filter: brightness(1.2) drop-shadow(0 0 10px #ffff);
+            }
+            to {
+                filter: brightness(1) drop-shadow(0 0 10px #fff0);
+            }
+        }
     </style>
   </head>
   <body>
