@@ -49,6 +49,19 @@
         * {
             line-height: 1 !important; /* reset.css is using line-height: inherit, which cause problems with auto-animate */
         }
+
+
+        @keyframes local-back-and-forth {
+            from {
+                transform: translateX(-10%);
+            }
+            50% {
+                transform: translateX(10%);
+            }
+            to {
+                transform: translateX(-10%);
+            }
+        }
     </style>
   </head>
   <body>
