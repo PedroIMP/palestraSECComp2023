@@ -2,6 +2,9 @@
 
 const deckContainer = document.querySelector('.reveal')
 
+// Process reusable templates
+Reusable.process(deckContainer)
+
 // Pre-processing of asciinema-player elements
 for (let p of deckContainer.querySelectorAll('asciinema-player')) {
   if (p.hasAttribute('autoplay')) {
