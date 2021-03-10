@@ -177,24 +177,66 @@
             </script></template>
         </section>
 
-        <section data-auto-animate>
-            <template data-reusable>
-                <h1 class='r-fit-text'>O que acontece durante a execução?</h1>
-                <div data-reusable-name='flow-container' style='display: none'>
-                    ok
+        <section>
+            <h1 class='r-fit-text'>O que acontece durante a execução?</h1>
+            <div style='display: grid; grid-template-columns: repeat(5, auto); align-items: center'>
+                <div class='fragment' data-fragment-index='0'>
+                    <div
+                        style='
+                            border: .2ex dashed;
+                            font-family: monospace;
+                            background-color: #fff;
+                            padding: 1ex;
+                            font-size: .6em;
+                            display: inline-block;
+                            width: max-content;
+                        '
+                     >print('hello world')</div>
                 </div>
-            </template>
-            <template data-reuse>
-            </template>
-        </section>
+                <div class='fragment' data-fragment-index='1'>&nbsp;─▶&nbsp;</div>
+                <div class='fragment' data-fragment-index='1'>
+                    <img
+                        data-src='python-logo-3d.png'
+                        style='width: 100%; margin-bottom: -1em; grid-row: 1;'
+                    />
+                </div>
+                <div class='fragment' data-fragment-index='2'>&nbsp;─▶&nbsp;</div>
+                <div class='fragment' data-fragment-index='2'>
+                    <div
+                        style='
+                            border: .2ex dashed;
+                            font-family: monospace;
+                            background-color: #fff;
+                            font-size: .5em;
+                            padding: 1ex;
+                            width: auto;
+                            display: inline flex;
+                            flex-direction: column;
+                        '
+                    >
+                        <span>1010110100101110</span>
+                        <span>0011110101101001</span>
+                        <span>0101001011111000</span>
+                        <span>1010000111001000</span>
+                        <span>0111111111100001</span>
+                    </div>
+                </div>
 
-
-        <section data-auto-animate>
-            <template data-reuse data-reusable>
-                <script>
-                    $reuse('flow-container').style.display = ''
-                </script>
-            </template>
+                <div
+                    class='fragment' data-fragment-index='0'
+                    style='font-size: .6em; margin: .2ex;'
+                >Código fonte</div>
+                <div></div>
+                <div
+                    class='fragment' data-fragment-index='1'
+                    style='font-size: .6em; margin: .2ex'
+                >Interpretador Python</div>
+                <div></div>
+                <div
+                    class='fragment' data-fragment-index='2'
+                    style='font-size: .6em; margin: .2ex'
+                >Instruções para o processador</div>
+            </div>
         </section>
       </div>
     </div>
