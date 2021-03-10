@@ -143,34 +143,54 @@
             </h5>
         </section>
         <section data-auto-animate>
-            <h1 class='r-fit-text'>Invocando o intepretador!</h1>
-            <div style='display: flex; justify-content: center;'>
-                <div>
-                    <img src='stickman-worship.png' style='height: 6em; vertical-align: bottom; margin-top: 3em;'/>
-                    <img src='python-logo-3d.png' style='vertical-align: top; height: 7.5em; margin-top: 0;'/>
+            <template data-reusable>
+                <h1 class='r-fit-text'>Invocando o intepretador!</h1>
+                <div style='display: flex; justify-content: center;'>
+                    <div style='flex: none'>
+                        <img src='stickman-worship.png' style='height: 6em; vertical-align: bottom; margin-top: 3em;'/>
+                        <img src='python-logo-3d.png' style='vertical-align: top; height: 7.5em; margin-top: 0;'/>
+                    </div>
+                    <div data-reusable-name='using-shell' style='margin-right: auto; display: none;'>
+                        Usando o shell do seu sistema, podemos utilizar o seguinte
+                        comando: <code>python hello.py</code>
+                        <asciinema-player
+                            src='python-hello.cast'
+                            autoplay
+                            loop
+                            rows='3'
+                            cols='20'
+                            font-size='1em'
+                        />
+                    </div>
                 </div>
-            </div>
+            </template>
+            <template data-reuse></template>
         </section>
+
         <section data-auto-animate>
-            <h1 class='r-fit-text'>Invocando o intepretador!</h1>
-            <div style='display: flex; justify-content: center;'>
-                <div style='flex: none;'>
-                    <img src='stickman-worship.png' style='height: 4em; vertical-align: bottom; margin-top: 2em;'/>
-                    <img src='python-logo-3d.png' style='vertical-align: top; height: 5em; margin-top: 0;'/>
+            <template data-reuse><script>
+                $reuse('using-shell').style.display = ''
+            </script></template>
+        </section>
+
+        <section data-auto-animate>
+            <template data-reusable>
+                <h1 class='r-fit-text'>O que acontece durante a execução?</h1>
+                <div data-reusable-name='flow-container' style='display: none'>
+                    ok
                 </div>
-                <div style='margin-right: auto;'>
-                    Usando o shell do seu sistema, podemos utilizar o seguinte
-                    comando: <code>python hello.py</code>
-                    <asciinema-player
-                        src='python-hello.cast'
-                        autoplay
-                        loop
-                        rows='3'
-                        cols='20'
-                        font-size='1em'
-                    />
-                </div>
-            </div>
+            </template>
+            <template data-reuse>
+            </template>
+        </section>
+
+
+        <section data-auto-animate>
+            <template data-reuse data-reusable>
+                <script>
+                    $reuse('flow-container').style.display = ''
+                </script>
+            </template>
         </section>
       </div>
     </div>
