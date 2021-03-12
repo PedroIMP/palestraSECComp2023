@@ -350,6 +350,166 @@
 
 
 
+        <section data-auto-animate>
+            <h4>Antes de aprendermos a linguagem...</h4>
+            <h3 class='fragment'>O que significa programar?</h3>
+        </section>
+        <section data-auto-animate>
+            <h3 style='font-size: 1em'>O que significa programar?</h3>
+            <ul>
+                <li>De forma simples: é escrever um <strong>conjunto de
+                    instruções</strong> que devem ser executadas pelo
+                    computador</li>
+                <li class='fragment'>Uma <strong data-id='linguagem-de-programacao'>linguagem de programação</strong> permite
+                    escrever diversos "padrões" de instruções:
+                    <ul>
+                        <li>Instruções diretas: Faça isso</li>
+                        <li>Condicionais: Se isso, então faça aquilo</li>
+                        <li>Repetições: Repita isso enquanto tal condição for
+                            verdadeira</li>
+                    </ul>
+                </li>
+            </ul>
+            <div class='fragment local-standout-box' style='margin-top: -1em;'>
+                Combinando esses tipos de instruções, podemos instruir o
+                computador a realizar diversas tarefas!
+            </div>
+        </section>
+
+
+
+        <section data-auto-animate>
+            <h4>Exemplo</h4>
+            <p>
+                Vamos escrever um programa para requisitar uma senha secreta!
+            </p>
+        </section>
+        <section data-auto-animate>
+            <p style='opacity: .5'>
+                Vamos escrever um programa para requisitar uma senha secreta!
+            </p>
+            <p>Estratégia: repetidamente pedir que o usuário digite a senha até
+            que a mesma esteja correta.</p>
+        </section>
+        <section data-auto-animate>
+            <p>Estratégia: repetidamente pedir que o usuário digite a senha até
+            que a mesma esteja correta.</p>
+            <object
+                data-id='fluxograma'
+                type='image/svg+xml'
+                data='exemplo-senha-fluxograma.svg'
+                style='height: 10em; margin-left: 1ex;'
+            ></object>
+            <p>Fluxograma</p>
+        </section>
+        <section data-auto-animate>
+            <p>Código em Python</p>
+            <div style='display: flex; align-items: center;'>
+                <div class='ace-brython'
+                     data-id='codigo'
+                     data-readonly
+                     data-components='code'
+                     style='height: 14em; flex: 0; font-size: .5em;'
+                 >
+                    <script type='text/x.ace-brython'>
+                        resposta = ''
+
+                        # Bloco de repetição
+                        while resposta != 'Python rocks':
+
+                            print('Qual é a senha?')
+                            resposta = input()
+
+                            # Bloco condicional
+                            if resposta == 'Python rocks':
+                                print('Senha correta!')
+                            else:
+                                print('Senha incorreta!')
+                        # Fim
+                    </script>
+                </div>
+                <object
+                    data-id='fluxograma'
+                    type='image/svg+xml'
+                    data='exemplo-senha-fluxograma.svg'
+                    style='height: 10em; flex: 1; margin-left: 1ex;'
+                ></object>
+            </div>
+            <div class='fragment local-standout-box' style='font-size: .6em; max-width: 20em;'>
+                Bem, o fluxograma está menos detalhado que o código...
+                Vamos deixá-lo mais detalhado para entendermos melhor o
+                exemplo.
+            </div>
+        </section>
+        <section data-auto-animate>
+            <p>Código em Python e o fluxograma detalhado</p>
+            <div style='display: flex; align-items: center;'>
+                <div class='ace-brython'
+                     data-id='codigo'
+                     data-readonly
+                     data-components='code'
+                     style='height: 14em; flex: 0; font-size: .5em;'
+                 >
+                    <script type='text/x.ace-brython'>
+                        resposta = ''
+
+                        # Bloco de repetição
+                        while resposta != 'Python rocks':
+
+                            print('Qual é a senha?')
+                            resposta = input()
+
+                            # Bloco condicional
+                            if resposta == 'Python rocks':
+                                print('Senha correta!')
+                            else:
+                                print('Senha incorreta!')
+                        # Fim
+                    </script>
+                </div>
+                <object
+                    data-id='fluxograma-equivalente'
+                    type='image/svg+xml'
+                    data='exemplo-senha-fluxograma-equivalente-codigo.svg'
+                    style='flex: 1; margin-left: 1ex; height: 12em; font-size: 1em;'
+                ></object>
+                <script>(async function() {
+                    let codeContainer = document.currentScript.parentNode.querySelector('.ace-brython')
+                    let svgObject = document.currentScript.parentNode.querySelector('object')
+                    let observer = new MutationObserver((mutations) => {
+                      const lineNumber = codeContainer.dataset.lineNumber
+                      const matched = svgObject.contentDocument.querySelectorAll(`[data-line-numbers~="${lineNumber}"]`)
+                      if (!matched.length) {
+                        return;
+                      }
+
+                      const allElements = svgObject.contentDocument.querySelectorAll('[data-line-numbers]')
+                      for (let el of allElements) {
+                        el.style.stroke = ''
+                        el.style.strokeWidth = ''
+                      }
+                      for (let el of matched) {
+                        el.style.stroke = '#135677'
+                        el.style.strokeWidth = '.5em'
+                      }
+                    })
+                    observer.observe(codeContainer, {
+                        attributes: true,
+                        attributeFilter: ['data-line-number'],
+                    })
+
+                    svgObject.onload = () => {
+                      const allElements = svgObject.contentDocument.querySelectorAll('[data-line-numbers]')
+                      for (let el of allElements) {
+                        el.addEventListener('mouseover', e => {
+                          const lineNumber = e.target.dataset.lineNumbers.split(/\s+/)[0];
+                          codeContainer.dataset.lineNumber = lineNumber;
+                        })
+                      }
+                    }
+                })()</script>
+            </div>
+        </section>
       </div>
     </div>
 
