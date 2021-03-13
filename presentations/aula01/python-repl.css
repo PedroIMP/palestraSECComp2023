@@ -8,7 +8,7 @@
 }
 
 .python-repl-entry:not(:first-child) {
-    margin-top: .2ex;
+    margin-top: 1ex;
 }
 
 .python-repl-code-line:first-child::before {
