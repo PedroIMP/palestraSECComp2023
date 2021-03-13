@@ -1,0 +1,98 @@
+/*****************************************************************************
+ * Tags customization
+ *****************************************************************************/
+
+.reveal * {
+    /* reset.css is using line-height: inherit, which cause problems with
+     * auto-animate */
+    line-height: 1 !important;
+}
+
+.reveal ul {
+    font-size: 1em;
+    margin-top: .5ex;
+    margin-bottom: .5ex;
+}
+
+.reveal li {
+    margin-top: 1ex;
+    margin-bottom: 1ex;
+}
+
+.reveal li li {
+    font-size: .9em;
+}
+
+.reveal :not(pre) > code {
+    background-color: #0001;
+    color: #333;
+    padding: .15ex;
+    display: inline-block;
+    border-radius: .1ex;
+}
+
+.reveal strong {
+    text-transform: uppercase;
+    font-size: .8em;
+}
+
+
+
+/*****************************************************************************
+ * Local classes
+ *****************************************************************************/
+.reveal .local-grid {
+    display: grid;
+    grid-auto-flow: column;
+    gap: 1em;
+    margin-top: 1em;
+    margin-bottom: 1em;
+    align-items: center;
+    justify-content: center;
+}
+
+.reveal .local-standout-box {
+    position: absolute;
+    z-index: 1;
+    right: 1em;
+    transform: rotate(-10deg);
+    background-color: var(--selection-background-color);
+    color: var(--selection-color);
+    outline: 1px solid transparent;
+    padding: 1ex;
+    box-shadow: .5ex .5ex .2ex rgba(0, 0, 0, .3);
+    border-radius: .2ex;
+}
+
+
+
+/*****************************************************************************
+ * Keyframes
+ *****************************************************************************/
+@keyframes local-back-and-forth {
+    from {
+        transform: translateX(-10%);
+    }
+    50% {
+        transform: translateX(10%);
+    }
+    to {
+        transform: translateX(-10%);
+    }
+}
+
+@keyframes local-glowing {
+    from {
+        filter: brightness(1) drop-shadow(0 0 10px #fff0);
+    }
+    50% {
+        filter: brightness(1.2) drop-shadow(0 0 10px #ffff);
+    }
+    to {
+        filter: brightness(1) drop-shadow(0 0 10px #fff0);
+    }
+}
+
+
+
+

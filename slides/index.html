@@ -6,119 +6,20 @@
 
     <title>Aula 01</title>
 
+    <!-- Revealjs styles -->
     <link rel="stylesheet" href="../revealjs/dist/reset.css">
     <link rel="stylesheet" href="../revealjs/dist/reveal.css">
     <link rel="stylesheet" href="../revealjs/dist/theme/serif.css" id="theme">
-
-    <!-- Theme used for syntax highlighted code -->
     <link rel="stylesheet" href="../revealjs/plugin/highlight/monokai.css" id="highlight-theme">
 
-    <!-- asciinema -->
     <link rel="stylesheet" href="../asciinema/asciinema-player.css">
 
     <link rel="stylesheet" href="python-repl/python-repl.css">
 
-    <style>
-        ul {
-            font-size: 1em;
-            margin-top: .5ex;
-            margin-bottom: .5ex;
-        }
-
-        li {
-            margin-top: 1ex;
-            margin-bottom: 1ex;
-        }
-
-        li li {
-            font-size: .9em;
-        }
-
-        .reveal .local-grid {
-            display: grid;
-            grid-auto-flow: column;
-            gap: 1em;
-            margin-top: 1em;
-            margin-bottom: 1em;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .reveal .local-standout-box {
-            position: absolute;
-            z-index: 1;
-            right: 1em;
-            transform: rotate(-10deg);
-            background-color: var(--selection-background-color);
-            color: var(--selection-color);
-            outline: 1px solid transparent;
-            padding: 1ex;
-            box-shadow: .5ex .5ex .2ex rgba(0, 0, 0, .3);
-            border-radius: .2ex;
-        }
-
-        .ace-brython {
-            font-size: .7em;
-            min-width: 50%;
-            height: 3em
-        }
-
-        * {
-            line-height: 1 !important; /* reset.css is using line-height: inherit, which cause problems with auto-animate */
-        }
-
-
-        @keyframes local-back-and-forth {
-            from {
-                transform: translateX(-10%);
-            }
-            50% {
-                transform: translateX(10%);
-            }
-            to {
-                transform: translateX(-10%);
-            }
-        }
-
-        @keyframes local-glowing {
-            from {
-                filter: brightness(1) drop-shadow(0 0 10px #fff0);
-            }
-            50% {
-                filter: brightness(1.2) drop-shadow(0 0 10px #ffff);
-            }
-            to {
-                filter: brightness(1) drop-shadow(0 0 10px #fff0);
-            }
-        }
-
-        .ace_marker-layer .ace_active-line {
-            transition: all .2s;
-        }
-        .ace_cursor-layer .ace_cursor {
-            transition: all .2s;
-        }
-        .ace-pastel-on-dark .ace_marker-layer .ace_active-line {
-            background: rgba(255, 255, 255, .1) !important;
-        }
-
-        .python-repl {
-            font-size: .6em;
-        }
-
-        :not(pre) > code {
-            background-color: #0001;
-            color: #333;
-            padding: .15ex;
-            display: inline-block;
-            border-radius: .1ex;
-        }
-
-        strong {
-            text-transform: uppercase;
-            font-size: .8em;
-        }
-    </style>
+    <!-- Local styles -->
+    <link rel="stylesheet" href="css/common.css">
+    <link rel="stylesheet" href="css/ace-brython-customization.css">
+    <link rel="stylesheet" href="css/python-repl-customization.css">
   </head>
   <body>
     <div class="reveal">

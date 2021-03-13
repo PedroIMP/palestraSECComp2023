@@ -1,0 +1,17 @@
+.ace-brython {
+    font-size: .7em;
+    min-width: 50%;
+    height: 3em
+}
+
+.ace-brython .ace_marker-layer .ace_active-line {
+    transition: all .2s;
+}
+
+.ace-brython .ace_cursor-layer .ace_cursor {
+    transition: all .2s;
+}
+
+.ace-brython .ace-pastel-on-dark .ace_marker-layer .ace_active-line {
+    background: rgba(255, 255, 255, .1) !important;
+}
