@@ -1,0 +1,24 @@
+.python-repl {
+    font-size: 1em;
+    font-family: monospace;
+    text-align: left;
+    background-color: #2C2828;
+    color: #8F938F;
+    padding: .5ex;
+}
+
+.python-repl-entry:not(:first-child) {
+    margin-top: .2ex;
+}
+
+.python-repl-code-line:first-child::before {
+    content: ">>> "
+}
+
+.python-repl-code-line:not(:first-child)::before {
+    content: "... "
+}
+
+.python-repl-code-line {
+    filter: brightness(1.4);
+}
