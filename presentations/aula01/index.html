@@ -583,6 +583,49 @@
                 possam se entender.
             </p>
         </section>
+        <section data-auto-animate>
+            <h3>Expressões</h3>
+            <p>Uma expressão é geralmente formada como uma composição de outras
+            expressões</p>
+            <div class='python-repl fragment'><!--
+                >>> 1 + 4 * (10 - 2)
+                33
+            --></div>
+            <div style='font-size: .8em;' class='fragment'>
+                <p>
+                De acordo com as regras de precedência, temos a seguinte ordem
+                de execução realizada pelo Python:
+                </p>
+                <ol>
+                    <li>
+                        A <strong>expressão</strong> <em>10 - 2</em> é
+                        resolvida;
+                    </li>
+                    <li>
+                        O resultado é utilizando para resolver a a
+                        <strong>expressão</strong> de multiplicação <em>4 *
+                        ...</em>;
+                    </li>
+                    <li>
+                        Enfim, o resultado é utilizado para resolver a
+                        <strong>expressão</strong> de soma <em>1 + ...</em>,
+                        que é a expressão "original"
+                    </li>
+                    <script>
+                        for (let el of document.currentScript.parentNode.querySelectorAll('em')) {
+                          el.style = `
+                            color: #4747ff;
+                            background-color: #0001;
+                            padding: .2ex;
+                            font-size: .7em;
+                            font-family: monospace;
+                            font-weight: bold;
+                          `
+                        }
+                    </script>
+                </ol>
+            </div>
+        </section>
       </div>
     </div>
 
