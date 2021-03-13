@@ -517,6 +517,7 @@
                     svgObject.onload = () => {
                       const allElements = svgObject.contentDocument.querySelectorAll('[data-line-numbers]')
                       for (let el of allElements) {
+                        el.style.transition = 'all .5s'
                         el.addEventListener('mouseover', e => {
                           const lineNumber = e.target.dataset.lineNumbers.split(/\s+/)[0];
                           codeContainer.dataset.lineNumber = lineNumber;
