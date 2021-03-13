@@ -1,5 +1,3 @@
-(function () {
-
 const deckContainer = document.querySelector('.reveal')
 
 // Pre-processing of asciinema-player elements
@@ -59,6 +57,3 @@ deck.on('slidechanged', e => {
 })
 
 deck.initialize()
-
-
-})()
