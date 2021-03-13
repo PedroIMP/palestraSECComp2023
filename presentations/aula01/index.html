@@ -615,7 +615,7 @@
                         resolvida;
                     </li>
                     <li class='fragment'>
-                        O resultado é utilizando para resolver a a
+                        O resultado é utilizando para resolver a
                         <strong>expressão</strong> de multiplicação <code>4 *
                         ...</code>;
                     </li>
@@ -626,6 +626,196 @@
                     </li>
                 </ol>
             </div>
+        </section>
+
+
+
+        <section data-auto-animate>
+            <p>Uma noção muito importante relacionada aos valores de uma
+            expressão é o conceito de <strong>Tipos de Dados</strong></p>
+        </section>
+        <section data-auto-animate>
+            <h3>Tipos de Dados</h3>
+            <p style='text-align: left; font-size: .7em;'>Considere a seguinte expressão:</p>
+            <div data-id="exemplo-expressao-tipo-dados"
+                 class='python-repl fragment'><!--
+                >>> 192 / 1.5
+                128.0
+            --></div>
+            <ul>
+                <li class='fragment'>A expressão acima está dividindo um
+                    <em data-id='numero-inteiro'>número inteiro</em> por um <em
+                        data-id='numero-quebrado'>número "quebrado"</em>
+                </li>
+                <li class='fragment'>E o resultado é um <em>número
+                "quebrado"</em></li>
+            </ul>
+        </section>
+        <section data-auto-animate>
+            <h3>Tipos de Dados</h3>
+            <div data-id='exemplo-expressao-tipo-dados'
+                 class='python-repl'><!--
+                >>> 192 / 1.5
+                128.0
+            --></div>
+            <div style='display: flex; margin-top: 1ex; justify-content: center;'>
+                <em data-id='numero-inteiro'>número inteiro</em>&nbsp;&nbsp;
+                <em data-id='numero-quebrado' style='margin-left: 4ex'>número "quebrado"</em>
+            </div>
+            <p>
+                Utilizamos esses termos para nos referir às
+                <strong>categorias</strong> dos valores!
+            </p>
+            <p class='fragment'>
+                Em termos mais técnicos estamos falando de <strong>tipos de
+                dados</strong> da linguagem de programação
+            </p>
+        </section>
+        <section data-auto-animate>
+            <h3>Tipos de Dados</h3>
+            <p>
+                Em termos mais técnicos estamos falando de <strong>tipos de
+                dados</strong> da linguagem de programação
+            </p>
+            <div style='
+                    display: grid;
+                    margin-top: 1ex;
+                    grid-template-columns: repeat(2, max-content);
+                    justify-content: center;
+                    gap: .5ex;
+                    '
+            >
+                <em data-id='numero-inteiro' style='text-align: right'>número inteiro:</em>
+                <div style='text-align: left'><code>int</code></div>
+                <em data-id='numero-quebrado' style='text-align: right'>número "quebrado":</em>
+                <div style='text-align: left'><code>float</code></div>
+            </div>
+            <p class='fragment'>
+                Esses não são os únicos tipos de dados da
+                linguagem!
+            </p>
+        </section>
+        <section data-auto-animate>
+            <h3>Tipos de Dados</h3>
+            <table style='font-size: .8em;'>
+                <tr>
+                    <td>
+                        <code>int</code>
+                    </td>
+                    <td>
+                        <em>número inteiro</em>
+                    </td>
+                    <td style='font-size: .8em;'>
+                        <code>98</code>
+                        <code>0</code>
+                        <code>-39</code>,
+                        <code>124582</code>
+                        <code>-441</code>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>
+                        <code>float</code>
+                    </td>
+                    <td>
+                        <em>número de ponto flutuante</em>
+                    </td>
+                    <td style='font-size: .8em;'>
+                        <code>98.0</code>
+                        <code>-21.9281</code>
+                        <code>5e-4</code>
+                        <code>1.618034</code>
+                        <code>3.14</code>
+                        <code>918372.1</code>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>
+                        <code>bool</code>
+                    </td>
+                    <td>
+                        <em>booleano: verdadeiro ou falso</em>
+                    </td>
+                    <td style='font-size: .8em;'>
+                        <code>False</code>
+                        <code>True</code>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>
+                        <code>str</code>
+                    </td>
+                    <td>
+                        <em>string: cadeia de caracteres</em>
+                    </td>
+                    <td style='font-size: .8em;'>
+                        <code>'hello world'</code>
+                        <code>'outra string'</code>
+                        <code>'Luke, I am your father'</code>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>
+                        <code>list</code>
+                    </td>
+                    <td>
+                        <em>lista</em>
+                    </td>
+                    <td style='font-size: .8em;'>
+                        <code>[1, 2, 3, 4]</code>
+                        <code>['banana', 'abacaxi', 'uva']</code>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>
+                        <code>dict</code>
+                    </td>
+                    <td><em>dicionário: estruturas com pares chave➝valor</em>
+                    </td>
+                    <td style='font-size: .8em;'>
+                        <code style='vertical-align: top'>{'nome': 'Jonh Doe', 'idade': 27, 'profissão': 'Agente Secreto'}</code>
+                    </td>
+                </tr>
+            </table>
+            <p class='fragment'> ... e vários outros! </p>
+            <div class='fragment local-standout-box' style='top: 50%'>
+                 Inclusive, podemos criar nossos própios tipos!
+                 <span
+                    style='
+                        animation: local-back-and-forth .6s infinite;
+                        display: inline-block;'
+                >🙂</span>
+            </div>
+        </section>
+        <section data-auto-animate>
+            <p>
+                Por que é importante a distinção entre os tipos de dados em uma
+                linguagem de programação?
+            </p>
+            <div class='local-standout-box fragment' data-id='answer'>
+                Um tipo de dado define e dá o significado das
+                <strong>operações</strong> que podem ser realizadas com seus
+                <strong>valores</strong>!
+            </div>
+        </section>
+        <section data-auto-animate>
+            <p>Exemplo: o significado do operador <code>+</code> muda de acordo
+            com os tipos dos operandos: </p>
+            <div class='python-repl'><!--
+                >>> 99 + 1
+                100
+                >>> 9.9 + 1
+                10.9
+                >>> [1, 2, 3] + [4, 5]
+                [1, 2, 3, 4, 5]
+                >>> 'esta string será concatenada' + ' com esta outra'
+                'esta string será concatenada com esta outra'
+            --></div>
         </section>
       </div>
     </div>
