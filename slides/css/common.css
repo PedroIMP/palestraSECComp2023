@@ -29,6 +29,7 @@
     padding: .15ex;
     display: inline-block;
     border-radius: .1ex;
+    font-size: 1em;
 }
 
 .reveal strong {
@@ -62,6 +63,10 @@
     padding: 1ex;
     box-shadow: .5ex .5ex .2ex rgba(0, 0, 0, .3);
     border-radius: .2ex;
+}
+
+.reveal .local-standout-box code {
+    background-color: #fff6;
 }
 
 
