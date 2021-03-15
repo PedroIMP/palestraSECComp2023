@@ -57,6 +57,8 @@ export class Reusable {
           this._applyReplaceContentRule(rule, match)
         } else if (rule.hasAttribute('data-append')) {
           this._applyAppendRule(rule, match)
+        } else if (rule.hasAttribute('data-attr')) {
+          this._applyAttrRule(rule, match)
         } else {
           this._applyReplaceContentRule(rule, match)
         }
@@ -87,6 +89,15 @@ export class Reusable {
 
   _applyAppendRule(rule, match) {
     match.appendChild(rule.content.cloneNode(true))
+  }
+
+  _applyAttrRule(rule, match) {
+    const name = rule.getAttribute('data-attr')
+    if (rule.hasAttribute('data-value')) {
+      match.setAttribute(name, rule.getAttribute('data-value'))
+    } else if (rule.hasAttribute('data-remove')) {
+      match.removeAttribute(name)
+    }
   }
 
   _findNodes(root) {
