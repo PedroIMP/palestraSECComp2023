@@ -1,4 +1,9 @@
+import { applyReusable } from './reusable/reusable.js'
+
+
 const deckContainer = document.querySelector('.reveal')
+
+applyReusable(deckContainer)
 
 // Pre-processing of asciinema-player elements
 for (let p of deckContainer.querySelectorAll('asciinema-player')) {
