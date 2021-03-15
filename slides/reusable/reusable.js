@@ -55,7 +55,7 @@ export class Reusable {
       for (let match of matches) {
         if (rule.hasAttribute('data-replace-content')) {
           this._applyReplaceContentRule(rule, match)
-        } if (rule.hasAttribute('data-append')) {
+        } else if (rule.hasAttribute('data-append')) {
           this._applyAppendRule(rule, match)
         } else {
           this._applyReplaceContentRule(rule, match)
