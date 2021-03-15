@@ -711,6 +711,222 @@
                 'esta string será concatenada com esta outra'
             --></div>
         </section>
+
+
+        <section>
+            <p>Vamos ver agora alguns tipos básicos...</p>
+        </section>
+
+
+        <section data-auto-animate>
+            <h3>Tipos Numéricos</h3>
+            <div>
+                Os tipos <code data-id='int'>int</code> e
+                <code data-id='float'>float</code>
+            </div>
+        </section>
+        <section data-auto-animate>
+            <h3>Tipos Numéricos</h3>
+            <p>
+                <code data-id='int'>int</code><span>: números inteiros</span>
+            </p>
+            <p>
+                Os inteiros podem ser representados utilizando diferentes
+                bases:
+            </p>
+            <div
+                style='
+                    display: grid;
+                    grid-template-columns: max-content repeat(5, 1fr);
+                    font-size: .8em;
+                    justify-items: right;
+                    gap: .5ex;
+                '
+            >
+                <span>Decimal (base 10):</span>
+                <code>1</code> <code>-1</code> <code>42</code> <code>16</code>
+                <code>-16</code>
+
+                <span>Hexadecimal (base 16):</span>
+                <code>0x1</code> <code>-0x1</code> <code>0x2A</code> <code>0x10</code>
+                <code>-0x16</code>
+
+                <span>Octal (base 8):</span>
+                <code>0o1</code> <code>-0o1</code> <code>0o52</code> <code>0o20</code>
+                <code>-0o20</code>
+
+                <span>Binários (base 2):</span>
+                <code>0b1</code> <code>-0b1</code> <code>0b101010</code> <code>0b10000</code>
+                <code>-0b10000</code>
+            </div>
+        </section>
+        <section data-auto-animate>
+            <h3>Tipos Numéricos</h3>
+            <p>
+                <code data-id='float'>float</code><span>: números de ponto flutuante</span>
+            </p>
+            <p>
+                Números que permitem parte fracionária.
+            </p>
+            <p class='fragment' data-fragment-index='0'>
+                Alguns exemplos de representações:
+            </p>
+            <div class='fragment' data-fragment-index='0'
+                style='
+                    display: grid;
+                    grid-template-columns: repeat(2, max-content);
+                    font-size: .8em;
+                    gap: .5ex;
+                '>
+                <code style='justify-self: right'>3.14</code>
+                <div>Utilizando partes inteira e facionária</div>
+
+                <code style='justify-self: right'>10.</code>
+                <div>Omitindo parte fracionária, equivalente a <code>10.0</code></div>
+
+                <code style='justify-self: right'>.001</code>
+                <div>Omitindo a parte inteira, equivalente a <code>0.001</code></div>
+
+                <code style='justify-self: right'>3.14e-10</code>
+                <div>Forma exponencial, representando o valor
+                    <em>3,14 ⋅ 10<sup> -10</sup></em>
+                </div>
+            </div>
+        </section>
+        <section data-auto-animate>
+            <h3>Tipos Numéricos</h3>
+            <p>
+                <code data-id='float'>float</code><span>: números de ponto flutuante</span>
+            </p>
+            <p style='font-size: .8em'>
+                Note que a representação precisa pelo menos ter o ponto
+                decimal (i.e. <code>.</code>) ou a parte exponencial (i.e.
+                <code>e</code>), senão o valor será considerado um
+                <code>int</code>:
+            </p>
+            <p class='fragment'>
+                <code>789.0</code> é um <code>float</code>
+            </p>
+            <p class='fragment'>
+                <code>789e0</code> é um <code>float</code>
+            </p>
+            <p class='fragment'>
+                <code>789</code> é um <code>int</code>
+            </p>
+        </section>
+
+
+
+        <section data-auto-animate>
+            <h3>Operações com valores numéricos</h3>
+            <p class='fragment'>
+                Python define operadores matemáticos como vimos na escola.
+            </p>
+        </section>
+        <section data-auto-animate data-reusable='operations-numbers'>
+            <h3>Operações com valores numéricos</h3>
+            <p
+                data-reusable-tag='operation-title'
+                style='text-align: left; margin-bottom: .2ex;'>
+                <code>+</code> Soma de dois números
+            </p>
+            <div class='python-repl'><!--
+                >>> 1 + 4
+                5
+                >>> 156.1 + 9.2
+                165.29999999999998
+                >>> .491 + 10
+                10.491
+            --></div>
+        </section>
+        <template data-reuse='operations-numbers'>
+            <template data-selector='.python-repl' data-replace-content><!--
+                >>> 156.1 + 9.2
+                165.29999999999998
+            --></template>
+            <template data-append>
+                <p style='font-size: .8em; text-align: justify'>
+                    Note que, embora no campo dos números reais, <code>156.1 + 9.2
+                    = 165.3</code>, Python não chega a esse resultado com exatidão
+                    por erros de arredondamento. O formato binário de <em>floating
+                    pointers</em> não consegue representar alguns números com exata
+                    precisão.
+                </p>
+            </template>
+        </template>
+        <template data-reuse='operations-numbers'>
+            <template data-tag='operation-title'>
+                <code>-</code> Subtração de um número do outro
+            </template>
+            <template data-selector='.python-repl' data-replace-content><!--
+                >>> 65 - 9.13
+                55.87
+                >>> 5e10 - 1
+                49999999999.0
+                >>> 0 - 128
+                -128
+            --></template>
+        </template>
+        <template data-reuse='operations-numbers'>
+            <template data-tag='operation-title'>
+                <code>*</code> Multiplação de dois números
+            </template>
+            <template data-selector='.python-repl' data-replace-content><!--
+                >>> 0.1 * 99
+                9.9
+                >>> 10000 * 100
+                1000000
+                >>> 3.14 * 5 * 5
+                78.5
+            --></template>
+        </template>
+        <template data-reuse='operations-numbers'>
+            <template data-tag='operation-title'>
+                <code>/</code> Divisão de um número por outro
+            </template>
+            <template data-selector='.python-repl' data-replace-content><!--
+            >>> 5 / 2
+            2.5
+            >>> 15 / 0.5
+            30.0
+            >>> 9e10 / 10
+            9000000000.0
+            >>> 10 / 5
+            2.0
+            --></template>
+            <template data-append>
+                <div class='local-standout-box fragment'>
+                    Note que o resultado de <code>10 / 5</code> é um
+                    <code>float</code>, mesmo os operandos sendo do tipo
+                    <code>int</code>.
+                </div>
+            </template>
+        </template>
+        <template data-reuse='operations-numbers'>
+            <template data-tag='operation-title'>
+                <code>//</code> Divisão inteira de um número por outro: a parte fracionária é descartada
+            </template>
+            <template data-selector='.python-repl' data-replace-content><!--
+            >>> 5 // 2
+            2
+            >>> 10 // 1.8
+            5.0
+            >>> 11.98 // 1
+            11.0
+            --></template>
+            <template data-append>
+                <ul class='fragment' style='font-size: .8em;'>
+                    <li>
+                        Se ambos os operandos são <code>int</code>, então o
+                        resultado é um <code>int</code>;
+                    </li>
+                    <li>
+                        Se um dos ambos os operandos é <code>float</code>, então o
+                        resultado é um <code>float</code>.
+                    </li>
+                </ul>
+            </template>
+        </template>
       </div>
     </div>
 
