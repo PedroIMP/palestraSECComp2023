@@ -766,7 +766,7 @@
                 <code data-id='float'>float</code><span>: números de ponto flutuante</span>
             </p>
             <p>
-                Números que permitem parte fracionária.
+                Números que possuem uma parte fracionária.
             </p>
             <p class='fragment' data-fragment-index='0'>
                 Alguns exemplos de representações:
@@ -852,6 +852,10 @@
                     pointers</em> não consegue representar alguns números com exata
                     precisão.
                 </p>
+                <div class='local-standout-box fragment'>
+                    Por isso que não é tecnicamente correto chamar um
+                    <code>float</code> de <em>número real</em>.
+                </div>
             </template>
         </template>
         <template data-reuse='operations-numbers'>
@@ -916,13 +920,14 @@
             --></template>
             <template data-append>
                 <ul class='fragment' style='font-size: .8em;'>
+                    <li>O resultado da divisão é "arredondado para baixo"</li>
                     <li>
                         Se ambos os operandos são <code>int</code>, então o
-                        resultado é um <code>int</code>;
+                        resultado é um <code>int</code>
                     </li>
                     <li>
-                        Se um dos ambos os operandos é <code>float</code>, então o
-                        resultado é um <code>float</code>.
+                        Se um dos os operandos é <code>float</code>, então o
+                        resultado é um <code>float</code>
                     </li>
                 </ul>
             </template>
