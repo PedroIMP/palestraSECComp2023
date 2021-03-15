@@ -922,12 +922,399 @@
                 <ul class='fragment' style='font-size: .8em;'>
                     <li>O resultado da divisão é "arredondado para baixo"</li>
                     <li>
+                        A parte fracionária é descartada:
+                        <div
+                            data-reusable='example-5-div-2'
+                            style='
+                                display: inline grid;
+                                grid-template-columns: repeat(2, max-content);
+                                gap: .5ex;
+                                background-color: #fff;
+                                color: #555;
+                                padding: .5ex;
+                                border-radius: .2ex;
+                                align-items: end;
+                                box-shadow: inset .1ex .1ex 1ex #0003;
+                                border-left: 1px solid #0004;
+                                border-top: 1px solid #0004;
+                                border-right: 1px solid #fff;
+                                border-bottom: 1px solid #fff;
+                                margin-left: 1ex;
+                            '
+                        >
+                            <div
+                                style='
+                                    padding-left: .5ex;
+                                '
+                            >5</div>
+                            <div
+                                style='
+                                    border-left: 2px solid;
+                                    border-bottom: 2px solid;
+                                    width: 1.5em;
+                                    padding-left: .5ex;
+                                '
+                            >2</div>
+                            <div
+                                data-reusable-tag='remainder'
+                                style='
+                                    padding-left: .5ex;
+                                '
+                            >1</div>
+                            <div
+                                data-reusable-tag='quotient'
+                                style='
+                                    padding-left: .5ex;
+                                    font-weight: bold;
+                                    color: #2271ec;
+                                '
+                            >2</div>
+                    </li>
+                    <li>
                         Se ambos os operandos são <code>int</code>, então o
                         resultado é um <code>int</code>
                     </li>
                     <li>
                         Se um dos os operandos é <code>float</code>, então o
                         resultado é um <code>float</code>
+                    </li>
+                </ul>
+            </template>
+        </template>
+        <template data-reuse='operations-numbers'>
+            <template data-tag='operation-title'>
+                <code>%</code> Módulo: resto da divisão inteira
+            </template>
+            <template data-selector='.python-repl' data-replace-content><!--
+            >>> 5 % 2
+            1
+            >>> 10 % 1.8
+            0.9999999999999998
+            >>> 11.98 % 1
+            0.9800000000000004
+            --></template>
+            <template data-append>
+                <ul class='fragment' style='font-size: .8em'>
+                    <li>Em vez do quociente, o resultado é o resto da divisão:
+                        <template data-reuse='example-5-div-2'>
+                            <template
+                                data-tag='remainder'
+                                data-attr='style'
+                                data-value='
+                                    padding-left: .5ex;
+                                    font-weight: bold;
+                                    color: #2271ec;
+                                '
+                            ></template>
+                            <template
+                                data-tag='quotient'
+                                data-attr='style'
+                                data-value='
+                                    padding-left: .5ex;
+                                '
+                            ></template>
+                        </template>
+                    </li>
+                </ul>
+            </template>
+        </template>
+        <template data-reuse='operations-numbers'>
+            <template data-tag='operation-title'>
+                <code>**</code> Exponenciação
+            </template>
+            <template data-selector='.python-repl' data-replace-content><!--
+            >>> 3**2
+            9
+            >>> 2**3
+            8
+            >>> 16**0.5
+            4.0
+            >>> 3419**0
+            1
+            --></template>
+            <template data-append>
+                <ul class='fragment' style='font-size: .8em'>
+                    <li>
+                        O primeiro operando é a <em>base</em> e o segundo, o
+                        <em>expoente</em>:
+                        <code>3**2</code> →
+                        <span style='display: inline-block'>3<sup>2</sup></span>
+                    </li>
+                    <li>
+                        Note que o expoente pode ser um <code>float</code>:
+                        <code>16**0.5</code> → √16
+                    </li>
+                </ul>
+            </template>
+        </template>
+
+
+        <section data-auto-animate>
+            <h3>Precedência de operadores</h3>
+        </section>
+
+
+
+        <section data-auto-animate>
+            <h3>Precedência de operadores</h3>
+            <p>Considere as seguintes expressões:</p>
+            <div class='python-repl'><!--
+            >>> 2 * 2+1  +  2
+            ?
+            >>> 2 / 2/2
+            ?
+            >>> -2**2
+            ?
+            >>> 2**2*2
+            ?
+            >>> 3 * 2 ** 5 // 2
+            ?
+            --></div>
+            <div class='local-standout-box fragment'>
+                Qual será o resultado de cada uma delas?
+            </div>
+        </section>
+        <section data-auto-animate>
+            <h3>Precedência de operadores</h3>
+            <p>Resultados</p>
+            <div class='python-repl'><!--
+            >>> 2 * 2+1  +  2
+            7
+            >>> 2 / 2/2
+            0.5
+            >>> -2**2
+            -9
+            >>> 2**2*2
+            0.25
+            >>> 3 * 2 ** 5 // 2
+            48
+            --></div>
+            <div class='local-standout-box fragment'>
+                Os resultados são o que você esperava?
+            </div>
+        </section>
+        <section data-auto-animate>
+            <h3>Precedência de operadores</h3>
+            <p style='text-align: justify; font-size: .9em;'>
+                Se você se surpreendeu com alguns dos resultados,
+                provavelmente foi porque você seguiu uma ordem de
+                <strong>precedência</strong> diferente da utilizada por Python
+            </p>
+        </section>
+        <section data-auto-animate>
+            <h3>Precedência de operadores</h3>
+            <p style='font-size: .7em;'>
+            Lista resumida de precedência de operadores ordenada da maior
+            para a menor:
+            </p>
+            <div
+                style='
+                display: grid;
+                grid-template-columns: repeat(2, max-content);
+                justify-content: center;
+                justify-items: left;
+                align-items: center;
+                font-size: .8em;
+                gap: 1ex 3ex;
+                '
+            >
+                <div>
+                    <code>(...)</code>
+                </div>
+                <div>
+                    Expressão entre parênteses
+                </div>
+
+                <div>
+                    <code>**</code>
+                </div>
+                <div>
+                    Exponenciação
+                </div>
+
+                <div>
+                    <code>+x</code>, <code>-x</code>
+                </div>
+                <div>
+                    Operadores unários de sinal
+                </div>
+
+                <div>
+                    <code>*</code>, <code>/</code>, <code>//</code>, <code>%</code>
+                </div>
+                <div>
+                    Operadores multiplicativos
+                </div>
+
+                <div>
+                    <code>+</code>, <code>-</code>
+                </div>
+                <div>
+                    Operadores aditivos
+                </div>
+            </div>
+            <p style='font-size: .5em;'>
+                Tabela completa em:
+                <a
+                    href='https://docs.python.org/3/reference/expressions.html#operator-precedence'
+                    target='_blank'
+                >https://docs.python.org/3/reference/expressions.html#operator-precedence</a>
+            </p>
+            <p style='font-size: .8em'>
+                Quando operadores são do mesmo nível, a resolução é feita da
+                esquerda para a direita.
+            </p>
+            <div class='local-standout-box fragment' style='top: 60%;'>
+                Vamos utilizar essa lista para analisar os exemplos!
+            </div>
+        </section>
+        <section data-auto-animate data-reusable='precedence-example'>
+            <div
+                data-id='cheat-sheet'
+                style='
+                    font-size: .5em;
+                    margin-bottom: 2em;
+                    background-color: #00000010;
+                    padding: .5ex;
+                    font-style: italic;
+                    opacity: .6;
+                '
+            >
+                Colinha:
+                <div style='display: inline grid; grid-auto-flow: column; gap: 3ex;'>
+                    <div>
+                        1. <code>**</code>
+                    </div>
+                    <div>
+                        2. <code>+x</code>, <code>-x</code>
+                    </div>
+                    <div>
+                        3. <code>*</code>, <code>/</code>, <code>//</code>, <code>%</code>
+                    </div>
+                    <div>
+                        4. <code>+</code>, <code>-</code>
+                    </div>
+                </div>
+            </div>
+            <h3>Precedência de operadores</h3>
+            <p data-reusable-tag='expression'>
+                <code>2 * 2+1  +  2</code>
+            </p>
+            <p class='fragment' data-fragment-index='0'>
+                Ordem de resolução das expressões:
+            </p>
+            <div
+                data-reusable-tag='precedence-steps'
+                class='fragment'
+                data-fragment-index='0'
+                style='
+                    display: grid;
+                    grid-template-columns: repeat(3, max-content);
+                    align-items: center;
+                    justify-content: center;
+                    gap: .5ex;
+                '
+            >
+                <code><strong>2 * 2</strong>+1  +  2</code>
+                <div>→</div>
+                <code><strong>4</strong>+1  +  2</code>
+
+                <code><strong>4+1</strong>  +  2</code>
+                <div>→</div>
+                <code><strong>5</strong>  +  2</code>
+
+                <code><strong>5  +  2</strong></code>
+                <div>→</div>
+                <code><strong>7</strong></code>
+            </div>
+            <div data-reusable-tag='notes'
+                 class='fragment'
+                 style='font-size: .8em; margin-top: 2ex;'
+            >
+                <ul>
+                    <li>
+                        Python não utiliza os espaçamento para definir precedência
+                    </li>
+                    <li>
+                        Poderíamos utilizar <code>2 * (2 + 1) + 2</code> para
+                        dar precedência à subexpressão <code>2 + 1</code>
+                    </li>
+                </ul>
+            </div>
+        </section>
+        <template data-reuse='precedence-example'>
+            <template data-tag='expression' data-replace-content>
+                <code>2 / 2/2</code>
+            </template>
+            <template data-tag='precedence-steps' data-replace-content>
+                <code><strong>2 / 2</strong>/2</code>
+                <div>→</div>
+                <code><strong>1.0</strong>/2</code>
+
+                <code><strong>1.0/2</strong></code>
+                <div>→</div>
+                <code><strong>0.5</strong></code>
+            </template>
+            <template data-tag='notes'>
+                A resolução é feita da direita para a esquerda, por se tratar
+                de dois operadores no mesmo nível de precedência
+            </template>
+        </template>
+        <template data-reuse='precedence-example'>
+            <template data-tag='expression' data-replace-content>
+                <code>-2**2</code>
+            </template>
+            <template data-tag='precedence-steps' data-replace-content>
+                <code>-<strong>2**2</strong></code>
+                <div>→</div>
+                <code>-<strong>4</strong></code>
+            </template>
+            <template data-tag='notes'>
+                Exponenciação possui maior precedência que o operador unário
+                negativo (<code>-x</code>)
+            </template>
+        </template>
+        <template data-reuse='precedence-example'>
+            <template data-tag='expression' data-replace-content>
+                <code>2**2*2</code>
+            </template>
+            <template data-tag='precedence-steps' data-replace-content>
+                <code><strong>2**2</strong>*2</code>
+                <div>→</div>
+                <code><strong>4</strong>*2</code>
+
+                <code><strong>4*2</strong></code>
+                <div>→</div>
+                <code><strong>8</strong></code>
+            </template>
+            <template data-tag='notes'>
+                Exponenciação possui maior precedência que a multiplicação
+            </template>
+        </template>
+        <template data-reuse='precedence-example'>
+            <template data-tag='expression' data-replace-content>
+                <code>3 * 2 ** 5 // 2</code>
+            </template>
+            <template data-tag='precedence-steps' data-replace-content>
+                <code>3 * <strong>2 ** 5</strong> // 2</code>
+                <div>→</div>
+                <code>3 * <strong>32</strong> // 2</code>
+
+                <code><strong>3 * 32</strong> // 2</code>
+                <div>→</div>
+                <code><strong>96</strong> // 2</code>
+
+                <code><strong>96 // 2</strong></code>
+                <div>→</div>
+                <code><strong>48</strong></code>
+            </template>
+            <template data-tag='notes'>
+                <ul>
+                    <li>Primeiro a exponenciação é resolvida</li>
+                    <li>
+                        Depois o resto é resolvido da esquerda para a direita,
+                        pois os operadores restantes possuem a mesma
+                        precedência
                     </li>
                 </ul>
             </template>
