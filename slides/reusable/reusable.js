@@ -6,18 +6,28 @@ export class Reusable {
 
   apply() {
     this.nodes = this._findNodes(this.root)
+    this.reuseProviders = new Map()
+
+    // Solve dependencies for all first
     for (let i = 0; i < this.nodes.length; i++) {
       if (!this.nodes[i].hasAttribute(this.options.reusePrefix)) {
         continue
       }
+      this.reuseProviders.set(this.nodes[i], this._findReusableFor(i))
+    }
 
+    // Then apply
+    for (let i = 0; i < this.nodes.length; i++) {
+      if (!this.nodes[i].hasAttribute(this.options.reusePrefix)) {
+        continue
+      }
       this._applyReuse(i)
     }
   }
 
   _applyReuse(nodeIdx) {
     const template = this.nodes[nodeIdx]
-    const reusable = this._findReusableFor(nodeIdx)
+    const reusable = this.reuseProviders.get(template)
 
     if (!reusable) {
       console.error('reusable: did not find resusable element for', template)
@@ -28,23 +38,55 @@ export class Reusable {
 
     if (reusable.tagName === 'TEMPLATE') {
       output.appendChild(reusable.content.cloneNode(true))
+      this._applyRules(template, output)
     } else {
       this.nodes[nodeIdx] = output.appendChild(reusable.cloneNode(true))
+      this._applyRules(template, output.firstElementChild)
     }
+
 
     template.replaceWith(output)
   }
 
-  _applyAttributes(fromNode, toNode) {
-    for (let attr of fromNode.attributes) {
-      if (attr.name.startsWith(this.options.reusePrefix)) {
-        continue
+
+  _applyRules(template, target) {
+    for (let rule of template.content.children) {
+      const matches = this._getRuleMatches(target, rule)
+      for (let match of matches) {
+        if (rule.hasAttribute('data-replace-content')) {
+          this._applyReplaceContentRule(rule, match)
+        } if (rule.hasAttribute('data-append')) {
+          this._applyAppendRule(rule, match)
+        } else {
+          this._applyReplaceContentRule(rule, match)
+        }
       }
-      if (attr.name.startsWith(this.options.reusablePrefix)) {
-        continue
-      }
-      toNode.setAttribute(attr.name, attr.value)
     }
+  }
+
+  _getRuleMatches(target, rule) {
+    let matches = []
+    if (rule.hasAttribute('data-selector')) {
+      matches = target.querySelectorAll(rule.getAttribute('data-selector'))
+      matches = [...matches]
+    } else if (rule.hasAttribute('data-tag')) {
+      const tag = rule.getAttribute('data-tag')
+      const selector = `[data-reusable-tag~="${tag}"]`
+      matches = target.querySelectorAll(selector)
+      matches = [...matches]
+    } else {
+      matches = [target]
+    }
+    return matches
+  }
+
+  _applyReplaceContentRule(rule, match) {
+    match.innerHTML = ''
+    match.appendChild(rule.content.cloneNode(true))
+  }
+
+  _applyAppendRule(rule, match) {
+    match.appendChild(rule.content.cloneNode(true))
   }
 
   _findNodes(root) {
