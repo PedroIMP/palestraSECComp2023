@@ -2,6 +2,11 @@
  * Tags customization
  *****************************************************************************/
 
+.reveal {
+    --highlight-color-h: 217deg;
+    --highlight-color-s: 84%;
+}
+
 .reveal * {
     /* reset.css is using line-height: inherit, which cause problems with
      * auto-animate */
