@@ -90,7 +90,7 @@ export class Reusable {
   }
 
   _findNodes(root) {
-    let selector = `[${this.options.reusablePrefix}], template[${this.options.reusePrefix}]`
+    let selector = `[${this.options.reusablePrefix}], template[${this.options.reusePrefix}], template`
     let l = [...root.querySelectorAll(selector)]
 
     let ambiguousTemplates = l.filter(node => {
