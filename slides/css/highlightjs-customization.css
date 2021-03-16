@@ -1,0 +1,23 @@
+.hljs.has-highlights tr:not(.highlight-line) .hljs-ln-code {
+    filter: blur(1px)
+}
+
+.hljs.language-diff {
+    color: #555;
+}
+
+
+.hljs.has-highlights.language-diff .highlight-line .hljs-ln-line {
+    color: #eee;
+}
+
+
+.hljs .hljs-deletion {
+	color: hsl(0, 71%, 60%);
+}
+
+
+.hljs .hljs-addition {
+	color: hsl(90, 71%, 60%);
+}
+
