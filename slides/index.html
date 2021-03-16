@@ -1647,6 +1647,292 @@
                 <strong>variáveis</strong>!
             </p>
         </section>
+        <section data-auto-animate>
+            <h3>Variáveis</h3>
+            <p>
+                Uma <strong>variável</strong> é um espaço que reservamos na
+                <strong>memória</strong> do computador para podermos armazenar
+                um <strong>valor</strong>
+            </p>
+        </section>
+        <section data-auto-animate>
+            <h3>Variáveis</h3>
+            <div>
+                <div
+                    data-reusable='memory'
+                    data-id='memory'
+                    style='
+                    --local-hue: 253deg;
+                    font-size: .5em;
+                    font-family: monospace;
+                    color: hsl(var(--local-hue), 50%, 95%)
+                    '
+                >
+                    <div
+                        style='
+                        background-color: hsl(var(--local-hue), 50%, 55%);
+                        border: 3px solid hsl(var(--local-hue), 50%, 40%);
+                        border-radius: 3px;
+                        height: max-content;
+                        position: relative;
+                        display: flex;
+                        gap: 1ex;
+                        padding: 2ex;
+                        '
+                    >
+                        <div>
+                            Memória
+                        </div>
+                        <div
+                            class='fragment'
+                            data-fragment-index='0'
+                            style='
+                            margin-left: 3em;
+                            display: flex;
+                            flex-flow: column;
+                            padding: .5ex;
+                            background-color: hsl(var(--local-hue), 50%, 48%);
+                            '
+                        >
+                            <div
+                                data-reusable-tag='value'
+                                style='
+                                color: hsl(var(--local-hue), 50%, 40%);
+                                border: 2px solid hsl(var(--local-hue), 50%, 40%);
+                                padding: 1ex;
+                                background-color: #fff;
+                                '
+                            >
+                                <div class='r-stack'>
+                                    <div
+                                        class='fragment fade-in-then-out'
+                                        data-fragment-index='0'
+                                    >
+                                        42
+                                    </div>
+                                    <div
+                                        class='fragment'
+                                        data-fragment-index='1'
+                                    >
+                                        57
+                                    </div>
+                                </div>
+                            </div>
+                            <div data-reusable-tag='name'>
+                                convidados
+                            </div>
+                        </div>
+                        <div
+                            class='fragment'
+                            data-fragment-index='2'
+                            style='
+                            margin-left: 3em;
+                            display: flex;
+                            flex-flow: column;
+                            padding: .5ex;
+                            background-color: hsl(var(--local-hue), 50%, 48%);
+                            '
+                        >
+                            <div
+                                data-reusable-tag='value'
+                                style='
+                                color: hsl(var(--local-hue), 50%, 40%);
+                                border: 2px solid hsl(var(--local-hue), 50%, 40%);
+                                padding: 1ex;
+                                background-color: #fff;
+                                '
+                            >
+                                <div class='r-stack'>
+                                    <div>
+                                        85.5
+                                    </div>
+                                </div>
+                            </div>
+                            <div data-reusable-tag='name'>
+                                num_hamburgueres
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class='r-stack'>
+                    <div
+                        class='python-repl fragment fade-in-then-out'
+                        data-fragment-index='0'
+                        style='margin: unset; margin-top: 2ex; margin-bottom: auto;'><!--
+                            >>> convidados = 42
+                    --></div>
+                    <div
+                        class='python-repl fragment fade-in-then-out'
+                        data-fragment-index='1'
+                        style='margin: unset; margin-top: 2ex; margin-bottom: auto;'><!--
+                            >>> convidados = 42
+                            >>> convidados = 57
+                    --></div>
+                    <div
+                        class='python-repl fragment'
+                        data-fragment-index='2'
+                        style='margin: unset; margin-top: 2ex; margin-bottom: auto;'><!--
+                            >>> convidados = 42
+                            >>> convidados = 57
+                            >>> num_hamburgueres = convidados * 1.5
+                    --></div>
+                </div>
+            </div>
+            <p
+                style='text-align: left; font-size: .9em;'
+            >
+                <ul>
+                    <li class='fragment' data-fragment-index='0'>
+                        Nós criamos uma variável através de uma instrução de
+                        <strong>atribuição</strong> (<code>=</code>)
+                    </li>
+                    <li class='fragment' data-fragment-index='1'>
+                        Podemos alterar seu valor através de subsequentes
+                        atribuições
+                    </li>
+                    <li class='fragment' data-fragment-index='2'>
+                        E podemos utilizá-la em outras expressões
+                    </li>
+                </ul>
+            </p>
+        </section>
+
+
+
+        <section>
+            <p class='r-fit-text'>
+                Vamos utilizar <strong>variáveis</strong>
+                para deixar nosso código mais robusto!
+            </p>
+        </section>
+
+
+
+        <section data-auto-animate>
+            <div style='
+                height: var(--slide-height);
+                display: flex;
+                flex-direction: column;
+                position: relative;
+                z-index: 0;
+                '
+            >
+                <h4 style='flex: none;'>Programa utilizando variáveis</h4>
+                <div class='ace-brython'
+                     style='
+                        font-size: .5em;
+                        flex: 1;
+                        margin-bottom: 2em;
+                     '
+                     data-min-lines='15'
+                     data-max-lines='20'
+                >
+                    <script type='text/x.ace-brython'>
+                        # Número de convidados: 42
+                        # Hambúrguer por convidado: 1.5
+                        # Receita
+                        #   Carne Magra: 120g
+                        #   Carne Gorda:  80g
+                        #        Queijo:  22g
+                        #         Bacon:  20g
+                        #         Tomate: 30g (2 rodelas)
+
+                        convidados = 42
+                        num_hamburgueres = convidados * 1.5
+
+                        print('Olá, Alice!')
+                        print('Você precisará fazer ' + str(num_hamburgueres) + ' hambúrgueres, certo?')
+                        print('Para isso, você precisará comprar:')
+                        print(str(num_hamburgueres * 120 / 1000) + ' kg de carne moída magra')
+                        print(str(num_hamburgueres * 80 / 1000) + ' kg de carne moída magra')
+                        print(str(num_hamburgueres * 22 / 1000) + ' kg de queijo')
+                        print(str(num_hamburgueres * 20 / 1000) + ' kg de bacon')
+
+                        # Vamos considerar que apenas 85% do tomate possa
+                        # ser aproveitado para fazer as rodelas
+                        print(str(num_hamburgueres * 30 / 0.85 / 1000) + ' kg de tomate')
+                    </script>
+                </div>
+            </div>
+            <div class='fragment local-standout-box fade-in-then-out' style='bottom: 2em; z-index: 1;'>
+                Agora é bem mais fácil atender ao pedido de alteração de Alice!
+                <template data-reuse='moving-face'></template>
+                <br/>
+                Basta modificar o valor da variável <code>convidados</code>
+            </div>
+        </section>
+
+
+        <section data-auto-animate>
+            <h3>Variáveis</h3>
+            <p>
+                Para finalizarmos esta aula, algumas observações sobre
+                nomes de variáveis:
+            </p>
+            <ul>
+                <li>
+                    É recomendável que o nome da variável seja uma boa
+                    "descrição" do seu conteúdo
+                </li>
+                <li>
+                    O nome pode apenas conter letras, dígitos e o
+                    caracter <em>underscore</em> (<code>_</code>)
+                </li>
+                <li>
+                    O nome não pode ser iniciado por um dígito
+                </li>
+            </ul>
+        </section>
+
+        <section data-auto-animate>
+            <h3>Variáveis</h3>
+            <p>
+                Exemplos de nomes <strong>válidos</strong>:
+            </p>
+            <div style='
+                display: flex;
+                gap: 1ex;
+                flex-wrap: wrap;
+                justify-content: center;
+                font-size: .9em;
+                --code-color: #2459f9;
+                '
+            >
+                <code>convidados</code>
+                <code>x1</code>
+                <code>x2</code>
+                <code>nome_cliente</code>
+                <code>_gramas_por_fatia</code>
+            </div>
+            <p style='margin-top: 1.5em;'>
+                Exemplos de nomes <strong>inválidos</strong>:
+            </p>
+            <div style='
+                display: flex;
+                gap: 1ex;
+                flex-wrap: wrap;
+                justify-content: center;
+                font-size: .9em;
+                --code-color: #f92424;
+                '
+            >
+                <code>"convidados"</code>
+                <code>1x</code>
+                <code>nome do cliente</code>
+                <code>'nome do cliente'</code>
+                <code>nome-cliente</code>
+            </div>
+        </section>
+
+
+        <section>
+            <div class='r-fit-text'>
+                <template data-reuse='moving-face'></template>
+                <br/>
+                <br/>
+                Até a próxima aula!
+            </div>
+        </section>
       </div>
     </div>
 
