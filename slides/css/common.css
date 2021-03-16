@@ -30,7 +30,7 @@
 
 .reveal :not(pre) > code {
     background-color: #0001;
-    color: #333;
+    color: var(--code-color, #333);
     padding: .15ex;
     display: inline-block;
     border-radius: .1ex;
