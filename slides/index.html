@@ -1319,6 +1319,146 @@
                 </ul>
             </template>
         </template>
+
+
+
+        <section data-auto-animate>
+            <h3>Strings</h3>
+            <div>
+                O tipo <code>str</code>
+            </div>
+        </section>
+        <section data-auto-animate>
+            <h3>Strings</h3>
+            <p>
+                Strings são <strong>sequências de caracteres</strong> e são
+                geralmente utilizados para representarem conteúdo textual:
+            </p>
+            <div style='
+                font-size: .9em;
+                display: flex;
+                gap: 1ex;
+                flex-wrap: wrap;
+                justify-content: center;
+            '>
+                <code>"Charles"</code>
+                <code>'Lorem Ipsum dolor sit amet'</code>
+                <code>'0800-1111-0000'</code>
+                <code>"Avenida 24A, número 1515"</code>
+            </div>
+        </section>
+        <section data-auto-animate>
+            <h3>Strings</h3>
+            <p style='font-size: .9em; text-align: left;'>
+                Strings podem ser concatenadas através do operador
+                <code>+</code>:
+            </p>
+            <div class='python-repl'><!--
+                >>> 'Parale' + 'lepípedo'
+                'Paralelepípedo'
+                >>> 'Wherever you go...' + ' There you are.'
+                'Wherever you go... There you are.'
+            --></div>
+            <p class='fragment' data-fragment-index='0'
+                style='font-size: .9em; text-align: left;'
+            >
+                E podem ser multiplicadas através do operador
+                <code>*</code>:
+            </p>
+            <div class='python-repl fragment'
+                 data-fragment-index='0'
+            ><!--
+                >>> 'Para' + 'le' * 2 + 'pípedo'
+                'Paralelepípedo'
+                >>> 'haha' * 10
+                'hahahahahahahahahahahahahahahahahahahaha'
+            --></div>
+        </section>
+        <section data-auto-animate>
+            <h3>Strings</h3>
+            <p style='font-size: .9em; text-align: left'>
+                Strings só podem ser concatenadas com outras strings:
+            </p>
+            <div class='python-repl'><!--
+                >>> 'O resto da divisão de 23 por 7 é ' + (23 % 7)
+                Traceback (most recent call last):
+                  File "<stdin>", line 1, in <module>
+                TypeError: can only concatenate str (not "int") to str
+            --></div>
+            <p style='font-size: .9em; text-align: left' class='fragment'>
+                Para usarmos outros tipos, precisaremos da função
+                <code>str()</code>!
+            </p>
+        </section>
+        <section data-auto-animate>
+            <h3>Strings</h3>
+            <p style='font-size: .9em; text-align: left'>
+                A função <code>str()</code> pode ser utilizada para converter
+                outros tipos (não apenas numéricos) para strings:
+            </p>
+            <div class='python-repl'><!--
+                >>> str(0.1234)
+                '0.1234'
+            --></div>
+            <p class='fragment' data-fragment-index='0'
+               style='font-size: .9em; text-align: left'
+            >
+                Assim, o exemplo anterior pode ser arrumado da seguinte forma:
+            </p>
+            <div class='python-repl fragment'
+                 data-fragment-index='0'
+            ><!--
+                >>> 'O resto da divisão de 23 por 7 é ' + str(23 % 7)
+                'O resto da divisão de 23 por 7 é 2'
+            --></div>
+            <div class='local-standout-box fragment'
+                 data-fragment-index='1'
+            >
+                Aprenderemos sobre <strong>funções</strong> com mais calma
+                depois!
+            </div>
+        </section>
+        <section data-auto-animate>
+            <h3>Strings</h3>
+            <p style='font-size: .9em; text-align: left'>
+                Também é possível converter strings para um tipo numérico
+                utilizando as funções <code>int()</code> ou
+                <code>float()</code>:
+            </p>
+            <div class='python-repl'><!--
+                >>> float('0.1234')
+                0.1234
+                >>> int('124')
+                124
+                >>> 13 + int('31')
+                44
+            --></div>
+            <p class='fragment' data-fragment-index='0'
+               style='font-size: .9em; text-align: left'
+            >
+                Se o conteúdo da string não for um número válido, ocorre um
+                erro:
+            </p>
+            <div class='python-repl fragment'
+                 data-fragment-index='0'
+            ><!--
+                >>> int('treze')
+                Traceback (most recent call last):
+                  File "<stdin>", line 1, in <module>
+                ValueError: invalid literal for int() with base 10: 'treze'
+            --></div>
+        </section>
+        <section data-auto-animate>
+            <h3>Strings</h3>
+            <p>
+                Há diversas outras operações interessantes que podemos realizar
+                com strings por meio de <strong>funções</strong> e
+                <strong>indexação</strong>
+            </p>
+            <p>
+                Isso será coberto em um momento futuro!
+            </p>
+        </section>
       </div>
     </div>
 
