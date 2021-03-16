@@ -1550,7 +1550,7 @@
                 </div>
             </div>
         </section>
-        <section>
+        <section data-auto-animate>
             <div style='
                 height: var(--slide-height);
                 display: flex;
@@ -1587,6 +1587,65 @@
                     </script>
                 </div>
             </div>
+            <div class='fragment local-standout-box' style='top: 50%;'>
+                O código funciona!<br/>
+                Mas não é facilmente <strong>reutilizável</strong>....
+            </div>
+        </section>
+        <section data-auto-animate>
+            <p>
+                Se Alice decide convidar mais pessoas para sua festa,
+                precisaremos alterar diversas linhas do código:
+            </p>
+            <pre><code
+                 class='language-diff'
+                 style='font-size: .7em; max-height: unset;'
+                 data-trim
+                 data-line-numbers='-|18'
+            >
+            --- /tmp/alice.py	2021-03-16 11:04:49.936535090 -0300
+            +++ /tmp/alice-new.py	2021-03-16 11:17:24.013973340 -0300
+            @@ -1,4 +1,4 @@
+            -# Número de convidados: 42
+            +# Número de convidados: 57
+             # Hambúrguer por convidado: 1.5
+             # Receita
+             #   Carne Magra: 120g
+            @@ -8,14 +8,14 @@
+             #         Tomate: 30g (2 rodelas)
+
+             print('Olá, Alice!')
+            -print('Você precisará fazer ' + str(42 * 1.5) + ' hambúrgueres, certo?')
+            +print('Você precisará fazer ' + str(57 * 1.5) + ' hambúrgueres, certo?')
+             print('Para isso, você precisará comprar:')
+            -print(str(42 * 1.5 * 120 / 1000) + ' kg de carne moída magra')
+            +print(str(57 * 1.5 * 120 / 1000) + ' kg de carne moída magra')
+             print(str(42 * 1.5 * 80 / 1000) + ' kg de carne moída magra')
+            -print(str(42 * 1.5 * 22 / 1000) + ' kg de queijo')
+            -print(str(42 * 1.5 * 20 / 1000) + ' kg de bacon')
+            +print(str(57 * 1.5 * 22 / 1000) + ' kg de queijo')
+            +print(str(57 * 1.5 * 20 / 1000) + ' kg de bacon')
+
+             # Vamos considerar que apenas 85% do tomate possa
+             # ser aproveitado para fazer as rodelas
+            -print(str(42 * 1.5 * 30 / 0.85 / 1000) + ' kg de tomate')
+            +print(str(57 * 1.5 * 30 / 0.85 / 1000) + ' kg de tomate')
+            </code></pre>
+            <div
+                class='local-standout-box fragment'
+                data-fragment-index='0'
+                style='font-size: .7em; bottom: 0em; max-width: 70%;'
+            >
+                E neste caso levaríamos uma bronca por termos feito ela comprar
+                menos carne que o necessário, pois <strong>esquecemos</strong>
+                de alterar uma linha! 😅
+            </div>
+        </section>
+        <section data-auto-animate>
+            <p class='r-fit-text'>
+                Podemos resolver problemas desse tipo com
+                <strong>variáveis</strong>!
+            </p>
         </section>
       </div>
     </div>
