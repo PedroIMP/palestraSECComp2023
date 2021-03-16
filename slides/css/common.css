@@ -10,7 +10,7 @@
 .reveal * {
     /* reset.css is using line-height: inherit, which cause problems with
      * auto-animate */
-    line-height: 1 !important;
+    line-height: 1.1 !important;
 }
 
 .reveal ul {
