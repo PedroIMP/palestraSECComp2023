@@ -1,7 +1,8 @@
 .ace-brython {
     font-size: .7em;
     min-width: 50%;
-    height: 3em
+    position: relative;
+    z-index: 0;
 }
 
 .ace-brython .ace_marker-layer .ace_active-line {
