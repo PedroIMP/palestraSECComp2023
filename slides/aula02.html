@@ -1,0 +1,872 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+    <title>Aula 02</title>
+
+    <!-- Revealjs styles -->
+    <link rel="stylesheet" href="../revealjs/dist/reset.css">
+    <link rel="stylesheet" href="../revealjs/dist/reveal.css">
+    <link rel="stylesheet" href="../revealjs/dist/theme/serif.css" id="theme">
+    <link rel="stylesheet" href="../revealjs/plugin/highlight/monokai.css" id="highlight-theme">
+
+    <link rel="stylesheet" href="../asciinema/asciinema-player.css">
+
+    <link rel="stylesheet" href="python-repl/python-repl.css">
+
+    <!-- Fonts -->
+    <link rel='stylesheet' href='fonts/definitions.css'>
+
+    <!-- Local styles -->
+    <link rel="stylesheet" href="css/common.css">
+    <link rel="stylesheet" href="css/ace-brython-customization.css">
+    <link rel="stylesheet" href="css/python-repl-customization.css">
+    <link rel="stylesheet" href="css/highlightjs-customization.css">
+  </head>
+  <body>
+    <div class="reveal">
+      <div class="slides">
+        <section data-markdown>
+            # Python 101
+            ## Aula 02
+        </section>
+
+
+
+        <section data-auto-animate>
+          <h3>Funções</h3>
+        </section>
+
+
+
+        <section data-auto-animate>
+          <h3>Funções</h3>
+          <div class='r-stack'>
+            <p class='fragment fade-out' data-fragment-index='0'>
+              Lá em nossas aulas de matemática, nós aprendemos sobre
+              <em>funções</em>:
+            </p>
+            <p class='fragment' data-fragment-index='0'>
+              De forma semelhante, Python também possui o conceito de
+              <strong>funções</strong>:
+            </p>
+          </div>
+          <div style='display: flex; gap: 1ex; margin-top: 1ex;'>
+            <div
+              style='
+                display: flex;
+                flex-flow: column;
+                gap: 2ex;
+                text-align: left;
+                font-size: .9em;
+                background-color: #fff;
+                color: #555;
+                padding: 1ex;
+              '
+            >
+              <div>
+                Definição de <span class='local-math-font'>f</span>:
+                &nbsp;<span class='local-math-font'>f(x) = x²</span>
+              </div>
+              <div style='font-size: .8em;'>
+                Função <span class='local-math-font'>f</span> aplicada:
+                <div class='local-math-font'>
+                  f(0) = 0<br/>
+                  f(1) = 1<br/>
+                  f(3.14) = 9.8596<br/>
+                  f(-12) = 144
+                </div>
+              </div>
+            </div>
+            <div class='fragment' style='flex: 1' data-fragment-index='0'>
+              <div class='python-repl'><!--
+                >>> def f(x):
+                ...     return x**2
+                ... 
+                >>> f(0)
+                0
+                >>> f(1)
+                1
+                >>> f(3.14)
+                9.8596
+                >>> f(-12)
+                144
+              --></div>
+            </div>
+          </div>
+        </section>
+
+
+
+        <section data-auto-animate>
+          <h3>Funções</h3>
+          <p>
+            Uma <strong>função</strong> pode ser vista como um "mini-programa"
+            que é executado toda vez que ela é <strong>chamada</strong>
+          </p>
+        </section>
+
+
+
+        <section data-auto-animate>
+          <h3>Funções</h3>
+          <p style='font-size: .8em'>
+            Por exemplo, vamos definir uma função para calcular o Índice de
+            Massa Corporal:
+          </p>
+          <div class='ace-brython fragment' data-readonly data-components='code'>
+            <script type='text/x.ace-brython' data-id='imc-def'>
+              def imc(massa, altura):
+                  return massa / altura**2
+            </script>
+          </div>
+
+          <div style='text-align: left; font-size: .7em;'>
+            <ul>
+              <li class='fragment'>
+                A palavra-chave <code>def</code> indica que estamos definindo
+                uma nova função
+              </li>
+              <li class='fragment'>
+                O <strong>nome</strong> de nossa função é <code>imc</code>
+              </li>
+              <li class='fragment'>
+                Nossa função possui dois <strong>parâmetros</strong>,
+                <code>massa</code> e <code>altura</code>, que são utilizados
+                como variáveis dentro do seu corpo
+              </li>
+              <li class='fragment'>
+                O <strong>corpo</strong> de nossa função é formado pelas
+                instruções que a função executará
+                <ul>
+                  <li>
+                    Neste exemplo, temos apenas a instrução
+                    <code>return massa / altura**2</code>, que define o
+                    <strong>valor de retorno</strong> da função
+                  </li>
+                  <li>
+                    Note que há um nível de <strong>indentação</strong>
+                    (espaços à esquerda) requerido no corpo da função
+                  </li>
+                </ul>
+              </li>
+            </ul>
+          </div>
+        </section>
+
+
+
+
+        <section data-auto-animate>
+          <h3>Funções</h3>
+          <p style='font-size: .8em'>
+            Agora podemos utilizar nossa função:
+          </p>
+          <div class='ace-brython fragment' style='height: 5em;' data-readonly>
+            <script type='text/x.ace-brython' data-parent='imc-def'>
+              imc_gustavo = imc(60, 1.63)
+              print('O IMC de Gustavo é ' + str(imc_gustavo))
+            </script>
+          </div>
+          <div style='text-align: left; font-size: .7em;'>
+            <ul>
+              <li class='fragment'>
+                Na linha 1, estamos <strong>chamando</strong> (ou
+                <strong>invocando</strong>) a função <code>imc</code>
+              </li>
+              <li class='fragment'>
+                Os valores <code>60</code> e <code>1.63</code> são os
+                <strong>argumentos</strong> desta chamada. Esses argumentos são
+                respectivamente atribuídos aos parâmetros <code>massa</code> e
+                <code>altura</code> da função
+              </li>
+              <li class='fragment'>
+                Esta chamada faz com que as instruções do corpo da função sejam
+                executadas.
+              </li>
+              <li class='fragment'>
+                Quando a execução da função é executada, seu valor de retorno
+                será o resultado da chamada.
+              </li>
+            </ul>
+        </section>
+
+
+
+
+        <section data-auto-animate>
+          <h3>Funções</h3>
+          <div class='ace-brython' style='height: 12em;'>
+            <script type='text/x.ace-brython' data-parent='imc-def'>
+              def imc(massa, altura):
+                  return massa / altura**2
+
+
+              print('O IMC de Gustavo é ' + str(imc(60, 1.63)))
+              print('O IMC de Juvenal é ' + str(imc(98, 1.90)))
+              print('O IMC de Antônia é ' + str(imc(54, 1.65)))
+            </script>
+          </div>
+          <div style='text-align: left; font-size: .8em; margin-top: 1ex;'>
+            Principais benefícios do uso de funções:
+            <ul>
+              <li>
+                <strong>Reutilização de lógica/código</strong>
+              </li>
+              <li>
+                Código fonte fica mais fácil de ler
+              </li>
+              <li>
+                Facilita a manutenção do código
+              </li>
+            </ul>
+          </div>
+          <div class='local-standout-box fragment' style='top: 4em'>
+            Isso se torna mais aparente quando escrevemos códigos mais
+            complexos
+          </div>
+        </section>
+
+
+
+        <section data-auto-animate>
+          <h3>Funções</h3>
+          <p>Funções não precisam necessariamente retornar um valor:</p>
+          <div class='ace-brython'>
+            <script type='text/x.ace-brython'>
+              def say_hello(name):
+                  print('Hello ' + name)
+                  print('Goodbye ' + name)
+
+              say_hello('Alice')
+              say_hello('Bob')
+            </script>
+          </div>
+        </section>
+
+
+
+        <section data-auto-animate>
+          <h3>Funções</h3>
+          <p>E também não precisam obrigatoriamente definir parâmetros:</p>
+          <div class='ace-brython'>
+            <script type='text/x.ace-brython'>
+              def say_hello():
+                  print('Hello stranger')
+                  print('Goodbye stranger')
+
+              say_hello()
+              say_hello()
+            </script>
+          </div>
+        </section>
+
+
+
+        <section data-auto-animate>
+          <h3>Funções</h3>
+          <p>Os parâmetros podem ser definidos com valores padrões:</p>
+          <div class='ace-brython'>
+            <script type='text/x.ace-brython'>
+              def say_hello(name='stranger'):
+                  print('Hello ' + name)
+                  print('Goodbye ' + name)
+
+              say_hello('Alice')
+              say_hello()
+            </script>
+          </div>
+        </section>
+
+
+
+        <section data-auto-animate>
+          <h3>Funções</h3>
+          <p>É possível passar argumentos através da sintaxe de
+          <strong>palavras-chave</strong>:</p>
+          <div class='ace-brython' style='font-size: .58em'>
+            <script type='text/x.ace-brython'>
+              def say_hello(name, age):
+                  print('Hello ' + name)
+                  print('Hopefully, in one year you will be ' + str(age + 1))
+
+              say_hello('Alice', 27)
+              say_hello(name='Bob', age=25)
+              say_hello(age=90, name='Ricardo')
+            </script>
+          </div>
+        </section>
+
+
+
+        <section data-auto-animate>
+          <h3>Funções</h3>
+          <p style='font-size: .9em;'>Uma função pode chamar outras funções em
+          seu corpo:</p>
+          <div class='ace-brython' style='font-size: .5em'>
+            <script type='text/x.ace-brython'>
+              def tell_future(age):
+                  print('If you don\'t die, in one year you will be ' + str(age + 1))
+
+              def say_hello(name, age):
+                  print('Hello ' + name)
+                  tell_future(age)
+                  print('Goodbye ' + name)
+
+              say_hello('Alice', 27)
+              say_hello(name='Bob', age=25)
+            </script>
+          </div>
+        </section>
+
+
+
+        <section data-auto-animate>
+          <h3>Funções</h3>
+          <p>É possível utilizar variáveis dentro das funções:</p>
+          <div class='ace-brython' style='font-size: .5em'>
+            <script type='text/x.ace-brython'>
+              def tell_future(age):
+                  next_age = age + 1
+                  print('If you don\'t die, in one year you will be ' + str(next_age))
+
+              def say_hello(name, age):
+                  print('Hello ' + name)
+                  tell_future(age)
+                  print('Goodbye ' + name)
+
+              say_hello('Alice', 27)
+            </script>
+          </div>
+        </section>
+
+
+
+        <section data-auto-animate>
+          <h3>Funções</h3>
+          <p style='font-size: .7em;'>Note que a variável <code>next_age</code>
+          é acessível apenas <strong>dentro</strong> da função onde ela foi
+          criada:</p>
+          <div class='ace-brython' style='font-size: .5em; height: 20em;'>
+            <script type='text/x.ace-brython'>
+              def tell_future(age):
+                  next_age = age + 1
+                  print('If you don\'t die, in one year you will be ' + str(next_age))
+
+              def say_hello(name, age):
+                  print('Hello ' + name)
+                  tell_future(age)
+                  print('Goodbye ' + name)
+
+              say_hello('Alice', 27)
+
+              print(next_age) # Essa linha vai FALHAR!
+            </script>
+          </div>
+          <div class='local-standout-box fragment' style='font-size: .8em; bottom: 2em;'>
+            Nós dizemos que <code>next_age</code> é uma <strong>variável
+            local</strong> da função <code>tell_future</code>, e a mesma é
+            <strong>descartada</strong> quando a função retorna.
+          </div>
+        </section>
+
+
+
+        <section data-auto-animate>
+          <h3>Funções</h3>
+          <p>Mas é okay uma função acessar uma variável
+          <strong>global</strong>:</p>
+          <div class='ace-brython' style='font-size: .5em;'>
+            <script type='text/x.ace-brython'>
+              PI = 3.1416 # PI é uma variável global
+
+              def area_circulo(raio):
+                  return PI * raio**2
+
+              print('A área de um círculo de raio 3 é ' + str(area_circulo(3)))
+            </script>
+          </div>
+        </section>
+
+
+
+        <section data-auto-animate>
+          <h3>Funções</h3>
+          <p>Variáveis locais "escondem" variáveis globais:</p>
+          <div class='ace-brython' style='font-size: .5em;'>
+            <script type='text/x.ace-brython'>
+              ultima_compra = 'gravata'
+
+              def nova_compra(produto, preco):
+                  print('Nova compra: ' + produto)
+                  print('Valor da compra: ' + str(preco))
+                  ultima_compra = produto
+
+              nova_compra('camiseta', 48)
+              nova_compra('sapato', 80)
+              print('A última compra realizada foi: ' + ultima_compra)
+            </script>
+          </div>
+          <div class='local-standout-box fragment' style='font-size: .7em;'>
+            Com a atribuição <code>ultima_compra = produto</code>, Python
+            entende que está sendo criada uma nova variável local chamada
+            <code>ultima_compra</code>, que existe apenas no
+            <strong>escopo</strong> da função <code>nova_compra</code>.
+          </div>
+        </section>
+
+
+
+        <section data-auto-animate>
+          <h3>Funções</h3>
+          <p style='font-size: .7em'>Quer dizer... Funções até conseguem
+          alterar variáveis globais, mas para isso é necessário o uso da
+          palavra-chave <code>global</code>:</p>
+          <div class='ace-brython' style='font-size: .5em;'>
+            <script type='text/x.ace-brython'>
+              ultima_compra = 'gravata'
+
+              def nova_compra(produto, preco):
+                  global ultima_compra
+                  print('Nova compra: ' + produto)
+                  print('Valor da compra: ' + str(preco))
+                  ultima_compra = produto
+
+              nova_compra('camiseta', 48)
+              nova_compra('sapato', 80)
+              print('A última compra realizada foi: ' + ultima_compra)
+            </script>
+          </div>
+          <div class='local-standout-box fragment' style='font-size: .7em; bottom: 2em;'>
+            Entretanto, esta prática é geralmente
+            <strong>desencorajada</strong> - são poucos os casos onde desejamos
+            que funções tenham efeitos colaterais em variáveis globais.
+          </div>
+        </section>
+
+
+
+        <section>
+          <p style='font-size: .55em'>Python já vem com diversas funções
+          <em>built-in</em> (pré-definidas) para nossa conveniência:</p>
+          <div class='python-repl' style='font-size: .45em;'><!--
+          >>> abs(-9) # Valor absoluto de um número
+          9
+          >>> divmod(10, 3) # Quociente e o resto da divisão de 10 por 3
+          (3, 1)
+          >>> float("5.62") # Conversão para float
+          5.62
+          >>> input('Digite seu nome: ') # Leitura de entrada do usuário
+          Digite seu nome: Meu nome é Alice
+          'Meu nome é Alice'
+          >>> int(3.14) # Conversão para inteiro
+          3
+          >>> len('Python') # Tamanho de um objeto
+          6
+          >>> max(5, 8, -1) # Valor máximo de um conjunto de números
+          8
+          >>> min(5, 8, -1) # Valor mínimo de um conjunto de números
+          -1
+          >>> print("Olá Mundo") # Imprimir algo na tela
+          Olá Mundo
+          >>> round(45.678703, 3) # Arredondar um número
+          45.679
+          --></div>
+          <div style='font-size: .45em'>
+            Lista completa em
+            <a href="https://docs.python.org/3/library/functions.html" target='_blank'>
+              https://docs.python.org/3/library/functions.html</a>
+          </div>
+        </section>
+
+
+
+        <section>
+          <p>Vamos alterar o programa da Alice para utilizar funções!</p>
+        </section>
+
+
+
+        <section>
+            <div style='
+                height: var(--slide-height);
+                display: flex;
+                flex-direction: column;
+                position: relative;
+                z-index: 0;
+                '
+            >
+                <h4 style='flex: none; font-style: italic;'>Relembrando...</h4>
+                <div class='ace-brython'
+                     style='
+                        font-size: .5em;
+                        flex: 1;
+                        margin-bottom: 2em;
+                     '
+                     data-min-lines='15'
+                     data-max-lines='20'
+                >
+                    <script type='text/x.ace-brython' data-id='using-vars'>
+                        # Hambúrguer por convidado: 1.5
+                        # Receita
+                        #   Carne Magra: 120g
+                        #   Carne Gorda:  80g
+                        #        Queijo:  22g
+                        #         Bacon:  20g
+                        #         Tomate: 30g (2 rodelas)
+
+                        convidados = 42
+                        num_hamburgueres = convidados * 1.5
+
+                        print('Olá, Alice!')
+                        print('Você precisará fazer ' + str(num_hamburgueres) + ' hambúrgueres, certo?')
+                        print('Para isso, você precisará comprar:')
+                        print(str(num_hamburgueres * 120 / 1000) + ' kg de carne moída magra')
+                        print(str(num_hamburgueres * 80 / 1000) + ' kg de carne moída gorda')
+                        print(str(num_hamburgueres * 22 / 1000) + ' kg de queijo')
+                        print(str(num_hamburgueres * 20 / 1000) + ' kg de bacon')
+
+                        # Vamos considerar que apenas 85% do tomate possa
+                        # ser aproveitado para fazer as rodelas
+                        print(str(num_hamburgueres * 30 / 0.85 / 1000) + ' kg de tomate')
+                    </script>
+                </div>
+            </div>
+            <div class='fragment local-standout-box fade-in-then-out' style='bottom: 2em; z-index: 1;'>
+              Primeira coisa que podemos pensar em fazer é arredondar as
+              medidas. Mas talvez seja melhor criar uma função responsável por
+              calcular as medidas primeiro.
+            </div>
+        </section>
+
+
+
+        <section>
+            <div style='
+                height: var(--slide-height);
+                display: flex;
+                flex-direction: column;
+                position: relative;
+                z-index: 0;
+                overflow: auto;
+                '
+            >
+              <h4 style='flex: none; font-size: .8em;'>Criando a função
+              <code>calc_medida()</code></h4>
+                <div class='ace-brython'
+                     style='
+                        font-size: .5em;
+                        flex: 1;
+                        margin-bottom: 2em;
+                     '
+                     data-min-lines='15'
+                     data-max-lines='20'
+                     data-prev='using-vars'
+                >
+                    <script type='text/x.ace-brython' data-id='implement-calc_medida'>
+                        # Hambúrguer por convidado: 1.5
+                        # Receita
+                        #   Carne Magra: 120g
+                        #   Carne Gorda:  80g
+                        #        Queijo:  22g
+                        #         Bacon:  20g
+                        #         Tomate: 30g (2 rodelas)
+
+                        def calc_medida(gramas_por_unidade):
+                            medida = num_hamburgueres * gramas_por_unidade
+                            # Converter para kg
+                            return medida / 1000
+
+                        convidados = 42
+                        num_hamburgueres = convidados * 1.5
+
+                        print('Olá, Alice!')
+                        print('Você precisará fazer ' + str(num_hamburgueres) + ' hambúrgueres, certo?')
+                        print('Para isso, você precisará comprar:')
+                        print(str(calc_medida(120)) + ' kg de carne moída magra')
+                        print(str(calc_medida(80)) + ' kg de carne moída gorda')
+                        print(str(calc_medida(22)) + ' kg de queijo')
+                        print(str(calc_medida(20)) + ' kg de bacon')
+
+                        # Vamos considerar que apenas 85% do tomate possa
+                        # ser aproveitado para fazer as rodelas
+                        print(str(calc_medida(30) / 0.85) + ' kg de tomate')
+                    </script>
+                </div>
+            </div>
+            <div class='fragment local-standout-box fade-in-then-out' style='bottom: 2em; z-index: 1;'>
+              Agora nosso código está mais fácil de ser modificado: basta
+              alterar o conteúdo da função <code>calc_medida()</code>!
+            </div>
+        </section>
+
+
+
+        <section>
+            <div style='
+                height: var(--slide-height);
+                display: flex;
+                flex-direction: column;
+                position: relative;
+                z-index: 0;
+                overflow: auto;
+                '
+            >
+              <h4 style='flex: none; font-size: .8em;'>Arredondando as medidas...</h4>
+                <div class='ace-brython'
+                     style='
+                        font-size: .5em;
+                        flex: 1;
+                        margin-bottom: 2em;
+                     '
+                     data-min-lines='15'
+                     data-max-lines='20'
+                     data-prev='implement-calc_medida'
+                >
+                    <script type='text/x.ace-brython' data-id='add-fator_aproveitamento'>
+                        # Hambúrguer por convidado: 1.5
+                        # Receita
+                        #   Carne Magra: 120g
+                        #   Carne Gorda:  80g
+                        #        Queijo:  22g
+                        #         Bacon:  20g
+                        #         Tomate: 30g (2 rodelas)
+
+                        def calc_medida(gramas_por_unidade):
+                            medida = num_hamburgueres * gramas_por_unidade
+                            # Converter para kg
+                            medida = medida / 1000
+                            # Arredondar para que esteja na escala de 100 gramas
+                            medida = round(medida, 1)
+                            return medida
+
+                        convidados = 42
+                        num_hamburgueres = convidados * 1.5
+
+                        print('Olá, Alice!')
+                        print('Você precisará fazer ' + str(num_hamburgueres) + ' hambúrgueres, certo?')
+                        print('Para isso, você precisará comprar:')
+                        print(str(calc_medida(120)) + ' kg de carne moída magra')
+                        print(str(calc_medida(80)) + ' kg de carne moída gorda')
+                        print(str(calc_medida(22)) + ' kg de queijo')
+                        print(str(calc_medida(20)) + ' kg de bacon')
+
+                        # Vamos considerar que apenas 85% do tomate possa
+                        # ser aproveitado para fazer as rodelas
+                        print(str(calc_medida(30) / 0.85) + ' kg de tomate')
+                    </script>
+                </div>
+            </div>
+            <div class='fragment local-standout-box fade-in-then-out' style='top: 3em; z-index: 1; font-size: .8em;'>
+              Mas ainda temos um problema: a quantidade de tomate ainda está
+              com valores quebrados... Vamos adicionar mais um parâmetro para
+              nossa função!
+            </div>
+        </section>
+
+
+
+        <section>
+            <div style='
+                height: var(--slide-height);
+                display: flex;
+                flex-direction: column;
+                position: relative;
+                z-index: 0;
+                overflow: auto;
+                '
+            >
+              <h4 style='flex: none; font-size: .8em;'>Adicionando o parâmetro
+              <code>fator_aproveitamento</code>...</h4>
+                <div class='ace-brython'
+                     style='
+                        font-size: .5em;
+                        flex: 1;
+                        margin-bottom: 2em;
+                     '
+                     data-min-lines='15'
+                     data-max-lines='20'
+                     data-prev='add-fator_aproveitamento'
+                >
+                    <script type='text/x.ace-brython'>
+                        # Hambúrguer por convidado: 1.5
+                        # Receita
+                        #   Carne Magra: 120g
+                        #   Carne Gorda:  80g
+                        #        Queijo:  22g
+                        #         Bacon:  20g
+                        #         Tomate: 30g (2 rodelas)
+
+                        def calc_medida(gramas_por_unidade, fator_aproveitamento=1):
+                            medida = num_hamburgueres * gramas_por_unidade
+                            # Note o operator /=
+                            medida /= fator_aproveitamento
+                            # Converter para kg
+                            medida = medida / 1000
+                            # Arredondar para que esteja na escala de 100 gramas
+                            medida = round(medida, 1)
+                            return medida
+
+                        convidados = 42
+                        num_hamburgueres = convidados * 1.5
+
+                        print('Olá, Alice!')
+                        print('Você precisará fazer ' + str(num_hamburgueres) + ' hambúrgueres, certo?')
+                        print('Para isso, você precisará comprar:')
+                        print(str(calc_medida(120)) + ' kg de carne moída magra')
+                        print(str(calc_medida(80)) + ' kg de carne moída gorda')
+                        print(str(calc_medida(22)) + ' kg de queijo')
+                        print(str(calc_medida(20)) + ' kg de bacon')
+
+                        # Vamos considerar que apenas 85% do tomate possa
+                        # ser aproveitado para fazer as rodelas
+                        print(str(calc_medida(30, 0.85)) + ' kg de tomate')
+                    </script>
+                </div>
+            </div>
+        </section>
+
+
+
+        <section data-auto-animate>
+          <h3>Controle de fluxo e valores booleanos</h3>
+          <p style='font-style: italic;'>
+            A vida é feita de decisões...
+          </p>
+        </section>
+
+
+
+        <section data-auto-animate>
+          <p>
+            Já sabemos como implementar um programa simples, que segue uma
+            sequência definida de instruções:
+          </p>
+          <div class='ace-brython' style='font-size: .6em'>
+            <script type='text/x.ace-brython' data-id='imc-linear'>
+              def imc(massa, altura):
+                  return massa / altura**2
+
+              def calcule_imc(name, massa, altura):
+                print('Olá, ' + name)
+                valor_imc = imc(massa, altura)
+                print('Seu índice de massa corporal é: ' + str(round(valor_imc, 3)))
+                print('Tchau, ' + name)
+
+              calcule_imc('John', 90, 1.80)
+            </script>
+          </div>
+          <p class='fragment'>
+            Porém, apenas executar uma instrução após a outra em uma sequência
+            fixa de instruções é bem <strong>limitante</strong>.
+          </p>
+        </section>
+
+
+        <section data-auto-animate>
+          <p class='fragment fade-in-then-semi-out'>
+            Por exemplo: E se quiséssemos que nosso programa diga a situação do
+            indivíduo de acordo com seu valor de IMC?
+          </p>
+          <p class='fragment'>
+            Precisaríamos que nosso programa tivesse o poder de
+            <strong>"alterar"</strong> seu comportamento de acordo com alguma
+            <strong>condição</strong> (e.g. o valor IMC ultrapassar um certo
+            limite).
+          </p>
+        </section>
+
+
+
+        <section data-auto-animate>
+          <h4>Fluxogramas para <code>calcule_imc()</code></h4>
+          <div style='display: flex;'>
+            <div class='fragment fade-in-then-semi-out' style='flex: 1 0'>
+              <img data-src='images/imc-flowchart-linear.svg' />
+              <p style='font-size: .6em'><strong>Fluxo</strong> atual de nossa
+              função</p>
+            </div>
+            <div data-id='flowchart' class='fragment' style='flex: 1 0'>
+              <img data-src='images/imc-flowchart-one-condition.svg' />
+              <p style='font-size: .6em;'>Como queremos que nossa função se
+              comporte</p>
+            </div>
+          </div>
+        </section>
+
+
+
+        <section data-auto-animate>
+          <h4>Fluxogramas para <code>calcule_imc()</code></h4>
+          <div style='display: flex;'>
+            <div style='flex: 1 0'>
+              <ul style='font-size: .8em;'>
+                <li>
+                  O losango em nosso diagrama representa um ponto de bifurcação
+                  do fluxo do nosso programa
+                </li>
+                <li class='fragment'>
+                  Em Python, nos representamos tal bifurcação através da
+                  instrução <code>if</code>
+                </li>
+              </ul>
+            </div>
+            <div data-id='flowchart' style='flex: 1 0'>
+              <img data-src='images/imc-flowchart-one-condition.svg' />
+              <p style='font-size: .6em;'>Como queremos que nossa função se
+              comporte</p>
+            </div>
+          </div>
+        </section>
+
+
+
+        <section data-auto-animate>
+          <h4>Fluxogramas para <code>calcule_imc()</code></h4>
+          <div style='display: flex;'>
+            <div
+              class='ace-brython' data-prev='imc-linear'
+              style='
+                font-size: .4em;
+                flex: none;
+                width: 40em;
+              '
+            >
+              <script type='text/x.ace-brython'>
+                def imc(massa, altura):
+                    return massa / altura**2
+
+                def calcule_imc(name, massa, altura):
+                  print('Olá, ' + name)
+                  valor_imc = imc(massa, altura)
+                  print('Seu índice de massa corporal é: ' + str(round(valor_imc, 3)))
+
+                  if valor_imc >= 25:
+                    print('Você está acima do peso ideal')
+
+                  print('Tchau, ' + name)
+
+                calcule_imc('John', 90, 1.80)
+              </script>
+            </div>
+            <div data-id='flowchart' style='flex: 1'>
+              <img data-src='images/imc-flowchart-one-condition.svg' />
+              <p style='font-size: .6em;'>Como queremos que nossa função se
+              comporte</p>
+            </div>
+          </div>
+        </section>
+      </div>
+    </div>
+
+    <script src="../revealjs/dist/reveal.js"></script>
+    <script src="../revealjs/plugin/notes/notes.js"></script>
+    <script src="../revealjs/plugin/markdown/markdown.js"></script>
+    <script src="../revealjs/plugin/highlight/highlight.js"></script>
+    <script src="../revealjs-ace-brython/dist/main.js"></script>
+    <script src="../asciinema/asciinema-player.js"></script>
+    <script type='module' src="main.js"></script>
+  </body>
+</html>
