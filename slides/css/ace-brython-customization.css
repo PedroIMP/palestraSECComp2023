@@ -16,3 +16,8 @@
 .ace-brython .ace-pastel-on-dark .ace_marker-layer .ace_active-line {
     background: rgba(255, 255, 255, .1) !important;
 }
+
+/* Highlight color */
+.ace-pastel-on-dark .ace_marker-layer .ace_step {
+    background: rgb(57, 47, 5)
+}
