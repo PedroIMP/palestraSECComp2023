@@ -20,5 +20,6 @@
 }
 
 .python-repl-code-line {
+    white-space: pre;
     filter: brightness(1.4);
 }
