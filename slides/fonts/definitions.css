@@ -5,3 +5,19 @@
   font-display: swap;
   src: url(./GiveYouGlory/GiveYouGlory-Regular.ttf) format('truetype');
 }
+
+@font-face {
+  font-family: 'Charm';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url(./Charm/Charm-Regular.ttf) format('truetype');
+}
+
+@font-face {
+  font-family: 'Charm';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url(./Charm/Charm-Bold.ttf) format('truetype');
+}
