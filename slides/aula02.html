@@ -1123,6 +1123,88 @@
 
 
         <section data-auto-animate>
+          <p style='font-size: .8em;'>O código anterior já mostra um grande
+          quantidade de linhas utilizando <code>if</code> para determinar a
+          situação do usuário.</p>
+        </section>
+
+
+        <section data-auto-animate>
+          <div style='display: flex; gap: 3ex; align-items: center;'>
+            <img
+                style='height: 7em; box-shadow: 0 0 2ex #0002;'
+                data-src='images/hadouken-indentation.jpg'
+            />
+
+            <p style='font-size: .8em; text-align: justify;'>Apesar de ser uma
+            solução para bastante problemas, o uso demasiado de <code>if</code>
+            pode atrapalhar a legibilidade de um código, principalmente quando
+            as condições são mais complexas, como no exemplo a seguir.</p>
+          </div>
+        </section>
+
+
+
+        <section data-auto-animate>
+          <div class='ace-brython' data-readonly data-components='code' style='z-index: 0;font-size: .4em;flex: 1;margin-bottom: 2em;'
+          >
+            <script type='text/x.ace-brython'>
+              cor = 'vermelho'
+              valor = 50
+              quantidade = 300
+              classe = 'a decidir'
+
+              if cor == 'azul' and valor == 50 and quantidade == 200:
+                classe = 'Classificação 1-a-a'
+              elif cor == 'azul' and valor == 100 and quantidade == 200:
+                classe = 'Classificação 1-a-b'
+              elif cor == 'azul' and valor == 150 and quantidade == 200:
+                classe = 'Classificação 1-a-c'
+              if cor == 'azul' and valor == 50 and quantidade == 300:
+                classe = 'Classificação 1-b-a'
+              elif cor == 'azul' and valor == 100 and quantidade == 300:
+                classe = 'Classificação 1-b-b'
+              elif cor == 'azul' and valor == 150 and quantidade == 300:
+                classe = 'Classificação 1-b-c'
+
+                # repetição do mesmo bloco de código, porém trocando a cor
+              elif cor == 'vermelho' and valor == 50 and quantidade == 200:
+                classe = 'Classificação 2-a-a'
+              elif cor == 'vermelho' and valor == 100 and quantidade == 200:
+                classe = 'Classificação 2-a-b'
+              elif cor == 'vermelho' and valor == 150 and quantidade == 200:
+                classe = 'Classificação 2-a-c'
+              if cor == 'vermelho' and valor == 50 and quantidade == 300:
+                classe = 'Classificação 2-b-a'
+              elif cor == 'vermelho' and valor == 100 and quantidade == 300:
+                classe = 'Classificação 2-b-b'
+              elif cor == 'vermelho' and valor == 150 and quantidade == 300:
+                classe = 'Classificação 2-b-c'
+
+              print(classe)
+            </script>
+          </div>
+          <div class='fragment local-standout-box' style='top: 20%;'>
+            O código funciona!<br/>
+            Mas é <strong>difícil</strong> de entender....
+          </div>
+          <div class='fragment local-standout-box' style='top: 40%;'>
+            E mais difícil ainda de<br/>
+            realizar alterações!
+          </div>
+          <div class='fragment local-standout-box' style='top: 70%;'>
+            Uma solução com Coleções será<br/>
+            apresentada posteriormente!
+          </div>
+        </section>
+
+
+        <section data-auto-animate>
+          <h3>As condições do <code>if</code></h3>
+        </section>
+
+        <section data-auto-animate>
+          <h3>As condições do <code>if</code></h3>
           <p style='font-size: .8em;'>Como vimos, a instrução <code>if</code>
           sempre requer uma <strong>condição</strong>, que é escrita em forma
           de expressão:</p>
@@ -1434,6 +1516,398 @@
                 </script>
               </div>
             </div>
+          </div>
+        </section>
+
+
+
+        <section data-auto-animate>
+          <p>A instrução <code>if</code> não é a única que utiliza expressões
+          booleanas como condição!</p>
+        </section>
+
+
+
+        <section data-auto-animate>
+          <p>Vamos aprender agora sobre <strong>laços de repetição</strong></p>
+        </section>
+
+
+
+        <section data-auto-animate>
+          <h3>Laços de Repetição</h3>
+
+          É <strong>muito comum</strong> (<em>muito mesmo</em>) programas de
+          computadores executarem um mesmo conjunto de instrução
+          <strong>repetidamente</strong> até que uma <strong>condição</strong>
+          seja satisfeita.
+        </section>
+
+
+
+        <section data-auto-animate>
+          <h3>Laços de Repetição</h3>
+
+          <p>Um exemplo que já conhecemos:</p>
+          <div class='fragment'
+            data-fragment-index='0'
+            style='display: flex; justify-content: center;'>
+              <div style='flex: none'>
+                  <img
+                      src='images/stickman-worship.png'
+                      style='height: 6em; vertical-align: bottom; margin-top: 3em;'
+                  />
+                  <img
+                      src='images/python-logo-3d.png'
+                      style='
+                          vertical-align: top;
+                          height: 7.5em;
+                          margin-top: 0;
+                          animation: local-glowing 3s infinite ease-in-out;
+                          '
+                  />
+              </div>
+          </div>
+          <p class='fragment' data-fragment-index='0'>A interface REPL do Python</p>
+        </section>
+
+
+
+        <section data-auto-animate>
+          <p>A interface REPL do Python</p>
+          <img
+              src='images/python-logo-3d.png'
+              style='
+                  vertical-align: middle;
+                  height: 4em;
+                  animation: local-glowing 3s infinite ease-in-out;
+                  margin-right: 2em;
+                  '
+          />
+          <img
+              src='images/repl-flowchar.svg'
+              style='height: 10em; vertical-align: middle;'
+          />
+          <p style='font-size: .7em'>Estratégia: ler e executar comandos até
+          que o usuário requisite a saída do shell</p>
+        </section>
+
+
+
+        <section data-auto-animate>
+          <p>Nosso primeiro laço</p>
+        </section>
+
+
+        <section data-auto-animate>
+          <p>Nosso primeiro laço</p>
+          <p style='font-size: .8em'>Vamos fingir que não conhecemos a fórmula
+          fechada da soma de uma PA...</p>
+        </section>
+
+
+        <section data-auto-animate>
+          <p>Nosso primeiro laço</p>
+          <p style='font-size: .8em'>Vamos escrever uma função responsável por
+          somar os primeiros <code>n</code> números naturais:</p>
+        </section>
+
+
+        <section data-auto-animate>
+          <p>Nosso primeiro laço</p>
+          <p style='font-size: .8em'>Vamos escrever uma função responsável por
+          somar os primeiros <code>n</code> números naturais:</p>
+
+          <img src='images/soma-flowchart.svg' />
+        </section>
+
+
+        <section data-auto-animate>
+          <p>Nosso primeiro laço</p>
+          <p style='font-size: .8em'>Vamos escrever uma função responsável por
+          somar os primeiros <code>n</code> números naturais:</p>
+
+          <div class='ace-brython' style='font-size: .5em; height: 14em;'>
+            <script type='text/x.ace-brython' data-id='first-loop-while'>
+              def soma_n(n):
+                  i = 0
+                  soma = 0
+
+                  while i < n:
+                      soma += i
+                      i += 1
+
+                  return soma
+
+
+              print(soma_n(10))
+              print(soma_n(4))
+            </script>
+          </div>
+
+          <div class='fragment local-standout-box'><code>while</code> é uma das
+            duas estruturas de repetição de Python. A outra é <code>for</code>.
+          </div>
+        </section>
+
+
+
+        <section data-auto-animate>
+          <p>Nosso primeiro laço</p>
+          <p style='font-size: .8em'>O mesmo programa utilizando
+          <code>for</code>:</p>
+
+          <div
+            class='ace-brython'
+            style='font-size: .5em; height: 14em;'
+            data-prev='first-loop-while'
+            >
+            <script type='text/x.ace-brython'>
+              def soma_n(n):
+                  soma = 0
+                  for i in range(0, n):
+                    soma += i
+
+                  return soma
+
+
+              print(soma_n(10))
+              print(soma_n(4))
+            </script>
+          </div>
+
+          <div style='font-size: .8em; text-align: left;'>
+            <ul>
+              <li>
+                A chamada de função <code>range(0, n)</code> retorna um
+                <strong>iterável</strong> que produz números de
+                <span class='math-font'>0</span> a
+                <span class='math-font'>n - 1</span>
+              </li>
+              <li>
+                Valores do tipo <strong>iterável</strong> representam objetos
+                que permitem ser usados com a instrução <code>for</code>,
+                iterando sobre seus itens
+              </li>
+            </ul>
+          </div>
+          <div class='fragment local-standout-box' style='bottom: 1.5em;'>
+            Exemplos de objetos iteráveis as coleções, que veremos mais
+            adiante.
+          </div>
+        </section>
+
+
+
+        <section data-auto-animate>
+          <p class='fragment fade-in-then-semi-out'>Por que temos duas
+          estruturas diferentes para laços?</p>
+
+          <p class='fragment'><code>for</code> é bem conveniente quanto estamos
+          utilizando coleções e/ou já se sabe de antemão a quantidade de
+          repetições</p>
+
+
+          <p class='fragment'><code>while</code> acaba sendo necessário quando
+          não se sabe por quanto tempo o bloco de instruções deve ser
+          repetido</p>
+        </section>
+
+
+
+        <section data-auto-animate>
+          <p>
+            Exemplo: vamos implementar um jogo onde o usuário precisa descobrir
+            um número que está entre 1 e 100.
+          </p>
+          <br/>
+          <p class='fragment'>
+            Estratégia: repetidamente ler um palpite do usuário até ele
+            acertar.
+          </p>
+          <div class='fragment local-standout-box'>
+            Neste caso, não tem como saber quantas vezes vamos repetir, então
+            precisaremos utilizar a estrutura <code>while</code>!
+          </div>
+        </section>
+
+
+        <section data-auto-animate>
+          <p>Nossa solução:</p>
+          <div class='ace-brython' data-components='code'>
+            <script type='text/x.ace-brython'>
+              import random
+
+              numero_secreto = random.randint(1, 100)
+              palpite = int(input('Qual seu palpite? '))
+
+              while palpite != numero_secreto:
+                  if palpite > numero_secreto:
+                    print('Número secreto é menor que o palpite')
+                  else:
+                    print('Número secreto é maior que o palpite')
+
+                  palpite = int(input('Qual seu novo palpite? '))
+
+              print('Parabéns, você acertou!')
+            </script>
+          </div>
+        </section>
+
+
+
+        <section data-auto-animate>
+          <h4>Instrução <code>break</code></h4>
+        </section>
+
+
+        <section data-auto-animate>
+          <h4>Instrução <code>break</code></h4>
+          <p>
+            Muitas vezes é comum querermos sair imediatamente de um
+            laço caso alguma condição seja satisfeita, ignorando o
+            restante das linhas presentes no bloco.
+          </p>
+        </section>
+
+
+
+        <section data-auto-animate>
+          <h4>Instrução <code>break</code></h4>
+          <p>
+            Muitas vezes é comum querermos sair imediatamente de um
+            laço caso alguma condição seja satisfeita, ignorando o
+            restante das linhas presentes no bloco.
+          </p>
+          <p>
+            Chamamos isto de <strong>quebrar</strong> o laço e utilizamos a
+            instrução <code>break</code> para fazê-lo.
+          </p>
+        </section>
+
+
+
+        <section data-auto-animate>
+          <h4>Instrução <code>break</code></h4>
+          <p>
+            Um exemplo de quebrando um <code>while</code>:
+          </p>
+          <div class='ace-brython' data-components='code'
+               style='font-size: .6em; flex: 1;'
+          >
+            <script type='text/x.ace-brython'>
+              # Conversar com um papagaio até enjoar e dizer tchau
+              print('Conversa com papagaio')
+              resposta = input()
+
+              while True:
+                print('Papagaio:',resposta)
+                resposta = input()
+                if resposta == 'tchau':
+                  print('Papagaio: Tchau!')
+                  break
+                  print('Esta linha de código nunca será executada!')
+              print('Fim')
+            </script>
+          </div>
+        </section>
+
+
+
+        <section data-auto-animate>
+          <h4>Instrução <code>continue</code></h4>
+          <p>
+            Assim como o <code>break</code>, a instrução <code>continue</code>
+            também pára a execução do bloco.
+          </p>
+        </section>
+
+
+
+        <section data-auto-animate>
+          <h4>Instrução <code>continue</code></h4>
+          <p>
+            Assim como o <code>break</code>, a instrução <code>continue</code>
+            também pára a execução do bloco.
+          </p>
+          <p>
+            Porém, em vez de sair do laço, a instrução move o fluxo do programa
+            para a <strong>próxima iteração</strong>.
+          </p>
+        </section>
+
+
+
+        <section data-auto-animate>
+          <h4>Instrução <code>continue</code></h4>
+          <p>
+            Exemplo com um <code>while</code>:
+          </p>
+          <div class='ace-brython' data-components='code'
+               style='font-size: .6em; flex: 1;'
+          >
+            <script type='text/x.ace-brython'>
+              # Exemplo de que só executa o bloco inteiro quando a senha não
+              # está vazia e está correta
+              print('Digite seu nome')
+              nome = input()
+
+              while True:
+                  print('Olá,' + nome + '! Por favor digite a senha (1234)')
+                  senha = input()
+
+                  if not senha:
+                    print('Senha vazia')
+                    continue
+
+                  if senha != '1234':
+                    print('Senha incorreta!')
+                    continue
+
+                  break
+
+              print('Olá,' + nome + '! Senha correta, login efetuado com sucesso!')
+              print('Até a próxima!')
+            </script>
+          </div>
+        </section>
+
+
+
+        <section data-auto-animate>
+          <p>Note que <code>break</code> e <code>continue</code> também podem
+          ser utilizados em laços do tipo <code>for</code>:</p>
+
+          <div class='ace-brython' data-components='code'
+               style='font-size: .6em;'
+          >
+            <script type='text/x.ace-brython'>
+              sucesso = False
+              # Pedir senha no máximo 5 vezes
+              for i in range(5):
+                  senha = input('Digite a senha: ')
+                  if senha == '1234':
+                    sucesso = True
+                    break
+
+              if sucesso:
+                  print('Login realizado com sucesso')
+              else:
+                  print('Login bloqueado')
+
+            </script>
+          </div>
+          <br />
+          <div class='ace-brython' data-components='code'
+               style='font-size: .6em;'
+          >
+            <script type='text/x.ace-brython'>
+              # Exemplo de código que ignora os valores ímpares
+              for i in range(0, 10):
+                if i % 2 != 0:
+                  continue
+                print(i**2)
+            </script>
           </div>
         </section>
       </div>
