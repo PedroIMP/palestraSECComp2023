@@ -788,7 +788,7 @@
               <p style='font-size: .6em'><strong>Fluxo</strong> atual de nossa
               função</p>
             </div>
-            <div data-id='flowchart' class='fragment' style='flex: 1 0'>
+            <div class='fragment' style='flex: 1 0'>
               <img data-src='images/imc-flowchart-one-condition.svg' />
               <p style='font-size: .6em;'>Como queremos que nossa função se
               comporte</p>
@@ -808,12 +808,12 @@
                   do fluxo do nosso programa
                 </li>
                 <li class='fragment'>
-                  Em Python, nos representamos tal bifurcação através da
+                  Em Python, nós representamos tal bifurcação através da
                   instrução <code>if</code>
                 </li>
               </ul>
             </div>
-            <div data-id='flowchart' style='flex: 1 0'>
+            <div  style='flex: 1 0'>
               <img data-src='images/imc-flowchart-one-condition.svg' />
               <p style='font-size: .6em;'>Como queremos que nossa função se
               comporte</p>
@@ -824,7 +824,7 @@
 
 
         <section data-auto-animate>
-          <h4>Fluxogramas para <code>calcule_imc()</code></h4>
+          <h4><code>calcule_imc()</code></h4>
           <div style='display: flex;'>
             <div
               class='ace-brython' data-prev='imc-linear'
@@ -834,7 +834,7 @@
                 width: 40em;
               '
             >
-              <script type='text/x.ace-brython'>
+              <script type='text/x.ace-brython' data-id='imc-one-condition'>
                 def imc(massa, altura):
                     return massa / altura**2
 
@@ -849,14 +849,328 @@
                   print('Tchau, ' + name)
 
                 calcule_imc('John', 90, 1.80)
+                calcule_imc('Jack', 69, 1.70)
               </script>
             </div>
-            <div data-id='flowchart' style='flex: 1'>
-              <img data-src='images/imc-flowchart-one-condition.svg' />
+            <div style='flex: 1'>
+              <object
+                  type='image/svg+xml'
+                  data='images/imc-flowchart-one-condition.svg'
+                  style='height: 10em;'
+              ></object>
               <p style='font-size: .6em;'>Como queremos que nossa função se
               comporte</p>
             </div>
           </div>
+        </section>
+
+
+
+        <section data-auto-animate>
+          <h4><code>calcule_imc()</code></h4>
+          <div style='display: flex; height: 10em;'>
+            <div style='flex: 1; font-size: .8em;'>
+              <p class='fragment fade-in-then-semi-out' data-fragment-index='0'>
+                Note que caso a condição for falsa, o nossa função vai direto
+                para a instrução de despedida.
+              </p>
+              <p class='fragment' data-fragment-index='1'>
+                E se quisermos realizar uma ação diferente para casos
+                negativos?
+              </p>
+              <p class='fragment' data-fragment-index='2'>
+                Utilizamos a palavra-chave <code>else</code>
+              </p>
+            </div>
+            <div class='r-stack' style='flex: 1'>
+              <object
+                class='fragment fade-out'
+                type='image/svg+xml'
+                data='images/imc-flowchart-one-condition.svg'
+                style='width: 100%; height: 100%;'
+                data-fragment-index='1'
+              ></object>
+              <object
+                class='fragment'
+                type='image/svg+xml'
+                data='images/imc-flowchart-with-else.svg'
+                style='width: 100%; height: 100%;'
+                data-fragment-index='1'
+              ></object>
+            </div>
+          </div>
+        </section>
+
+
+
+        <section data-auto-animate>
+          <h4><code>calcule_imc()</code></h4>
+          <div style='display: flex; gap: 1ex;'>
+            <div
+              class='ace-brython' data-prev='imc-one-condition'
+              style='
+                font-size: .4em;
+                flex: none;
+                width: 40em;
+              '
+            >
+              <script type='text/x.ace-brython' data-id='imc-with-else'>
+                def imc(massa, altura):
+                    return massa / altura**2
+
+                def calcule_imc(name, massa, altura):
+                  print('Olá, ' + name)
+                  valor_imc = imc(massa, altura)
+                  print('Seu índice de massa corporal é: ' + str(round(valor_imc, 3)))
+
+                  if valor_imc >= 25:
+                    print('Você está acima do peso ideal')
+                  else:
+                    print('Você não está acima do peso ideal')
+                    print('Continue se cuidando!')
+
+                  print('Tchau, ' + name)
+
+                calcule_imc('John', 90, 1.80)
+                calcule_imc('Jack', 69, 1.70)
+              </script>
+            </div>
+            <div style='flex: 1'>
+              <object
+                type='image/svg+xml'
+                data='images/imc-flowchart-with-else.svg'
+                style='height: 12em;'
+              ></object>
+            </div>
+          </div>
+          <div class='fragment local-standout-box' style='bottom: 2em;'>
+            Hm... Mas também há os casos de pessoas que ficam
+            <strong>abaixo</strong> do peso ideal. 🤔
+          </div>
+        </section>
+
+
+
+        <section data-auto-animate>
+          <h4><code>calcule_imc()</code></h4>
+          <p style='font-size: .8em;'>Podemos utilizar mais uma condição!</p>
+          <div style='display: flex; gap: 1ex;'>
+            <div style='flex: 1'>
+              <object
+                type='image/svg+xml'
+                data='images/imc-flowchart-with-elif.svg'
+                style='height: 12em;'
+              ></object>
+            </div>
+          </div>
+        </section>
+
+        <section data-auto-animate>
+          <h4><code>calcule_imc()</code></h4>
+          <div style='display: flex; gap: 1ex; height: calc(var(--slide-height) - 3em);'>
+            <div
+              class='ace-brython' data-prev='imc-with-else'
+              style='
+                font-size: .4em;
+                flex: none;
+                width: 40em;
+              '
+            >
+              <script type='text/x.ace-brython' data-id='imc-with-elif'>
+                def imc(massa, altura):
+                    return massa / altura**2
+
+                def calcule_imc(name, massa, altura):
+                  print('Olá, ' + name)
+                  valor_imc = imc(massa, altura)
+                  print('Seu índice de massa corporal é: ' + str(round(valor_imc, 3)))
+
+                  if valor_imc >= 25:
+                    print('Você está acima do peso ideal')
+                  elif valor_imc >= 18.5:
+                    print('Parabéns! Vocês está dentro da faixa ideal!')
+                  else:
+                    print('Você está abaixo do peso ideal')
+
+                  print('Tchau, ' + name)
+
+                calcule_imc('John', 90, 1.80)
+                calcule_imc('Jack', 69, 1.70)
+                calcule_imc('Joana', 46, 1.64)
+              </script>
+            </div>
+            <div style='flex: 1'>
+              <object
+                type='image/svg+xml'
+                data='images/imc-flowchart-with-elif.svg'
+                style='height: 8em;'
+              ></object>
+            </div>
+          </div>
+        </section>
+
+
+
+        <section data-auto-animate>
+          <h4><code>calcule_imc()</code></h4>
+          <p style='font-size: .8em;'>Podemos ser bem detalhistas se quisermos! 😅</p>
+          <div style='display: flex; gap: 1ex;'>
+            <div
+              class='ace-brython'
+              data-readonly
+              data-components='code'
+              style='
+                font-size: .4em;
+                width: 44em;
+              '
+            >
+              <script type='text/x.ace-brython'>
+                def calcule_imc(name, massa, altura):
+                  print('Olá, ' + name)
+
+                  valor_imc = imc(massa, altura)
+                  print('Seu índice de massa corporal é: ' + str(round(valor_imc, 3)))
+
+                  if valor_imc < 17:
+                    print('Você está muito abaixo do peso ideal!')
+                  elif valor_imc < 18.5:
+                    print('Você está abaixo do peso ideal')
+                  elif valor_imc < 25:
+                    print('Parabéns! Você está dentro da faixa ideal')
+                  elif valor_imc < 30:
+                    print('Você está acima do peso ideal')
+                  elif valor_imc < 35:
+                    print('Você está com obesidade')
+                  elif valor_imc < 40:
+                    print('Você está com obesidade severa!')
+                  else:
+                    print('Você está com obesidade mórbida!')
+
+                  print('Tchau, ' + name)
+              </script>
+            </div>
+            <div>
+              <table style='font-size: .5em;'>
+                <thead>
+                  <tr>
+                    <th>IMC</th>
+                    <th>Situação</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                      <td>
+                          Abaixo de 17
+                      </td>
+                      <td>
+                        Muito abaixo do peso
+                      </td>
+                  </tr>
+                  <tr>
+                      <td>
+                        Entre 17 e 18,49
+                      </td>
+                      <td>
+                        Abaixo do peso
+                      </td>
+                  </tr>
+                  <tr>
+                      <td>
+                        Entre 18,50 e 24,99
+                      </td>
+                      <td>
+                        Peso normal
+                      </td>
+                  </tr>
+                  <tr>
+                      <td>
+                        Entre 25 e 29,99
+                      </td>
+                      <td>
+                        Acima do peso
+                      </td>
+                  </tr>
+                  <tr>
+                      <td>
+                        Entre 30 e 34,99
+                      </td>
+                      <td>
+                        Obesidade I
+                      </td>
+                  </tr>
+                  <tr>
+                      <td>
+                        Entre 35 e 39,99
+                      </td>
+                      <td>
+                        Obesidade II (severa)
+                      </td>
+                  </tr>
+                  <tr>
+                      <td>
+                        Acima de 40
+                      </td>
+                      <td>
+                        Obesidade III (mórbida)
+                      </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </section>
+
+
+
+        <section data-auto-animate>
+          <p style='font-size: .8em;'>Como vimos, a instrução <code>if</code>
+          sempre requer uma <strong>condição</strong>, que é escrita em forma
+          de expressão:</p>
+
+          <div
+              data-id='if-syntax'
+              style='
+                font-size: .8em;
+                margin-top: 1em;
+                text-align: left;
+                display: flex;
+                flex-direction: column;
+              '
+          >
+            <code>if <strong>{condicao}</strong>:</code>
+          </div>
+
+          <p class='fragment' style='font-size: .8em; margin-top: 2em;'>
+            Adivinhe o tipo resultante dessa expressão...
+          </p>
+        </section>
+
+
+
+        <section data-auto-animate>
+          <div
+              data-id='if-syntax'
+              style='
+                font-size: .8em;
+                margin-top: 1em;
+                text-align: left;
+                display: flex;
+                flex-direction: column;
+              '
+          >
+            <code>if <strong>{condicao}</strong>:</code>
+          </div>
+
+          <p style='font-size: 1em; margin-top: 2em;'>
+            Isso mesmo! O valor resultante dessa expressão é um
+            <code>bool</code>
+          </p>
+
+
+          <p class='fragment' style='font-size: .8em; margin-top: 2em;'>
+            (Mesmo se a expressão não for originalmente um valor booleano,
+            Python faz a "conversão" no momento de verificar a condição)
+          </p>
         </section>
       </div>
     </div>
