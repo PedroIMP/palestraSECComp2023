@@ -1,0 +1,534 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+    <title>Aula 03</title>
+
+    <!-- Revealjs styles -->
+    <link rel="stylesheet" href="../revealjs/dist/reset.css">
+    <link rel="stylesheet" href="../revealjs/dist/reveal.css">
+    <link rel="stylesheet" href="../revealjs/dist/theme/serif.css" id="theme">
+    <link rel="stylesheet" href="../revealjs/plugin/highlight/monokai.css" id="highlight-theme">
+
+    <link rel="stylesheet" href="../asciinema/asciinema-player.css">
+
+    <link rel="stylesheet" href="python-repl/python-repl.css">
+
+    <!-- Fonts -->
+    <link rel='stylesheet' href='fonts/definitions.css'>
+
+    <!-- Local styles -->
+    <link rel="stylesheet" href="css/common.css">
+    <link rel="stylesheet" href="css/ace-brython-customization.css">
+    <link rel="stylesheet" href="css/python-repl-customization.css">
+    <link rel="stylesheet" href="css/highlightjs-customization.css">
+  </head>
+  <body>
+    <div class="reveal">
+      <div class="slides">
+        <section data-markdown>
+            # Python 101
+            ## Aula 03
+        </section>
+
+
+
+        <section data-auto-animate>
+          <h3>Manipulação de Arquivos</h3>
+        </section>
+
+
+
+        <section data-auto-animate>
+          <p class='fragment fade-in-then-semi-out'>
+            Variáveis guardam valores de expressões durante o programa.
+          </p>
+          <p class='fragment fade-in-then-semi-out'>
+            E quando o programa termina?
+          </p>
+          <p class='fragment fade-in-then-semi-out'>
+            Como armazenar resultados para serem utilizados posteriormente?
+          </p>
+        </section>
+
+
+
+        <section data-auto-animate>
+          <p class='fragment fade-in-then-semi-out'>
+            Escrevendo os resultados em um arquivo!
+          </p>
+          <p class='fragment fade-in-then-semi-out'>
+            Como?
+          </p>
+        </section>
+
+
+
+        <section data-auto-animate>
+          <p class='fragment fade-in-then-semi-out'>
+            Utilizando a função built-in <code>open</code>
+          </p>
+          <p class='fragment fade-in-then-semi-out'>
+            O retorno da função <code>open</code> é um objeto cujos
+            métodos são responsáveis por ler e escrever em arquivos
+          </p>
+          <p class='fragment fade-in-then-semi-out'>
+            <code>arquivo = open('nome do arquivo','modo')</code>
+          </p>
+        </section>
+
+        <section data-auto-animate>
+          <p>
+            <code>arquivo = open('nome','modo')</code>
+          </p>
+          <p class='fragment fade-in-then-semi-out'>
+            <code>'nome'</code>: nome do arquivo a ser manipulado
+          </p>
+          <p class='fragment fade-in-then-semi-out'>
+            Composto pelo caminho e nome do arquivo em si.
+          </p>
+          <p class='fragment fade-in-then-semi-out'>
+            Caso a parte do caminho seja omitida, o nome do
+            arquivo será relativo ao diretório atual
+          </p>
+        </section>
+
+
+
+        <section data-auto-animate>
+          <p>
+            <code>'modo'</code>
+          </p>
+          <p class='fragment'>
+            Modo de abertura do arquivo a ser manipulado, sendo os
+            modos mais comumente utilizados:
+          </p>
+          <p class='fragment'>
+            <code>r</code> - read;
+          </p>
+          <p class='fragment'>
+            <code>w</code> - write;
+          </p>
+          <p class='fragment'>
+            <code>a</code> - append.
+          </p>
+        </section>
+
+
+
+        <section data-auto-animate>
+          <p>
+            <code>arq = open('res.txt','w')</code>
+          </p>
+          <p class='fragment fade-in-then-semi-out'>
+            Neste exemplo o arquivo <strong>a ser criado</strong>
+            receberá o nome de <code>'res.txt'</code> e será
+            criado <strong>no mesmo diretório</strong> que o script
+            se encontra.
+          </p>
+          <p class='fragment fade-in-then-semi-out'>
+            Por se tratar do modo de escrita (<code>'w'</code>),
+            o arquivo <strong>não precisa existir</strong>
+            previamente.
+          </p>
+          <div class='fragment local-standout-box'>
+            E se já existir um arquivo<br/>
+            com esse nome?
+          </div>
+        </section>
+
+
+
+        <section data-auto-animate>
+          <p>
+            <code>arq2 = open('res.txt','r')</code>
+          </p>
+          <p class='fragment fade-in-then-semi-out'>
+            Neste exemplo o arquivo <strong>a ser lido</strong>
+            tem o nome de <code>'res.txt'</code> (criado
+            anteriormente) e se encontra <strong>no mesmo
+            diretório</strong> que o script.
+          </p>
+          <p class='fragment fade-in-then-semi-out'>
+            Por se tratar do modo de leitura (<code>'r'</code>),
+            o arquivo <strong>precisa existir</strong>
+            previamente!
+          </p>
+          <div class='fragment local-standout-box'>
+            E se não existir?
+          </div>
+        </section>
+
+
+
+        <section data-auto-animate>
+          <p>
+            <code>arq3 = open('pasta1/res2.txt','w')</code>
+          </p>
+          <p class='fragment fade-in-then-semi-out'>
+            Neste exemplo o arquivo <strong>a ser criado</strong>
+            tem o nome de <code>'res2.txt'</code> e se encontra
+            <strong>um diretório acima</strong> que o script.
+          </p>
+          <p class='fragment fade-in-then-semi-out'>
+            Por se tratar do modo de escrita (<code>'w'</code>),
+            o arquivo <strong>não precisa existir</strong>
+            previamente.
+          </p>
+          <p class='fragment fade-in-then-semi-out'>
+            Porém o diretório <strong>precisa</strong> existir
+            previamente!
+          </p>
+          <div class='fragment local-standout-box'>
+            E se não existir?
+          </div>
+        </section>
+
+
+
+        <section data-auto-animate>
+          <p>
+            <code>arq4 = open('pasta1/res2.txt','r')</code>
+          </p>
+          <p class='fragment fade-in-then-semi-out'>
+            Neste exemplo o arquivo <strong>a ser lido</strong>
+            tem o nome de <code>'res2.txt'</code> (criado
+            anteriormente) e se encontra <strong>um
+            diretório acima</strong> que o script.
+          </p>
+          <p class='fragment fade-in-then-semi-out'>
+            Por se tratar do modo de leitura (<code>'r'</code>),
+            o arquivo e diretório <strong>precisam existir</strong>
+            previamente.
+          </p>
+          <div class='fragment local-standout-box'>
+            E se não existirem?
+          </div>
+        </section>
+
+
+
+        <section data-auto-animate>
+          <p class='fragment fade-in-then-semi-out'>
+            Os exemplos mostraram a situação de escrita/leitura
+            no mesmo diretório ou um diretório acima que o script.
+          </p>
+          <p class='fragment fade-in-then-semi-out'>
+            E caso fosse desejado criar um diretório abaixo?
+          </p>
+        </section>
+
+
+
+        <section data-auto-animate>
+          <p class='fragment fade-in-then-semi-out'>
+            Além disso, o caminho mostrado nos exemplos utiliza
+            o padrão UNIX.
+          </p>
+          <p class='fragment fade-in-then-semi-out'>
+            Caso a máquina que rode o script não siga esse padrão
+            (sistema operacional Windows, por exemplo) é necessário
+            utilizar barra invertida (\) ao invés de barra comum (/).
+          </p>
+        </section>
+
+
+
+        <section data-auto-animate>
+          <p>
+            Padrão UNIX:
+          </p>
+          <p>
+            <code>arq4 = open('pasta1/res2.txt','r')</code>
+          </p>
+          <p>
+            Padrão Windows:
+          </p>
+          <p>
+            <code>arq4 = open('pasta1\res2.txt','r')</code>
+          </p>
+        </section>
+
+
+
+        <section data-auto-animate>
+          <p>
+            Agora que já vimos como abrir arquivos, vamos ver como
+            escrever conteúdos em arquivo.
+          </p>
+          <div class='ace-brython' data-components='code'
+               style='font-size: .8em;'
+          >
+            <script type='text/x.ace-brython'>
+              arq1 = open('res.txt', 'w')
+              # Escrever em arquivo os números de 0 a 9
+              for i in range(10):
+                arq1.write(str(i))
+              arq1.close()
+            </script>
+          </div>
+        </section>
+
+        <section data-auto-animate>
+          <p>
+            Agora vamos ler o que acabamos de escrever.
+          </p>
+          <div class='ace-brython' data-components='code'
+               style='font-size: .8em;'
+          >
+            <script type='text/x.ace-brython'>
+              arq2 = open('res.txt', 'r')
+              # Ler o conteúdo do arquivo
+              # escrito anteriormente
+              conteudo = arq2.read()
+              print(conteudo)
+              arq2.close()
+            </script>
+          </div>
+          <div class='fragment local-standout-box'>
+            Estranho, não?
+          </div>
+        </section>
+
+
+
+        <section data-auto-animate>
+          <p>
+            Isso porque esquecemos de colocar a quebra de linha.
+            Reescrevendo o código de escrita temos:
+          </p>
+          <div class='ace-brython' data-components='code'
+               style='font-size: .8em;'
+          >
+            <script type='text/x.ace-brython'>
+              arq3 = open('res2.txt', 'w')
+              # Escrever em arquivo os números de 0 a 9
+              for i in range(10):
+                arq1.write(str(i)+'\n')
+              arq3.close()
+            </script>
+          </div>
+        </section>
+
+
+
+        <section data-auto-animate>
+          <p>
+            Lendo o arquivo que acabamos de escrever:
+          </p>
+          <div class='ace-brython' data-components='code'
+               style='font-size: .8em;'
+          >
+            <script type='text/x.ace-brython'>
+              arq4 = open('res2.txt', 'r')
+              # Ler o conteúdo do arquivo reescrito
+              conteudo = arq4.read()
+              print(conteudo)
+              arq4.close()
+            </script>
+          </div>
+        </section>
+
+
+
+        <section data-auto-animate>
+          <p class='fragment fade-in-then-semi-out'>
+            Conseguimos ler o conteúdo do arquivo.
+          </p>
+          <p class='fragment fade-in-then-semi-out'>
+            Porém, pode-se notar que a leitura foi feita
+            <strong>de uma vez só</strong>.
+          </p>
+          <p class='fragment fade-in-then-semi-out'>
+            Neste exemplo não houve problema algum ao
+            se fazer isso.
+          </p>
+          <p class='fragment fade-in-then-semi-out'>
+            Mas e em casos de arquivos com milhões de linhas?
+          </p>
+          <p class='fragment fade-in-then-semi-out'>
+            Provavelmente haveria estouro de memória!
+          </p>
+        </section>
+
+        <section data-auto-animate>
+          <p>
+            Para evitar esse estouro, podemos ler o arquivo
+            uma linha por vez:
+          </p>
+          <div class='ace-brython' data-components='code'
+               style='font-size: .8em;'
+          >
+            <script type='text/x.ace-brython'>
+              arq5 = open('res2.txt', 'r')
+              # Ler o conteúdo do arquivo reescrito
+              # uma linha por vez
+              for linha in arq5:
+                print(linha)
+              arq5.close()
+            </script>
+          </div>
+        </section>
+
+        <section data-auto-animate>
+          <p class='fragment fade-in-then-semi-out'>
+            Cada vez que estamos realizando operações com arquivos
+            nós estamos fechando e abrindo novamente.
+          </p>
+          <p class='fragment fade-in-then-semi-out'>
+            No caso da escrita, o conteúdo sempre é adicionado,
+            como uma concatenação de strings.
+          </p>
+          <p class='fragment fade-in-then-semi-out'>
+            E no caso da leitura?
+          </p>
+        </section>
+
+
+
+        <section data-auto-animate>
+          <div class='ace-brython' data-components='code'
+               style='font-size: .8em;'
+          >
+            <script type='text/x.ace-brython'>
+              arq6 = open('res2.txt', 'r')
+              # Ler o conteúdo do arquivo reescrito
+              # uma linha por vez
+              for linha in arq6:
+                print(linha)
+              # Ler o novamente o conteúdo
+              for linha in arq6:
+                print(linha)
+              arq6.close()
+            </script>
+          </div>
+          <div class='fragment local-standout-box'>
+          Como resolver?
+          </div>
+        </section>
+
+
+
+        <section data-auto-animate>
+          <p>
+            Utilizando a função <code>seek(offset, whence)</code>.
+          </p>
+          <p class='fragment fade-in-then-semi-out'>
+            <code>offset</code>: deslocamento a partir
+            do ponto de partida
+          </p>
+          <p class='fragment'>
+            <code>whence</code>: ponto de partida
+          </p>
+          <p class='fragment'>
+            <code>0</code>: posição absoluta do arquivo
+          </p>
+          <p class='fragment'>
+            <code>1</code>: posição relativa ao ponto atual
+          </p>
+          <p class='fragment'>
+            <code>2</code>: posição relativa ao fim do arquivo
+          </p>
+        </section>
+
+
+
+        <section data-auto-animate>
+          <div class='ace-brython' data-components='code'
+               style='font-size: .8em;'
+          >
+            <script type='text/x.ace-brython'>
+              arq6 = open('res2.txt', 'r')
+              # Ler o conteúdo do arquivo reescrito
+              # uma linha por vez
+              for linha in arq6:
+                print(linha)
+              # "Rebobinar" o arquivo
+              arq6.seek(0,0)
+              # Ler novamente o arquivo
+              for linha in arq6:
+                print(linha)
+              arq6.close()
+            </script>
+          </div>
+        </section>
+
+
+
+        <section data-auto-animate>
+          <p class='fragment fade-in-then-semi-out'>
+            E quanto ao modo <code>append</code>?
+          </p>
+          <p class='fragment fade-in-then-semi-out'>
+            O modo <code>append</code> funciona de maneira similar
+            ao <code>write</code>
+          </p>
+          <p class='fragment fade-in-then-semi-out'>
+            Porém ao invés de "começar do zero" (caso o arquivo
+            já exista), a escrita é feita no final do arquivo
+          </p>
+        </section>
+
+
+
+        <section data-auto-animate>
+          <div class='ace-brython' data-components='code'
+               style='font-size: .8em;'
+          >
+            <script type='text/x.ace-brython'>
+              # Escrever no arquivo
+              arq6 = open('res3.txt', 'w')
+              for i in range(10):
+                arq6.write(str(i)+'\n')
+              arq6.close()
+
+              # Acrescentar ao final do arquivo
+              arq6 = open('res3.txt', 'a')
+              for i in range(10,20):
+                arq6.write(str(i)+'\n')
+              arq6.close()
+
+              # Ler o conteúdo do arquivo
+              arq6 = open('res3.txt', 'r')
+              for linha in arq6:
+                print(linha)
+              arq6.close()
+            </script>
+          </div>
+        </section>
+
+
+
+        <section data-auto-animate>
+          <p>
+            Além desses modos, existem alguns outros modos
+            menos comumente utilizados.
+          </p>
+          <p>
+            Tabela completa e maiores informações em:
+          </p>
+          <p  style='font-size: .5em;'>
+            <a
+                href='https://docs.python.org/3/library/functions.html#open'
+                target='_blank'
+            >https://docs.python.org/3/reference/expressions.html#operator-precedence</a>
+          </p>
+        </section>
+
+
+
+        
+      </div>
+    </div>
+
+    <script src="../revealjs/dist/reveal.js"></script>
+    <script src="../revealjs/plugin/notes/notes.js"></script>
+    <script src="../revealjs/plugin/markdown/markdown.js"></script>
+    <script src="../revealjs/plugin/highlight/highlight.js"></script>
+    <script src="../revealjs-ace-brython/dist/main.js"></script>
+    <script src="../asciinema/asciinema-player.js"></script>
+    <script type='module' src="main.js"></script>
+  </body>
+</html>
