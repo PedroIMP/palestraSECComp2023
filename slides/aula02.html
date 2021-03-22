@@ -1479,41 +1479,47 @@
           <h3>Expressões Booleanas</h3>
 
           <p style='font-size: .7em'> Os operadores booleanos nos ajudam a
-          escrever condições mais expressivas: </p>
+          escrever condições mais expressivas.</p>
 
-          <div style='display: flex; flex-direction: column;'>
-            <div style='flex: 1'>
-              <p style='font-size: .7em;'>Sem operadores booleanos: </p>
-              <div
-                class='ace-brython' style='font-size: .5em;'
-                data-readonly
-                data-components='code'
-              >
-                <script type='text/x.ace-brython'>
-                  def ano_eh_bissexto(ano):
-                      if ano % 400 == 0:
-                        return True
-                      elif ano % 4 == 0:
-                        if ano % 100 != 0:
+          <p class='fragment' style='font-size: .7em'> Exemplo: vamos escrever
+          um programa que diz se um dado ano é bissexto ou não.</p>
+
+
+          <div class='fragment'>
+            <div style='display: flex; flex-direction: column;'>
+              <div style='flex: 1'>
+                <p style='font-size: .7em;'>Sem operadores booleanos: </p>
+                <div
+                  class='ace-brython' style='font-size: .5em;'
+                  data-readonly
+                  data-components='code'
+                >
+                  <script type='text/x.ace-brython'>
+                    def ano_eh_bissexto(ano):
+                        if ano % 400 == 0:
                           return True
-                      return False
-                </script>
+                        elif ano % 4 == 0:
+                          if ano % 100 != 0:
+                            return True
+                        return False
+                  </script>
+                </div>
               </div>
-            </div>
 
-            <div class='fragment' style='flex: 1'>
-              <p style='font-size: .7em;'>Com operadores booleanos: </p>
-              <div
-                class='ace-brython' style='font-size: .5em;'
-                data-readonly
-                data-components='code'
-              >
-                <script type='text/x.ace-brython'>
-                  def ano_eh_bissexto(ano):
-                      if ano % 400 == 0 or (ano % 4 == 0 and ano % 100 != 0):
-                        return True
-                      return False
-                </script>
+              <div class='fragment' style='flex: 1'>
+                <p style='font-size: .7em;'>Com operadores booleanos: </p>
+                <div
+                  class='ace-brython' style='font-size: .5em;'
+                  data-readonly
+                  data-components='code'
+                >
+                  <script type='text/x.ace-brython'>
+                    def ano_eh_bissexto(ano):
+                        if ano % 400 == 0 or (ano % 4 == 0 and ano % 100 != 0):
+                          return True
+                        return False
+                  </script>
+                </div>
               </div>
             </div>
           </div>
@@ -1537,10 +1543,10 @@
         <section data-auto-animate>
           <h3>Laços de Repetição</h3>
 
-          É <strong>muito comum</strong> (<em>muito mesmo</em>) programas de
+          <p>É <strong>muito comum</strong> (<em>muito mesmo</em>) programas de
           computadores executarem um mesmo conjunto de instrução
           <strong>repetidamente</strong> até que uma <strong>condição</strong>
-          seja satisfeita.
+          seja satisfeita.</p>
         </section>
 
 
@@ -1657,43 +1663,45 @@
           <p style='font-size: .8em'>O mesmo programa utilizando
           <code>for</code>:</p>
 
-          <div
-            class='ace-brython'
-            style='font-size: .5em; height: 14em;'
-            data-prev='first-loop-while'
-            >
-            <script type='text/x.ace-brython'>
-              def soma_n(n):
-                  soma = 0
-                  for i in range(0, n):
-                    soma += i
+          <div class='fragment'>
+            <div
+              class='ace-brython'
+              style='font-size: .5em; height: 14em;'
+              data-prev='first-loop-while'
+              >
+              <script type='text/x.ace-brython'>
+                def soma_n(n):
+                    soma = 0
+                    for i in range(0, n):
+                      soma += i
 
-                  return soma
+                    return soma
 
 
-              print(soma_n(10))
-              print(soma_n(4))
-            </script>
-          </div>
+                print(soma_n(10))
+                print(soma_n(4))
+              </script>
+            </div>
 
-          <div style='font-size: .8em; text-align: left;'>
-            <ul>
-              <li>
-                A chamada de função <code>range(0, n)</code> retorna um
-                <strong>iterável</strong> que produz números de
-                <span class='math-font'>0</span> a
-                <span class='math-font'>n - 1</span>
-              </li>
-              <li>
-                Valores do tipo <strong>iterável</strong> representam objetos
-                que permitem ser usados com a instrução <code>for</code>,
-                iterando sobre seus itens
-              </li>
-            </ul>
-          </div>
-          <div class='fragment local-standout-box' style='bottom: 1.5em;'>
-            Exemplos de objetos iteráveis as coleções, que veremos mais
-            adiante.
+            <div style='font-size: .8em; text-align: left;'>
+              <ul>
+                <li>
+                  A chamada de função <code>range(0, n)</code> retorna um
+                  <strong>iterável</strong> que produz números de
+                  <span class='math-font'>0</span> a
+                  <span class='math-font'>n - 1</span>
+                </li>
+                <li>
+                  Valores do tipo <strong>iterável</strong> representam objetos
+                  que permitem ser usados com a instrução <code>for</code>,
+                  iterando sobre seus itens
+                </li>
+              </ul>
+            </div>
+            <div class='fragment local-standout-box' style='bottom: 1.5em;'>
+              Exemplos de objetos iteráveis as coleções, que veremos mais
+              adiante.
+            </div>
           </div>
         </section>
 
@@ -1752,6 +1760,11 @@
               print('Parabéns, você acertou!')
             </script>
           </div>
+          <div class='local-standout-box fragment' style='bottom: 1em; font-size: .9em;'>
+            Desafio: você conseguiria implementar o contrário: um programa que
+            tenta descobrir um número selecionado pelo usuário com poucos
+            palpites?
+          </div>
         </section>
 
 
@@ -1791,22 +1804,26 @@
           <h4>Instrução <code>break</code></h4>
           <p>
             Um exemplo de quebrando um <code>while</code>:
+            <br/>
+            <em>Um programa papagaio</em>: programa que repete cada entrada do
+            usuário até que o mesmo diga "tchau".
           </p>
-          <div class='ace-brython' data-components='code'
+
+          <div class='ace-brython fragment' data-components='code'
                style='font-size: .6em; flex: 1;'
           >
             <script type='text/x.ace-brython'>
-              # Conversar com um papagaio até enjoar e dizer tchau
               print('Conversa com papagaio')
-              resposta = input()
 
               while True:
-                print('Papagaio:',resposta)
-                resposta = input()
-                if resposta == 'tchau':
-                  print('Papagaio: Tchau!')
+                frase = input('Usuário: ')
+
+                if frase == 'tchau':
                   break
                   print('Esta linha de código nunca será executada!')
+
+                print('Papagaio:', frase)
+
               print('Fim')
             </script>
           </div>
@@ -1840,21 +1857,22 @@
 
         <section data-auto-animate>
           <h4>Instrução <code>continue</code></h4>
-          <p>
-            Exemplo com um <code>while</code>:
+          <p style='font-size: .8em;'>
+            Exemplo com um <code>while</code>: Um programa para pedir a senha
+            do usuário até ele acertar.
           </p>
-          <div class='ace-brython' data-components='code'
-               style='font-size: .6em; flex: 1;'
+          <div class='ace-brython fragment' data-components='code'
+               style='font-size: .5em; flex: 1;'
           >
             <script type='text/x.ace-brython'>
               # Exemplo de que só executa o bloco inteiro quando a senha não
               # está vazia e está correta
               print('Digite seu nome')
               nome = input()
+              print('Olá,' + nome + '!')
 
               while True:
-                  print('Olá,' + nome + '! Por favor digite a senha (1234)')
-                  senha = input()
+                  senha = input('Por favor, digite a senha: ')
 
                   if not senha:
                     print('Senha vazia')
@@ -1866,7 +1884,7 @@
 
                   break
 
-              print('Olá,' + nome + '! Senha correta, login efetuado com sucesso!')
+              print('Senha correta, login efetuado com sucesso!')
               print('Até a próxima!')
             </script>
           </div>
@@ -1875,10 +1893,14 @@
 
 
         <section data-auto-animate>
-          <p>Note que <code>break</code> e <code>continue</code> também podem
-          ser utilizados em laços do tipo <code>for</code>:</p>
+          <p style='font-size: .8em;'>Note que <code>break</code> e
+          <code>continue</code> também podem ser utilizados em laços do tipo
+          <code>for</code>.</p>
 
-          <div class='ace-brython' data-components='code'
+          <p class='fragment'>Exemplo: permitir no máximo 5 tentativas de
+          login.</p>
+
+          <div class='ace-brython fragment' data-components='code'
                style='font-size: .6em;'
           >
             <script type='text/x.ace-brython'>
@@ -1897,16 +1919,30 @@
 
             </script>
           </div>
-          <br />
-          <div class='ace-brython' data-components='code'
+        </section>
+
+
+
+        <section data-auto-animate>
+          <p style='font-size: .8em;'>Note que <code>break</code> e
+          <code>continue</code> também podem ser utilizados em laços do tipo
+          <code>for</code>.</p>
+
+          <p class='fragment'>
+            Exemplo: realizar soma de apenas números ímpares.
+          </p>
+
+          <div class='ace-brython fragment' data-components='code'
                style='font-size: .6em;'
           >
             <script type='text/x.ace-brython'>
               # Exemplo de código que ignora os valores ímpares
+              soma = 0
               for i in range(0, 10):
-                if i % 2 != 0:
+                if i % 2 == 0:
                   continue
-                print(i**2)
+                soma += i
+              print(soma)
             </script>
           </div>
         </section>
