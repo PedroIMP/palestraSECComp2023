@@ -1,0 +1,779 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+    <title>Aula 05</title>
+
+    <!-- Revealjs styles -->
+    <link rel="stylesheet" href="../revealjs/dist/reset.css">
+    <link rel="stylesheet" href="../revealjs/dist/reveal.css">
+    <link rel="stylesheet" href="../revealjs/dist/theme/serif.css" id="theme">
+    <link rel="stylesheet" href="../revealjs/plugin/highlight/monokai.css" id="highlight-theme">
+
+    <link rel="stylesheet" href="../asciinema/asciinema-player.css">
+
+    <link rel="stylesheet" href="python-repl/python-repl.css">
+
+    <!-- Fonts -->
+    <link rel='stylesheet' href='fonts/definitions.css'>
+
+    <!-- Local styles -->
+    <link rel="stylesheet" href="css/common.css">
+    <link rel="stylesheet" href="css/ace-brython-customization.css">
+    <link rel="stylesheet" href="css/python-repl-customization.css">
+    <link rel="stylesheet" href="css/highlightjs-customization.css">
+  </head>
+  <body>
+    <div class="reveal">
+      <div class="slides">
+        <section data-markdown>
+            # Python 101
+            ## Aula 05
+        </section>
+
+
+
+        <section>
+          <h3>Coleções</h3>
+        </section>
+
+
+
+        <section data-auto-animate>
+          <p>Até agora trabalhamos com tipos que armazenam apenas um valor
+          cada...</p>
+        </section>
+
+
+
+        <section data-auto-animate>
+          <p>Até agora trabalhamos com tipos que armazenam apenas um valor
+          cada...</p>
+
+          <p>
+            Entretanto, muitas vezes (muitas mesmo), é importante termos a
+            capacidade de organizar nossos dados em estruturas mais complexas.
+          </p>
+        </section>
+
+
+        <section data-auto-animate>
+          <h3>Coleções</h3>
+
+          <p>
+            Entretanto, muitas vezes (muitas mesmo), é importante termos a
+            capacidade de organizar nossos dados em estruturas mais complexas.
+          </p>
+
+          <p>
+            Para isso podemos utilizar os diferentes tipos de
+            <strong>coleções</strong> que Python nos oferece!
+          </p>
+        </section>
+
+
+        <section data-auto-animate>
+          <h3>Coleções</h3>
+
+          <p>
+          Coleções são <strong>estruturas de dados</strong> que
+          <strong>armazenam</strong> múltiplos valores na memória do computador
+          e provêem formas convenientes de <strong>acessarmos</strong> esses
+          valores em algum momento do programa em execução.
+          </p>
+        </section>
+
+
+        <section data-auto-animate>
+          <h3>Coleções</h3>
+
+          <p style='font-size: .8em'>
+            Listamos aqui quatro tipos básicos de coleções:
+          </p>
+
+          <div style='
+              margin: auto;
+              text-align: left;
+              font-size: .7em;
+              display: inline-block;
+              '
+          >
+            <div>Tupla: <code>(2, 3, 5, 'Alice', False, 5)</code></div>
+            <div>Lista: <code>[2, 3, 5, 'Alice', False, 5]</code></div>
+            <div>Conjuntos: <code>{2, 3, 5, 'Alice', False}</code></div>
+            <div>Dicionários: <code>{'idade': 35, 'nome': 'Alice', 'casada': False}</code></div>
+          </div>
+        </section>
+
+
+        <section data-auto-animate>
+          <h4>Tupla</h4>
+
+          <p>Uma sequência de valores.</p>
+
+          <p>Os valores não precisam necessariamente ser do mesmo tipo.</p>
+          <div class='python-repl'><!--
+          >>> t = (2, 3, 5, 'Alice', False, 5)
+          >>> t
+          (2, 3, 5, 'Alice', False, 5)
+          --></div>
+        </section>
+
+
+        <section data-auto-animate data-reusable>
+          <h4>Tupla</h4>
+          <p
+            style='font-size: .8em; text-align: left'
+            data-reusable-tag='title'
+          >
+          Alguns exemplos:
+          </p>
+          <div
+            style='display: flex; flex-flow: column; gap: 1ex; font-size: .8em;'
+            data-reusable-tag='repl'>
+            <div class='python-repl'><!--
+            >>> tupla1 = (1,5,1)
+            >>> tupla2 = ('Avenida','24A')
+            >>> tupla3 = ('A',32)
+            >>> tupla4 = (64.122,1)
+            --></div>
+            <div class='python-repl'><!--
+            >>> tupla2
+            ('Avenida', '24A')
+            >>> tupla3
+            ('A', 32)
+            --></div>
+            <div class='python-repl'><!--
+            >>> tupla5 = (tupla1, tupla4, tupla1) # Tuplas de tuplas
+            >>> print('Tupla de tuplas:', tupla5)
+            Tupla de tuplas: ((1, 5, 1), (64.122, 1), (1, 5, 1))
+            --></div>
+          </div>
+        </section>
+
+        <template data-reuse>
+          <template data-tag='title'>
+            Podemos acessar os elementos da tupla através de
+            <strong>indexação</strong>:
+          </template>
+
+          <template data-tag='repl'>
+            <div class='python-repl'><!--
+            >>> t = (4, 2, 6, 1)
+            >>> t[0]
+            4
+            >>> t[2]
+            6
+            >>> t[-1]
+            1
+            >>> t[-3]
+            2
+            --></div>
+            <div class='python-repl'><!--
+            >>> t = ((3, 5), (9, 1), (6, 1))
+            >>> t[0]
+            (3, 5)
+            >>> t[-1]
+            (6, 1)
+            >>> t[0][1]
+            5
+            --></div>
+          </template>
+        </template>
+
+
+
+        <template data-reuse>
+          <template data-tag='title'>
+            Podemos acessar regiões  da tupla através de
+            <strong>slices</strong> (fatias):
+          </template>
+
+          <template data-tag='repl'>
+            <div class='python-repl'><!--
+            >>> frutas = ('banana', 'abacaxi', 'limão', 'laranja', 'melancia')
+            >>> frutas[1:3]  # O segundo índice é exclusivo
+            ('abacaxi', 'limão')
+            >>> frutas[1:]   # Podemos omitir índices
+            ('abacaxi', 'limão', 'laranja', 'melancia')
+            >>> frutas[:2]   # Podemos omitir índices
+            ('banana', 'abacaxi')
+            >>> frutas[:-2]   # Índices negativos também funcionam
+            ('banana', 'abacaxi', 'limão')
+            --></div>
+          </template>
+        </template>
+
+
+
+        <template data-reuse>
+          <template data-tag='title'>
+            Podemos checar se um item está presente na tupla com o operador
+            <code>in</code>:
+          </template>
+
+          <template data-tag='repl'>
+            <div class='python-repl'><!--
+            >>> frutas = ('banana', 'abacaxi', 'limão', 'laranja', 'melancia')
+            >>> 'jabuticaba' in frutas
+            False
+            >>> 'laranja' in frutas
+            True
+            --></div>
+          </template>
+        </template>
+
+
+
+        <template data-reuse>
+          <template data-tag='title'>
+            Tuplas são <strong>imutáveis</strong> - não podem ser modificadas:
+          </template>
+
+          <template data-tag='repl'>
+            <div class='python-repl'><!--
+            >>> frutas = ('banana', 'abacaxi', 'limão', 'laranja', 'melancia')
+            >>> frutas[2] = 'pinha'
+            Traceback (most recent call last):
+              File "<stdin>", line 1, in <module>
+            TypeError: 'tuple' object does not support item assignment
+            --></div>
+          </template>
+        </template>
+
+
+        <section data-auto-animate>
+          <h4>Listas</h4>
+        </section>
+
+
+
+        <section data-auto-animate>
+          <h4>Listas</h4>
+          <p>Podemos olhar para listas como "tuplas mutáveis"</p>
+          <p>São sequências de valores que podem ser alteradas</p>
+        </section>
+
+
+
+        <section data-auto-animate data-reusable>
+          <h4>Listas</h4>
+          <p
+            style='font-size: .8em; text-align: left'
+            data-reusable-tag='title'
+          >
+          Listas usam <code>[</code> e <code>]</code> em sua construção e
+          possuem praticamente a mesma interface de acesso de tuplas:
+          </p>
+          <div
+            style='display: flex; flex-flow: column; gap: 1ex; font-size: .8em;'
+            data-reusable-tag='repl'>
+            <div class='python-repl'><!--
+            >>> frutas = ['banana', 'abacaxi', 'limão', 'laranja', 'melancia']
+            >>> frutas[1:3]
+            ['abacaxi', 'limão']
+            >>> frutas[-1]
+            'melancia'
+            >>> 'morango' in frutas
+            False
+            >>> 'limão' in frutas
+            True
+            --></div>
+          </div>
+        </section>
+
+
+
+        <template data-reuse>
+          <template data-tag='title'>
+            Listas são mutáveis!
+          </template>
+
+          <template data-tag='repl'>
+            <div class='python-repl'><!--
+              >>> frutas = ['banana', 'abacaxi', 'limão', 'laranja', 'melancia']
+            --></div>
+            <div class='python-repl'><!--
+              >>> frutas[1] = 'morango'
+              >>> frutas
+              ['banana', 'morango', 'limão', 'laranja', 'melancia']
+            --></div>
+            <div class='python-repl'><!--
+              >>> frutas[-1] = 'uva'
+              >>> frutas
+              ['banana', 'morango', 'limão', 'laranja', 'uva']
+            --></div>
+            <div class='python-repl'><!--
+              >>> frutas[1:4] = ['abacate']
+              >>> frutas
+              ['banana', 'abacate', 'uva']
+            --></div>
+            <div class='python-repl'><!--
+              >>> del frutas[1]
+              >>> frutas
+              ['banana', 'uva']
+            --></div>
+          </template>
+        </template>
+
+
+
+        <template data-reuse>
+          <template data-tag='title'>
+            Listas possuem diversos <strong>métodos</strong>:
+          </template>
+
+          <template data-tag='repl'>
+            <div class='python-repl'><!--
+              >>> frutas = ['banana', 'abacaxi', 'limão', 'laranja', 'melancia']
+            --></div>
+            <div class='python-repl'><!--
+            >>> frutas.append('mamão')
+            >>> frutas
+            ['banana', 'abacaxi', 'limão', 'laranja', 'melancia', 'mamão']
+            --></div>
+            <div class='python-repl'><!--
+            >>> frutas.insert(3, 'uva')
+            >>> frutas
+            ['banana', 'abacaxi', 'limão', 'uva', 'laranja', 'melancia', 'mamão']
+            --></div>
+            <div class='python-repl'><!--
+            >>> frutas.pop()
+            'mamão'
+            >>> frutas
+            ['banana', 'abacaxi', 'limão', 'uva', 'laranja', 'melancia']
+            --></div>
+            <div class='python-repl'><!--
+            >>> frutas.remove('laranja')
+            >>> frutas
+            ['banana', 'abacaxi', 'limão', 'uva', 'melancia']
+            --></div>
+            <div class='python-repl'><!--
+            >>> frutas.sort()
+            >>> frutas
+            ['abacaxi', 'banana', 'limão', 'melancia', 'uva']
+            --></div>
+          </template>
+          <template data-append>
+            <div class='fragment local-standout-box' style='bottom: 2em;'>
+                <strong>Métodos</strong> são funções vinculadas a objetos. Por
+                exemplo, <code>frutas.append</code> é uma função vinculada ao
+                objeto referenciado por <code>frutas</code>.
+            </div>
+          </template>
+        </template>
+
+
+        <section data-auto-animate>
+          <h4>Conjuntos</h4>
+        </section>
+
+
+
+        <section data-auto-animate>
+          <h4>Conjuntos</h4>
+          <p>Um <strong>conjunto</strong> é uma coleção onde não há repetição
+          nem ordenação de valores.</p>
+        </section>
+
+
+
+        <section data-auto-animate data-reusable>
+          <h4>Conjuntos</h4>
+          <p
+            style='font-size: .8em; text-align: left'
+            data-reusable-tag='title'
+          >
+          Conjuntos são construídos com <code>{</code> e <code>}</code>. E
+          e permitem adição, remoção e consulta de items.
+          </p>
+          <div
+            style='display: flex; flex-flow: column; gap: 1ex; font-size: .8em;'
+            data-reusable-tag='repl'>
+            <div class='python-repl'><!--
+            >>> frutas = {'banana', 'abacaxi', 'limão', 'laranja', 'melancia'}
+            --></div>
+            <div class='python-repl'><!--
+            >>> frutas.add('uva')
+            >>> frutas
+            {'banana', 'uva', 'abacaxi', 'melancia', 'laranja', 'limão'}
+            --></div>
+            <div class='python-repl'><!--
+            >>> frutas.add('abacaxi')  # Esta operação não possui efeito
+            >>> frutas
+            {'banana', 'uva', 'abacaxi', 'melancia', 'laranja', 'limão'}
+            --></div>
+            <div class='python-repl'><!--
+            >>> frutas.pop()  # Remove um elemento qualquer
+            'banana'
+            >>> frutas
+            {'uva', 'abacaxi', 'melancia', 'laranja', 'limão'}
+            --></div>
+            <div class='python-repl'><!--
+            >>> frutas.remove('laranja') # Remove um item específico
+            >>> frutas
+            {'uva', 'abacaxi', 'melancia', 'limão'}
+            --></div>
+            <div class='python-repl'><!--
+            >>> 'laranja' in frutas  # É muito mais rápido do que em listas
+            True
+            --></div>
+          </div>
+        </section>
+
+
+
+        <section data-auto-animate>
+          <h4>Dicionários</h4>
+        </section>
+
+
+
+        <section data-auto-animate>
+          <h4>Dicionários</h4>
+          <p>
+            Um <strong>dicionário</strong> faz um mapeamento de um conjunto de
+            chaves para respectivos valores.
+          </p>
+        </section>
+
+
+        <section data-auto-animate>
+          <h4>Dicionários</h4>
+          <p>
+            Um <strong>dicionário</strong> faz um mapeamento de um conjunto de
+            chaves para respectivos valores.
+          </p>
+          <p>
+            Cada item do dicionário é um par <strong>chave→valor</strong>.
+          </p>
+        </section>
+
+
+
+        <section data-auto-animate>
+          <h4>Dicionários</h4>
+          <p>
+            Um <strong>dicionário</strong> faz um mapeamento de um conjunto de
+            chaves para respectivos valores.
+          </p>
+          <p>
+            Cada item do dicionário é um par <strong>chave→valor</strong>.
+          </p>
+          <p>
+            Qualquer tipo imutável (e.g. <code>str</code> <code>int</code>
+            <code>tuple</code>) pode ser utilizado como chave, e qualquer outro
+            tipo pode ser usado como valor.
+          </p>
+        </section>
+
+
+
+        <section data-auto-animate data-reusable>
+          <h4>Dicionários</h4>
+          <p
+            style='font-size: .8em; text-align: left'
+            data-reusable-tag='title'
+          >
+            Um uso comum de dicionários é para representação de alguma entidade
+            com diferentes atributos:
+          </p>
+          <div
+            style='display: flex; flex-flow: column; gap: 1ex; font-size: .8em;'
+            data-reusable-tag='repl'>
+            <div class='python-repl'><!--
+            >>> alice = {'name': 'Alice', 'age': 27, 'country': 'Australia'}
+            >>> alice['name'] # Acessando a chave 'name', cujo valor é 'Alice'
+            'Alice'
+            >>> alice['age']
+            27
+            >>> alice['age'] += 1
+            >>> alice
+            {'name': 'Alice', 'age': 28, 'country': 'Australia'}
+            --></div>
+          </div>
+        </section>
+
+
+        <template data-reuse>
+          <template data-tag='title'>
+            Uma ótima aplicação de dicionários é utilizá-los como tabela
+            <em>hash</em> para acesso rápido a elementos por alguma chave:
+          </template>
+
+          <template data-tag='repl'>
+            <div class='python-repl'><!--
+            >>> table = {'id1': {'name': 'Alice', 'age': 27}, 'id2': {'name': 'John', 'age': 67}}
+            --></div>
+            <div class='python-repl'><!--
+            >>> table['id1'] # Acessando o registro com id1
+            {'name': 'Alice', 'age': 27}
+            --></div>
+            <div class='python-repl'><!--
+            >>> table['id3'] = {'name': 'Josh', 'age': 18} # Adicionando um novo elemento
+            >>> table
+            {'id1': {'name': 'Alice', 'age': 27}, 'id2': {'name': 'John', 'age': 67}, 'id3': {'name': 'Josh', 'age': 18}}
+            --></div>
+            <div class='python-repl'><!--
+            >>> del table['id2']  # Removendo elemento com id2
+            >>> table
+            {'id1': {'name': 'Alice', 'age': 27}, 'id3': {'name': 'Josh', 'age': 18}}
+            --></div>
+            <div class='python-repl'><!--
+            >>> table['xyz']  # Acessado elemento inexistente
+            Traceback (most recent call last):
+              File "<stdin>", line 1, in <module>
+            KeyError: 'xyz'
+            --></div>
+            <div class='python-repl'><!--
+            >>> 'xyz' in table['xyz']  # Verificando existência de chave, tão rápido quanto para conjuntos
+            False
+            --></div>
+          </template>
+        </template>
+
+
+
+        <section data-auto-animate data-reusable>
+          <h4>Coleções</h4>
+
+          <p style='font-size: .6em'>Todas esses tipos de coleções são
+          <strong>iteráveis</strong>, isso significa que é possível percorrer
+          seus valores utilizando <code>for</code>, por exemplo.</p>
+
+
+          <div class='ace-brython' style='font-size: .5em;' data-reusable-tag='code'>
+              <script type='text/x.ace-brython'>
+                frutas = ['banana', 'abacaxi', 'limão', 'laranja', 'melancia']
+
+                print('As frutas que temos na feira são:')
+                for fruta in frutas:
+                  print(fruta)
+              </script>
+          </div>
+        </section>
+
+        <template data-reuse>
+          <template data-tag='code'>
+            <script type='text/x.ace-brython'>
+              # Calcular perímetro do polígono
+              poligono = [(1.5, 0.0), (1.0, 1.0), (-1.0, 1.5), (0, -1)]
+              perimetro = 0
+
+              prev = poligono[-1]
+              for point in poligono:
+                  x, y = point # Equivalente a x = point[0] e y = point[1]
+                  prev_x, prev_y = prev
+
+                  dist = ((x - prev_x)**2 + (y - prev_y)**2)**.5
+                  perimetro += dist
+
+                  prev = point
+
+              print('Perímetro:', perimetro)
+
+            </script>
+          </template>
+        </template>
+
+
+        <section data-auto-animate>
+          <h4>Síntese de Coleções</h4>
+          <p>
+            Para todas as coleções é possível utilizar a função
+            <code>len()</code> para descobrir a quantidade de
+            elementos contidos nas mesmas.
+          </p>
+          <p class='fragment'>
+            Para as Listas e Tuplas, o acesso de um elemento ou uma
+            fatia de seus elementos é feito utilizando número
+            (ou slice) entre colchetes (e.g. lista[1], tupla[:3])
+          </p>
+        </section>
+
+
+        <section data-auto-animate>
+          <h4>Síntese de Coleções</h4>
+          <p class='fragment fade-in-then-semi-out'>
+            Tuplas: Recomendado quando a ordem dos valores tem
+            significado; permite acesso individual de itens
+            ou por slices; imutáveis
+          </p>
+          <p class='fragment'>
+            Listas: Recomendado quando se pretende acrescentar ou
+            remover itens, ou alterar a ordem dos itens; permite
+            acesso individual de itens ou por slices; mutáveis
+          </p>
+        </section>
+
+        <section data-auto-animate>
+          <h4>Síntese de Coleções</h4>
+          <p class='fragment fade-in-then-semi-out'>
+            Dicionários: Recomendado quando se deseja indexar
+            pares de chave-valor; permite acesso individual
+            de itens; mutáveis
+          </p>
+          <p class='fragment fade-in-then-semi-out'>
+            Conjuntos: Recomendado quando não se deseja manter
+            elementos repetidos e para registrar ocorrência de
+            elementos; mutável
+          </p>
+
+          <p class='fragment' style='font-size: .9em'>
+          Tanto conjuntos quanto dicionários possuem rápido tempo de
+          <strong>busca</strong> por chave. Para esse propósito são preferíveis
+          em relação a tuplas e listas.
+          </p>
+        </section>
+
+
+        <section data-auto-animate>
+          <h4>Síntese de Coleções</h4>
+
+          <p>Não foi possível explorar todo o potencial e utilidade dessas
+          coleções nesta aula...</p>
+
+          <p>Conseguiremos entender melhor seu uso conforme formos avançando
+          com os exemplos e tarefas!</p>
+        </section>
+
+
+        <section data-auto-animate>
+          <h4>Síntese de Coleções</h4>
+
+          <p>Não foi possível explorar todo o potencial e utilidade dessas
+          coleções nesta aula...</p>
+
+          <p>Conseguiremos entender melhor seu uso conforme formos avançando
+          com os exemplos e tarefas!</p>
+        </section>
+
+
+        <section data-auto-animate>
+          <h4>BONUS</h4>
+        </section>
+
+
+
+        <section data-auto-animate>
+          <h4>BONUS</h4>
+          <p>Vamos melhorar aquele código com vários <code>if</code>s!
+        </section>
+
+
+        <section>
+          <div style='display: flex; flex-direction: column; height: var(--slide-height)'>
+          <div style='font-style: italic; font-size: .5em; flex: none;'>Relembrando...</div>
+          <div class='ace-brython' style='font-size: .4em; height: 25em; flex: 1;'>
+            <script type='text/x.ace-brython'>
+              cor = 'vermelho'
+              valor = 50
+              quantidade = 300
+              classe = 'a decidir'
+
+              if cor == 'azul' and valor == 50 and quantidade == 200:
+                classe = 'Classificação 1-a-a'
+              elif cor == 'azul' and valor == 100 and quantidade == 200:
+                classe = 'Classificação 1-a-b'
+              elif cor == 'azul' and valor == 150 and quantidade == 200:
+                classe = 'Classificação 1-a-c'
+              if cor == 'azul' and valor == 50 and quantidade == 300:
+                classe = 'Classificação 1-b-a'
+              elif cor == 'azul' and valor == 100 and quantidade == 300:
+                classe = 'Classificação 1-b-b'
+              elif cor == 'azul' and valor == 150 and quantidade == 300:
+                classe = 'Classificação 1-b-c'
+
+                # repetição do mesmo bloco de código, porém trocando a cor
+              elif cor == 'vermelho' and valor == 50 and quantidade == 200:
+                classe = 'Classificação 2-a-a'
+              elif cor == 'vermelho' and valor == 100 and quantidade == 200:
+                classe = 'Classificação 2-a-b'
+              elif cor == 'vermelho' and valor == 150 and quantidade == 200:
+                classe = 'Classificação 2-a-c'
+              if cor == 'vermelho' and valor == 50 and quantidade == 300:
+                classe = 'Classificação 2-b-a'
+              elif cor == 'vermelho' and valor == 100 and quantidade == 300:
+                classe = 'Classificação 2-b-b'
+              elif cor == 'vermelho' and valor == 150 and quantidade == 300:
+                classe = 'Classificação 2-b-c'
+
+              print(classe)
+            </script>
+        </section>
+
+        <section>
+          <p>
+            Nova versão!
+          </p>
+          <div class='ace-brython' style='font-size: .4em; height: 29em;'>
+            <script type='text/x.ace-brython'>
+              cor = 'vermelho'
+              valor = 50
+              quantidade = 300
+
+              classes = {
+                  ('azul',50,200):'Classificação 1-a-a',
+                  ('azul',100,200):'Classificação 1-a-b',
+                  ('azul',150,200):'Classificação 1-a-c',
+                  ('azul',50,300):'Classificação 1-b-a',
+                  ('azul',100,300):'Classificação 1-b-b',
+                  ('azul',150,300):'Classificação 1-b-c',
+
+                  ('vermelho',50,200):'Classificação 2-a-a',
+                  ('vermelho',100,200):'Classificação 2-a-b',
+                  ('vermelho',150,200):'Classificação 2-a-c',
+                  ('vermelho',50,300):'Classificação 2-b-a',
+                  ('vermelho',100,300):'Classificação 2-b-b',
+                  ('vermelho',150,300):'Classificação 2-b-c',
+              }
+
+              print(classes[(cor,valor,quantidade)])
+            </script>
+          </div>
+        </section>
+
+
+        <section>
+          <p>
+            Nova versão++!
+          </p>
+          <div class='ace-brython' style='font-size: .4em; height: 29em;'>
+            <script type='text/x.ace-brython'>
+              cor = 'vermelho'
+              valor = 50
+              quantidade = 300
+
+              mapa_valor = {50: 'a', 100: 'b', 150: 'c'}
+              mapa_qtd = {200: 'a', 300: 'b'}
+              mapa_cor = {'azul': '1', 'vermelho': '2'}
+
+              classe = 'Classificação ' + mapa_cor[cor]
+              classe += '-' + mapa_qtd[quantidade]
+              classe += '-' + mapa_valor[valor]
+
+              print(classe)
+            </script>
+          </div>
+        </section>
+
+
+        <section>
+            <div class='r-fit-text'>
+                Até a próxima!
+            </div>
+        </section>
+      </div>
+    </div>
+
+    <script src="../revealjs/dist/reveal.js"></script>
+    <script src="../revealjs/plugin/notes/notes.js"></script>
+    <script src="../revealjs/plugin/markdown/markdown.js"></script>
+    <script src="../revealjs/plugin/highlight/highlight.js"></script>
+    <script src="../revealjs-ace-brython/dist/main.js"></script>
+    <script src="../asciinema/asciinema-player.js"></script>
+    <script type='module' src="main.js"></script>
+  </body>
+</html>
