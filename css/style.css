@@ -1,0 +1,59 @@
+@font-face {
+  font-family: 'Open Sans';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url(Open_Sans/OpenSans-Regular.ttf) format('truetype');
+}
+
+
+html {
+    --bg-h: 70;
+    --bg-s: 18%;
+    --bg-l: 93%;
+    --fg-h: 70;
+    --fg-s: 18%;
+    --fg-l: 20%;
+    background-color: hsl(var(--bg-h), var(--bg-s), var(--bg-l));
+    color: hsl(var(--fg-h), var(--fg-s), var(--fg-l));
+    font-family: 'Open Sans', sans-serif;
+}
+
+code {
+    font-size: 1.2em;
+    background-color: #0001;
+}
+
+
+body {
+    margin: 0;
+    padding: 2em;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+body > header {
+    margin-bottom: 2em;
+}
+
+main {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 2em;
+}
+
+
+main > article {
+    padding: 1em 2em;
+    background-color: hsl(var(--bg-h), var(--bg-s), calc(var(--bg-l) * 1.03));
+    box-shadow: 0 0 1ex #0001;
+    border-radius: .3ex;
+    width: 22em;
+}
+
+
+main > article > header {
+    text-align: right;
+}
