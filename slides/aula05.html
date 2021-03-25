@@ -53,7 +53,7 @@
           cada...</p>
 
           <p>
-            Entretanto, muitas vezes (muitas mesmo), é importante termos a
+            Entretanto, muitas vezes (<em>muitas mesmo</em>), é importante termos a
             capacidade de organizar nossos dados em estruturas mais complexas.
           </p>
         </section>
@@ -63,7 +63,7 @@
           <h3>Coleções</h3>
 
           <p>
-            Entretanto, muitas vezes (muitas mesmo), é importante termos a
+            Entretanto, muitas vezes (<em>muitas mesmo</em>), é importante termos a
             capacidade de organizar nossos dados em estruturas mais complexas.
           </p>
 
@@ -102,14 +102,14 @@
           >
             <div>Tupla: <code>(2, 3, 5, 'Alice', False, 5)</code></div>
             <div>Lista: <code>[2, 3, 5, 'Alice', False, 5]</code></div>
-            <div>Conjuntos: <code>{2, 3, 5, 'Alice', False}</code></div>
-            <div>Dicionários: <code>{'idade': 35, 'nome': 'Alice', 'casada': False}</code></div>
+            <div>Conjunto: <code>{2, 3, 5, 'Alice', False}</code></div>
+            <div>Dicionário: <code>{'idade': 35, 'nome': 'Alice', 'casada': False}</code></div>
           </div>
         </section>
 
 
         <section data-auto-animate>
-          <h4>Tupla</h4>
+          <h4>Tuplas</h4>
 
           <p>Uma sequência de valores.</p>
 
@@ -123,7 +123,7 @@
 
 
         <section data-auto-animate data-reusable>
-          <h4>Tupla</h4>
+          <h4>Tuplas</h4>
           <p
             style='font-size: .8em; text-align: left'
             data-reusable-tag='title'
@@ -146,7 +146,7 @@
             ('A', 32)
             --></div>
             <div class='python-repl'><!--
-            >>> tupla5 = (tupla1, tupla4, tupla1) # Tuplas de tuplas
+            >>> tupla5 = (tupla1, tupla4, tupla1) # Tupla de tuplas
             >>> print('Tupla de tuplas:', tupla5)
             Tupla de tuplas: ((1, 5, 1), (64.122, 1), (1, 5, 1))
             --></div>
@@ -528,7 +528,7 @@
             KeyError: 'xyz'
             --></div>
             <div class='python-repl'><!--
-            >>> 'xyz' in table['xyz']  # Verificando existência de chave, tão rápido quanto para conjuntos
+            >>> 'xyz' in table  # Verificando existência de chave, tão rápido quanto para conjuntos
             False
             --></div>
           </template>
@@ -539,7 +539,7 @@
         <section data-auto-animate data-reusable>
           <h4>Coleções</h4>
 
-          <p style='font-size: .6em'>Todas esses tipos de coleções são
+          <p style='font-size: .6em'>Todos esses tipos de coleções são
           <strong>iteráveis</strong>, isso significa que é possível percorrer
           seus valores utilizando <code>for</code>, por exemplo.</p>
 
@@ -602,8 +602,8 @@
             ou por slices; imutáveis
           </p>
           <p class='fragment'>
-            Listas: Recomendado quando se pretende acrescentar ou
-            remover itens, ou alterar a ordem dos itens; permite
+            Listas: Recomendado quando se pretende alterar a ordem,
+            acrescentar ou remover itens; permite
             acesso individual de itens ou por slices; mutáveis
           </p>
         </section>
@@ -616,9 +616,8 @@
             de itens; mutáveis
           </p>
           <p class='fragment fade-in-then-semi-out'>
-            Conjuntos: Recomendado quando não se deseja manter
-            elementos repetidos e para registrar ocorrência de
-            elementos; mutável
+            Conjuntos: Recomendado quando se deseja registrar ocorrência
+            de elementos sem  manter repetições; mutável
           </p>
 
           <p class='fragment' style='font-size: .9em'>
@@ -640,25 +639,379 @@
         </section>
 
 
-        <section data-auto-animate>
-          <h4>Síntese de Coleções</h4>
-
-          <p>Não foi possível explorar todo o potencial e utilidade dessas
-          coleções nesta aula...</p>
-
-          <p>Conseguiremos entender melhor seu uso conforme formos avançando
-          com os exemplos e tarefas!</p>
-        </section>
-
 
         <section data-auto-animate>
-          <h4>BONUS</h4>
+          <h4>Exemplo 1</h4>
+          <p>
+            Alice quer comprar algumas coisas novas para sua casa...
+          </p>
+          <p class='fragment'>
+            Porém precisa ir comprando aos poucos para não exceder o orçamento!
+          </p>
         </section>
 
 
 
+        <section>
+          <p>
+            Lista de compras de Alice
+          </p>
+          <div
+            class='ace-brython'
+            style='font-size: .4em; height: 12em;'
+            data-components='code'
+          >
+            <script type='text/x.ace-brython'>
+              compras = [ ('Liquidificador', 140.00), ('Abajur de chão', 200.00),
+                ('Ventilador de mesa', 94.90), ('Televisão 4k 50"', 2587.05),
+                ('Máquina de Café Expresso', 789.00), ('Poltrona Reclinável', 619.00),
+                ('Furadeira/Parafusadeira', 178.93), ('Serra Circular', 372.93)
+              ]
+            </script>
+          </div>
+        </section>
+
+
+
         <section data-auto-animate>
-          <h4>BONUS</h4>
+          <p style='font-size: .9em'>
+            Para comprar os itens da lista, Alice consegue separar 1500 reais por
+            mês
+          </p>
+          <p class='fragment' style='font-size: .9em'>
+            Vamos ajudá-la a decidir o que comprar a cada mês!
+          </p>
+        </section>
+
+
+
+        <section data-auto-animate>
+          <p style='font-size: .9em'>
+            Vamos considerar que ao comprar um item, Alice risca (remove)
+            ele da lista.
+          </p>
+          <p class='fragment' style='font-size: .9em'>
+            Deste modo, podemos repetir o bloco <em>enquanto</em> a lista não
+            estiver vazia.
+          </p>
+        </section>
+
+
+
+        <section>
+          <p>
+            Compras de Alice
+          </p>
+          <div 
+            class='ace-brython'
+            style='font-size: .4em;
+            height: 12em;'
+            data-max-lines=20
+            data-components='code'
+          >
+            <script type='text/x.ace-brython'>
+              compras = [ ('Liquidificador', 140.00), ('Abajur de chão', 200.00),
+                ('Ventilador de mesa', 94.90), ('Televisão 4k 50"', 2587.05),
+                ('Máquina de Café Expresso', 789.00), ('Poltrona Reclinável', 619.00),
+                ('Furadeira/Parafusadeira', 178.93), ('Serra Circular', 372.93)
+              ]
+
+              while compras:
+                # Bloco que decide o que Alice vai comprar
+            </script>
+          </div>
+        </section>
+
+
+
+        <section data-auto-animate>
+          <p style='font-size: .9em'>
+            Como vimos, a cada mês Alice coloca 1500 reais dentro de um cofrinho.
+          </p>
+          <p class='fragment' style='font-size: .9em'>
+            Assim, em todo início de mês o cofrinho é <em>incrementado</em>
+            em 1500.
+          </p>
+        </section>
+
+
+
+        <section data-auto-animate>
+          <p style='font-size: .9em'>
+            Após abastecer seu cofre, Alice olha para sua lista de compras
+            e vê o que pode comprar com o dinheiro do cofrinho.
+          </p>
+          <p class='fragment' style='font-size: .9em'>
+            E compra tudo o que conseguir comprar.
+          </p>
+        </section>
+
+
+
+        <section>
+          <p>
+            Compras de Alice
+          </p>
+          <div 
+            class='ace-brython'
+            style='font-size: .4em;
+            height: 28em;'
+            data-max-lines=20
+          >
+            <script type='text/x.ace-brython'>
+              compras = [ ('Liquidificador', 140.00), ('Abajur de chão', 200.00),
+                ('Ventilador de mesa', 94.90), ('Televisão 4k 50"', 2587.05),
+                ('Máquina de Café Expresso', 789.00), ('Poltrona Reclinável', 619.00),
+                ('Furadeira/Parafusadeira', 178.93), ('Serra Circular', 372.93)
+              ]
+              cofrinho = 0
+
+              while compras:
+                cofrinho += 1500    # abastecimento do cofrinho
+                compra_mes = []
+
+                for item in compras:
+                  if item[1] <= cofrinho: # se tem dinheiro, compra
+                    cofrinho -= item[1]
+                    compra_mes.append(item) # adiciona item à lista de comprados
+                for comprado in compra_mes:  
+                  compras.remove(comprado)  # risca da lista o que já comprou
+                print('Este mês Alice comprou', compra_mes)
+              print('Alice comprou tudo o que queria!')
+            </script>
+          </div>
+          <div class='fragment local-standout-box' style='bottom: 2em;'>
+            Não podemos riscar o item da lista assim<br/>
+            que compramos ele? 🤔
+          </div>
+        </section>
+
+
+
+        <section data-auto-animate>
+          <p style='font-size: .9em'>
+            Ela conseguiu comprar tudo o que queria, legal!
+          </p>
+          <p class='fragment' style='font-size: .9em'>
+            Quanto tempo levou para isso?
+          </p>
+          <p class='fragment' style='font-size: .9em'>
+            E quanto foi o gasto total?
+          </p>
+          <p class='fragment' style='font-size: .9em'>
+            Quanto sobrou?
+          </p>
+          <p class='fragment' style='font-size: .9em'>
+            Vamos descobrir!
+          </p>
+        </section>
+
+
+
+        <section>
+          <p>
+            Compras de Alice
+          </p>
+          <div 
+            class='ace-brython'
+            style='font-size: .4em;
+            height: 32em;'
+            data-max-lines=20
+          >
+            <script type='text/x.ace-brython'>
+              compras = [ ('Liquidificador', 140.00), ('Abajur de chão', 200.00),
+                ('Ventilador de mesa', 94.90), ('Televisão 4k 50"', 2587.05),
+                ('Máquina de Café Expresso', 789.00), ('Poltrona Reclinável', 619.00),
+                ('Furadeira/Parafusadeira', 178.93), ('Serra Circular', 372.93)
+              ]
+              cofrinho = 0
+              gasto_total = []    # armazenar gasto de cada mês
+              compras_total = []  # armazenar todos os itens comprados
+
+              while compras:
+                cofrinho += 1500    # abastecimento do cofrinho
+                gasto_mes = 0
+                compra_mes = []
+
+                for item in compras:
+                  if item[1] <= cofrinho: # se tem dinheiro, compra
+                    cofrinho -= item[1]
+                    gasto_mes += item[1]    # incrementa gasto do mês
+                    compra_mes.append(item) # adiciona item à lista de comprados
+                for comprado in compra_mes:  
+                  compras.remove(comprado)  # risca da lista o que já comprou
+
+                print('Este mês Alice gastou', gasto_mes,'comprando:', compra_mes)
+                compras_total.append(compra_mes)
+                gasto_total.append(gasto_mes)            
+
+              print()
+              print('Alice precisou de', len(gasto_total),'meses para comprar o que queria.')
+              print('Gastou um total de',sum(gasto_total),'reais.')
+              print('Sobrando', 4*1500 - sum(gasto_total),'reais em seu cofrinho')
+              print('E as compras de cada mês foram:',compras_total)
+            </script>
+          </div>
+        </section>
+
+
+
+        <section data-auto-animate>
+          <p style='font-size: .9em'>
+            Conseguimos ajudar Alice com as compras!
+          </p>
+          <p class='fragment' style='font-size: .9em'>
+            Mas e se ela quisesse comprar os itens mais baratos primeiro?
+          </p>
+          <p class='fragment' style='font-size: .9em'>
+            Ou os mais caros?
+          </p>
+        </section>
+
+
+
+        <section>
+          <p>
+            Compras de Alice (mais baratos primeiro)
+          </p>
+          <div 
+            class='ace-brython'
+            style='font-size: .4em;
+            height: 32em;'
+            data-max-lines=20
+          >
+            <script type='text/x.ace-brython'>
+              compras = [ ('Liquidificador', 140.00), ('Abajur de chão', 200.00),
+                ('Ventilador de mesa', 94.90), ('Televisão 4k 50"', 2587.05),
+                ('Máquina de Café Expresso', 789.00), ('Poltrona Reclinável', 619.00),
+                ('Furadeira/Parafusadeira', 178.93), ('Serra Circular', 372.93)
+              ]
+              cofrinho = 0
+              gasto_total = []    # armazenar gasto de cada mês
+              compras_total = []  # armazenar todos os itens comprados
+
+              compras.sort(key=lambda x:x[1]) # Basta ordenar a lista pelo preço!
+
+              while compras:
+                cofrinho += 1500    # abastecimento do cofrinho
+                gasto_mes = 0
+                compra_mes = []
+
+                for item in compras:
+                  if item[1] <= cofrinho: # se tem dinheiro, compra
+                    cofrinho -= item[1]
+                    gasto_mes += item[1]    # incrementa gasto do mês
+                    compra_mes.append(item) # adiciona item à lista de comprados
+                for comprado in compra_mes:  
+                  compras.remove(comprado)  # risca da lista o que já comprou
+
+                print('Este mês Alice gastou', gasto_mes,'comprando:', compra_mes)
+                compras_total.append(compra_mes)
+                gasto_total.append(gasto_mes)            
+
+              print()
+              print('Alice precisou de', len(gasto_total),'meses para comprar o que queria.')
+              print('Gastou um total de',sum(gasto_total),'reais.')
+              print('Sobrando', 4*1500 - sum(gasto_total),'reais em seu cofrinho')
+              print('E as compras de cada mês foram:',compras_total)
+            </script>
+          </div>
+        </section>
+
+
+
+        <section>
+          <p>
+            Compras de Alice (mais caros primeiro)
+          </p>
+          <div 
+            class='ace-brython'
+            style='font-size: .4em;
+            height: 32em;'
+            data-max-lines=20
+          >
+            <script type='text/x.ace-brython'>
+              compras = [ ('Liquidificador', 140.00), ('Abajur de chão', 200.00),
+                ('Ventilador de mesa', 94.90), ('Televisão 4k 50"', 2587.05),
+                ('Máquina de Café Expresso', 789.00), ('Poltrona Reclinável', 619.00),
+                ('Furadeira/Parafusadeira', 178.93), ('Serra Circular', 372.93)
+              ]
+              cofrinho = 0
+              gasto_total = []    # armazenar gasto de cada mês
+              compras_total = []  # armazenar todos os itens comprados
+
+              compras.sort(key=lambda x:x[1], reverse= True) # Basta ordenar a
+              # lista pelo preço, porém de maneira reversa!
+              while compras:
+                cofrinho += 1500    # abastecimento do cofrinho
+                gasto_mes = 0
+                compra_mes = []
+
+                for item in compras:
+                  if item[1] <= cofrinho: # se tem dinheiro, compra
+                    cofrinho -= item[1]
+                    gasto_mes += item[1]    # incrementa gasto do mês
+                    compra_mes.append(item) # adiciona item à lista de comprados
+                for comprado in compra_mes:  
+                  compras.remove(comprado)  # risca da lista o que já comprou
+
+                print('Este mês Alice gastou', gasto_mes,'comprando:', compra_mes)
+                compras_total.append(compra_mes)
+                gasto_total.append(gasto_mes)            
+
+              print()
+              print('Alice precisou de', len(gasto_total),'meses para comprar o que queria.')
+              print('Gastou um total de',sum(gasto_total),'reais.')
+              print('Sobrando', 4*1500 - sum(gasto_total),'reais em seu cofrinho')
+              print('E as compras de cada mês foram:',compras_total)
+            </script>
+          </div>
+        </section>
+
+
+
+        <section>
+          <p>
+            Removendo o item logo após a compra
+          </p>
+          <div 
+            class='ace-brython'
+            style='font-size: .4em;
+            height: 32em;'
+            data-max-lines=20
+          >
+            <script type='text/x.ace-brython'>
+              compras = [ ('Liquidificador', 140.00), ('Abajur de chão', 200.00),
+                ('Ventilador de mesa', 94.90), ('Televisão 4k 50"', 2587.05),
+                ('Máquina de Café Expresso', 789.00), ('Poltrona Reclinável', 619.00),
+                ('Furadeira/Parafusadeira', 178.93), ('Serra Circular', 372.93)
+              ]
+              cofrinho = 0
+              compras.sort(key=lambda x:x[1]) # Basta ordenar a lista pelo preço
+              print('Lista de compras ordenada:', compras,'\n')
+
+              while compras:
+                cofrinho += 1500    # abastecimento do cofrinho
+
+                print('Lista utilizada no for deste mês:', compras)
+                for item in compras:
+                  if item[1] <= cofrinho: # se tem dinheiro, compra
+                    cofrinho -= item[1]
+                    compras.remove(item)  # risca da lista o que já comprou
+                    print('Item removido', item)
+                    print('Lista após remoção', compras,'\n')
+            </script>
+          </div>
+          <div class='fragment local-standout-box' style='bottom: 2em;'>
+            Este código pula um elemento<br/>
+            a cada remoção!
+          </div>
+        </section>
+
+
+
+        <section data-auto-animate>
+          <h4>Exemplo 2</h4>
           <p>Vamos melhorar aquele código com vários <code>if</code>s!
         </section>
 
@@ -758,6 +1111,385 @@
             </script>
           </div>
         </section>
+
+
+
+        <section data-auto-animate>
+          <h4>BÔNUS</h4>
+        </section>
+
+
+
+        <section data-auto-animate>
+          <h4>List Comprehension</h4>
+          <p class='fragment' style='font-size: .9em'>
+            É uma sintaxe mais enxuta para a criação de uma lista a partir de um iterável!
+          </p>
+          <p class='fragment' style='font-size: .7em'>
+            Sintaxe:<br/>
+            <code>lista = [<em>expressão</em> for <em>item</em> 
+            in <em>iterável</em> if <em>condição</em>]</code>
+          </p>
+        </section>
+
+
+
+        <section>
+          <p>
+            List Comprehension
+          </p>
+          <div class='ace-brython' style='font-size: .4em; height: 12em;'>
+            <script type='text/x.ace-brython'>
+              # lista com os números que são divisíveis por 2 e por 3
+              nums = [x for x in range(30) if x % 2 == 0 and (x % 3 == 0)]
+              print(nums)
+
+              # lista com quadrados dos números que são divisíveis por 2 e por 3
+              nums_sq = [x**2 for x in range(30) if x % 2 == 0 and (x % 3 == 0)]
+              print(nums_sq)
+            </script>
+          </div>
+        </section>
+
+
+
+        <section data-auto-animate>
+          <h4>Dict Comprehension</h4>
+          <p style='font-size: .9em'>
+            Também pode ser usado para dicionários!
+          </p>
+          <p class='fragment' style='font-size: .7em'>
+            Sintaxe:<br/>
+            <code>{<em>chave: valor</em> for <em>item</em> in <em>iterável</em>
+             if <em>condição</em>}</code>
+          </p>
+        </section>
+
+
+
+        <section>
+          <p>
+            Também pode ser usado para dicionários!
+          </p>
+          <div class='ace-brython' style='font-size: .4em; height: 8em;'>
+            <script type='text/x.ace-brython'>
+              # dicionário com os números que são divisíveis por 2 e por 3,
+              # e seus quadrados!
+              nums = {key:key**2 for key in range(30) if key % 2 == 0 and (key % 3 == 0)}
+              print(nums)
+            </script>
+          </div>
+        </section>
+
+
+
+        <section data-auto-animate>
+          <h3>Strings</h3>
+        </section>
+
+
+
+        <section data-auto-animate>
+          <p>
+            Como visto anteriormente, <em>Strings</em> são 
+            sequências de caracteres
+          </p>
+          <div style='
+                font-size: .9em;
+                display: flex;
+                gap: 1ex;
+                flex-wrap: wrap;
+                justify-content: center;
+            '>
+                <code>"Charles"</code>
+                <code>'Lorem Ipsum dolor sit amet'</code>
+                <code>'0800-1111-0000'</code>
+                <code>"Avenida 24A, número 1515"</code>
+            </div>
+        </section>
+
+
+
+        <section data-auto-animate>
+          <h4>Strings</h4>
+          <p>Agora que estudamos Coleções, podemos enxergar strings
+            como <em>coleções de caracteres</em>!
+          </p>
+        </section>
+
+
+        <section data-auto-animate>
+          <h4>Strings</h4>
+          <p>Agora que estudamos Coleções, podemos enxergar strings
+            como <em>coleções de caracteres</em>!
+          </p>
+          <p>
+            E desta maneira explorar os recursos disponíveis para este
+            tipo de dado.
+          </p>
+        </section>
+
+
+
+        <section data-auto-animate>
+          <p>
+            Podemos utilizar indexação em strings também!
+          </p>
+        </section>
+
+
+
+        <section data-auto-animate>
+          <p>
+            Podemos utilizar indexação em strings também!
+          </p>
+          <div class='ace-brython' style='font-size: .5em; height: 16em;'>
+            <script type='text/x.ace-brython' data-id='string-index'>
+              palavra = 'paralelepípedo'
+
+              print(palavra[2])   # caracter na posição 2
+              print(palavra[-2])  # caracter na penúltima posição
+              print(palavra[:5])  # fatia do começo até a posição 5
+              print(palavra[2:])  # fatia da posição 2 até o fim
+              print(palavra[:-6]) # fatia do começo à sexta posição reversa
+              print(palavra[-6:]) # fatia da sexta posição reversa até o fim
+            </script>
+          </div>
+        </section>
+
+
+
+        <section data-auto-animate>
+          <p>
+            Porém devemos lembrar que strings são <em>imutáveis</em>
+          </p>
+        </section>
+
+
+
+        <section data-auto-animate>
+          <p>
+            Porém devemos lembrar que strings são <em>imutáveis</em>
+          </p>
+          <div class='ace-brython' style='font-size: .5em; height: 8em;'>
+            <script type='text/x.ace-brython' data-id='string-index2'>
+              solido = 'Octaedro'
+
+              print(solido[:4])
+              print('Dodeca' + solido[4:])
+            </script>
+          </div>
+        </section>
+
+
+
+        <section data-auto-animate>
+          <p>
+            Porém devemos lembrar que strings são <em>imutáveis</em>
+          </p>
+          <p>
+            Então não podemos alterar seu conteúdo
+          </p>
+          <div class='ace-brython' style='font-size: .5em; height: 16em;'>
+            <script type='text/x.ace-brython' data-id='string-index3'>
+              solido = 'Octaedro'
+
+              print(solido[:4])
+              print('Dodeca' + solido[4:])
+              solido[:4] = 'Dodeca'
+            </script>
+          </div>
+        </section>
+
+
+
+        <section data-auto-animate>
+          <p>
+            Porém devemos lembrar que strings são <em>imutáveis</em>
+          </p>
+          <p>
+            Então não podemos alterar seu conteúdo
+          </p>
+          <p>
+            Mas podemos atribuir um novo valor à variável!
+          </p>
+          <div class='ace-brython' style='font-size: .4em; height: 12em;'>
+            <script type='text/x.ace-brython' data-id='string-index4'>
+              solido = 'Octaedro'
+
+              print(solido[:4])
+              print('Dodeca' + solido[4:])
+              solido = 'Dodeca' + solido[4:]
+              print('Novo sólido:', solido)
+            </script>
+          </div>
+        </section>
+
+
+
+        <section data-auto-animate>
+          <p>
+            Podemos utilizar indexação de strings para identificação de
+            sufixos
+          </p>
+        </section>
+
+
+
+        <section data-auto-animate>
+          <p>
+            Podemos utilizar indexação de strings para identificação de
+            prefixos e sufixos
+          </p>
+          <div class='ace-brython' style='font-size: .5em; height: 20em;'>
+            <script type='text/x.ace-brython'>
+              poliedros_platonicos = ['Tetraedro', 'Hexaedro', 'Octaedro',
+                'Dodecaedro', 'Icosaedro']
+
+              significados = {
+                'Tetra':{ 'faces':4,'vertices':4,'arestas':6,'elemento':'fogo'},
+                'Hexa':{'faces':6,'vertices':8,'arestas':12,'elemento':'terra'},
+                'Octa':{'faces':8, 'vertices':6, 'arestas':12,'elemento':'ar'},
+                'Dodeca':{'faces':12, 'vertices':20, 'arestas':30,'elemento':'água'},
+                'Icosa':{'faces':20, 'vertices':12, 'arestas':30,'elemento':'universo'},
+              }
+
+              for p in poliedros_platonicos:
+                print(p,significados[p[:-4]])
+            </script>
+          </div>
+        </section>
+
+
+
+        <section data-auto-animate>
+          <p>
+            Além de indexação, existem métodos específicos de strings
+          </p>
+        </section>
+
+
+
+        <section data-auto-animate>
+          <p>
+            Divisão de strings
+          </p>
+          <div class='ace-brython' style='font-size: .5em; height: 22em;'>
+            <script type='text/x.ace-brython' data-id='string-split'>
+              estrofe = ('Minha terra tem palmeiras,/Onde canta o Sabiá;/'
+                        'As aves, que aqui gorjeiam,/Não gorjeiam como lá')
+
+              print(estrofe)
+
+              # Dividindo a estrofe em versos utilizando o separador /
+              versos = estrofe.split('/')
+              print()
+              print(versos)
+              print()
+              for v in versos:
+                print(v)
+            </script>
+          </div>
+        </section>
+
+
+
+        <section data-auto-animate>
+          <p>
+            União de strings presente em um iterável
+          </p>
+          <div class='ace-brython' style='font-size: .5em; height: 14em;'>
+            <script type='text/x.ace-brython' data-id='string-join'>
+              versos = [
+                'Minha terra tem palmeiras,',
+                'Onde canta o Sabiá;',
+                'As aves, que aqui gorjeiam,',
+                'Não gorjeiam como lá'
+                ]
+
+              # Unindo lista de strings em uma só string
+              estrofe = ' '.join(versos)
+              print(estrofe)
+            </script>
+          </div>
+        </section>
+
+
+
+        <section data-auto-animate>
+          <p>
+            Ficou uma string comprida, difícil de ler...
+          </p>
+        </section>
+
+
+
+        <section data-auto-animate>
+          <p>
+            Ficou uma string comprida, difícil de ler...
+          </p>
+          <p>
+            E se alterássemos a string separadora?
+          </p>
+        </section>
+
+
+
+        <section data-auto-animate>
+          <p>
+            E se alterássemos a string separadora?
+          </p>
+          <div class='ace-brython' style='font-size: .5em; height: 18em;'>
+            <script type='text/x.ace-brython' data-id='string-join-linebreak'>
+              versos = [
+                'Minha terra tem palmeiras,',
+                'Onde canta o Sabiá;',
+                'As aves, que aqui gorjeiam,',
+                'Não gorjeiam como lá'
+                ]
+
+              # Unindo lista de strings em uma só string
+              estrofe = '\n'.join(versos)
+              print(estrofe)
+            </script>
+          </div>
+        </section>
+
+
+
+        <section data-auto-animate>
+          <p>
+            Verificação e manipulação de letras maiúsculas e minúsculas
+          </p>
+          <div class='ace-brython' style='font-size: .5em; height: 20em;'>
+            <script type='text/x.ace-brython' data-id='string-casing'>
+              obra = 'Memórias Póstumas de Brás Cubas'
+
+              print('Tudo minúsculo?',obra.islower())
+              print('Tudo minúsculo?',obra.isupper())
+              print('Título?',obra.istitle())
+              print('')
+              print('Tudo minúsculo:',obra.lower())
+              print('Tudo minúsculo:',obra.upper())
+              print('Título:',obra.title())
+              print('Invertidas:',obra.swapcase())
+            </script>
+          </div>
+        </section>
+
+
+
+        <section data-auto-animate>
+          <p>
+            Entre outras...
+          </p>
+          <div style='font-size: .7em'>
+            Lista completa<br>
+            <a href="https://docs.python.org/3/library/stdtypes.html#string-methods" target='_blank'>
+              aqui na documentação</a>
+          </div>
+        </section>
+
 
 
         <section>
