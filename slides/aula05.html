@@ -630,11 +630,7 @@
 
         <section data-auto-animate>
           <h4>Síntese de Coleções</h4>
-
-          <p>Não foi possível explorar todo o potencial e utilidade dessas
-          coleções nesta aula...</p>
-
-          <p>Conseguiremos entender melhor seu uso conforme formos avançando
+          <p>Conseguiremos entender melhor o uso de coleções conforme formos avançando
           com os exemplos e tarefas!</p>
         </section>
 
@@ -1138,7 +1134,7 @@
           <p>
             List Comprehension
           </p>
-          <div class='ace-brython' style='font-size: .4em; height: 12em;'>
+          <div class='ace-brython' style='font-size: .5em; height: 14em;'>
             <script type='text/x.ace-brython'>
               # lista com os números que são divisíveis por 2 e por 3
               nums = [x for x in range(30) if x % 2 == 0 and (x % 3 == 0)]
@@ -1171,11 +1167,40 @@
           <p>
             Também pode ser usado para dicionários!
           </p>
-          <div class='ace-brython' style='font-size: .4em; height: 8em;'>
+          <div class='ace-brython' style='font-size: .5em; height: 10em;'>
             <script type='text/x.ace-brython'>
               # dicionário com os números que são divisíveis por 2 e por 3,
               # e seus quadrados!
               nums = {key:key**2 for key in range(30) if key % 2 == 0 and (key % 3 == 0)}
+              print(nums)
+            </script>
+          </div>
+        </section>
+
+
+
+        <section data-auto-animate>
+          <h4>Set Comprehension</h4>
+          <p style='font-size: .9em'>
+            E também pode ser usado para conjuntos!
+          </p>
+          <p class='fragment' style='font-size: .7em'>
+            Sintaxe:<br/>
+            <code>{<em>expressão</em> for <em>item</em> in <em>iterável</em>
+             if <em>condição</em>}</code>
+          </p>
+        </section>
+
+
+
+        <section>
+          <p>
+            E também pode ser usado para conjuntos!
+          </p>
+          <div class='ace-brython' style='font-size: .5em; height: 10em;'>
+            <script type='text/x.ace-brython'>
+              # conjunto com os números que são divisíveis por 2 e por 3
+              nums = {key for key in range(30) if key % 2 == 0 and (key % 3 == 0)}
               print(nums)
             </script>
           </div>
