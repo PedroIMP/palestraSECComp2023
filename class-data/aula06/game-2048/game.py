@@ -1,11 +1,8 @@
 import random
 
 
-NUM_ROWS = 4
-NUM_COLUMNS = 4
-
 def create_board(num_rows, num_columns):
-    board = [[0] * NUM_COLUMNS for _ in range(num_rows)]
+    board = [[0] * num_columns for _ in range(num_rows)]
 
     i = random.randint(0, num_rows - 1)
     j = random.randint(0, num_columns - 1)
