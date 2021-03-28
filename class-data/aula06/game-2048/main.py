@@ -1,5 +1,5 @@
-import curses_mode
-import pgz_mode
+import tui_mode
+import gui_mode
 
 
 if __name__ == '__main__':
@@ -12,6 +12,6 @@ if __name__ == '__main__':
         exit(0)
 
     if mode == 'tui':
-        curses_mode.run()
+        tui_mode.run()
     else:
-        pgz_mode.run()
+        gui_mode.run()
