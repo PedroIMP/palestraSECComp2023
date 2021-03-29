@@ -1,11 +1,13 @@
 import { applyReusable } from './reusable/reusable.js'
 import { applyPythonRepl } from './python-repl/python-repl.js'
+import { applyAutoFrag } from './auto-frag/auto-frag.js'
 
 
 const deckContainer = document.querySelector('.reveal')
 
 applyReusable(deckContainer)
 applyPythonRepl(deckContainer)
+applyAutoFrag(deckContainer)
 
 // Pre-processing of asciinema-player elements
 for (let p of deckContainer.querySelectorAll('asciinema-player')) {
