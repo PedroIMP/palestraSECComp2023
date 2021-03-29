@@ -419,15 +419,15 @@
             <li style='font-weight: bold;'>
               Diretório contendo o arquivo de entrada ("main.py" no nosso exemplo);
               <br/>
-              <span class='fragment'>
+              <span class='fragment' data-fragment-index='0'>
                 <strong>Por isso que o arquivo</strong> <code>poligonos.py</code>
                 <strong>é encontrado!</strong>
               </span>
             </li>
-            <li>
+            <li class='fragment' data-fragment-index='1'>
               Caminhos presentes na variável de ambiente <code>PYTHONPATH</code>;
             </li>
-            <li>
+            <li class='fragment' data-fragment-index='1'>
               Caminhos específicos da instalação utilizada.
             </li>
           </ol>
@@ -572,6 +572,34 @@
           </template>
         </template>
 
+
+
+        <section>
+          <p>
+            Legal! Já possuímos uma versão funcional do jogo! 😀
+          </p>
+          <asciinema-player
+              src='misc/game-2048.cast'
+              autoplay
+              loop
+              rows='13'
+              cols='52'
+              font-size='.4em'
+            ></asciinema-player>
+
+          <p class='fragment'>
+            Mas o jogo atualmente não permite que o usuário pause o jogo e
+            <strong>continue de onde parou</strong> em uma nova chamada.
+          </p>
+
+          <div class='fragment local-standout-box' style='bottom: 2em;'>
+            Iremos implementar isso através de
+            <strong>manipulação de arquivos</strong>!
+          </div>
+        </section>
+
+
+
         <section>
           <h3>Manipulação de Arquivos</h3>
         </section>
@@ -579,7 +607,553 @@
 
 
         <section data-auto-animate>
-          <p class='r-fit-text'>
+          <p data-auto-frag>
+            Variáveis guardam valores de expressões durante o programa.
+          </p>
+          <p data-auto-frag>
+            E quando o programa termina?
+          </p>
+          <p data-auto-frag>
+            Como armazenar resultados para serem utilizados posteriormente?
+          </p>
+          <p data-auto-frag>
+            Escrevendo os resultados em um arquivo!
+          </p>
+          <p data-auto-frag>
+            Como?
+          </p>
+        </section>
+
+
+
+        <section data-auto-animate data-reusable>
+          <p>
+            Utilizando a função built-in <code>open()</code>
+          </p>
+          <div data-id='open-call'>
+              <div style='display: inline-block'>
+                <code>f = open(caminho, modo)</code>
+              </div>
+          </div>
+          <div
+            data-reusable-tag='description'
+            style='margin-top: 1em; font-size: .9em;'
+          >
+            <p class='fragment'>
+              O retorno é um objeto cujos métodos são responsáveis por ler e
+              escrever em arquivos.
+            </p>
+          </div>
+        </section>
+
+
+
+        <section data-auto-animate data-reusable>
+          <div data-id='open-call'>
+              <div style='display: inline-block'>
+                <code>f = open(<strong>caminho</strong>, modo)</code>
+              </div>
+          </div>
+          <div
+            data-reusable-tag='description'
+            style='margin-top: 1em; font-size: .9em;'
+          >
+            <p>
+              <code>caminho</code>: o caminho do arquivo a ser aberto
+            </p>
+            <p>
+              Se o caminho for relativo, o <strong>current working
+                directory</strong> será utilizado como base para resolução.
+            </p>
+            <p>
+              Pode ser um <code>str</code> ou um objeto to tipo
+              <code>pathlib.Path</code>.
+            </p>
+            <div class='fragment local-standout-box' style='margin-top: 2em'>
+              O que é um caminho?
+            </div>
+          </div>
+        </section>
+
+
+        <template data-reuse>
+          <template data-tag='description'>
+            <p>
+              Um <strong>caminho</strong> é uma sequência de nomes que
+              representam o "endereço" de um arquivo em um sistema operacional.
+            </p>
+
+            <p>
+              Os nomes que aparecem antes do nome final geralmente são nomes de
+              diretórios.
+            </p>
+
+            <p>
+              O último nome na sequência é o nome do arquivo ou diretório
+              referenciado.
+            </p>
+          </template>
+        </template>
+
+
+
+        <template data-reuse>
+          <template data-tag='description'>
+            <p>
+              Exemplo: Caminho <strong>absoluto</strong> de um arquivo chamado
+              "Minhas Anotações.txt" do usuário Jonas em um sistema UNIX (e.g.
+              Linux):
+            </p>
+            <p>
+              <code>/home/Jonas/Minhas Anotações.txt</code>
+            </p>
+
+            <p>
+              Note que "/" é usado como separador.
+            </p>
+            <p class='fragment'>
+              Um caminho <strong>absoluto</strong> se inicia a partir do
+              diretório raiz (o primeiro '/').
+            </p>
+          </template>
+        </template>
+
+
+
+        <template data-reuse>
+          <template data-tag='description'>
+            <p>
+              Exemplo: Caminho absoluto de um arquivo chamado "Minhas
+              Anotações.txt" do usuário Jonas em um sistema Windows:
+            </p>
+            <p>
+              <code>C:\Users\Jonas\Minhas Anotações.txt</code>
+            </p>
+
+            <p>
+              Note que "\" é usado como separador.
+            </p>
+          </template>
+        </template>
+
+
+
+        <template data-reuse>
+          <template data-tag='description'>
+            <p>
+              Exemplo: Caminho <strong>relativo</strong> de um arquivo chamado
+              "todo-list.txt" dentro de um diretório chamado "notes":
+            </p>
+            <p>
+              <code>notes/todo-list.txt</code>
+            </p>
+
+            <p>
+              Um caminho relativo não se inicia com o diretório raiz. Ele deve
+              ser resolvido de acordo com um diretório base. <em>A função
+              <code>open()</code> utiliza o current working directory como
+              base.
+              </em>
+            </p>
+          </template>
+        </template>
+
+
+        <template data-reuse>
+          <template data-tag='description'>
+            <p>
+              Nomes especiais:
+            </p>
+
+            <p>
+              <code>..</code>: representa o diretório "pai" (ou anterior) do
+              nome atual.
+            </p>
+
+            <div class='fragment' style='margin-top: 1em;'>
+              <p>
+                <code>../notes/todo-list.txt</code>
+              </p>
+
+              <p>
+                Estamos dizendo que o diretório <code>notes</code> está dentro do
+                pai do diretório atual.
+              </p>
+            </div>
+          </template>
+        </template>
+
+
+
+        <template data-reuse>
+          <template data-tag='description'>
+            <p>
+              Nomes especiais:
+            </p>
+
+            <p>
+              <code>.</code>: representa o diretório atual.
+            </p>
+
+            <div class='fragment' style='margin-top: 1em;'>
+              <p>
+                <code>./notes/todo-list.txt</code>
+              </p>
+
+              <p>
+                Isso é equivalente a <code>notes/todo-list.txt</code>. Pode ser
+                útil em ocasiões especiais.
+              </p>
+            </div>
+          </template>
+        </template>
+
+
+
+        <template data-reuse>
+          <template data-tag='description'>
+            <p>
+              <strong>Recomendação importante</strong>: Utilize
+              <code>os.path.join</code> ou <code>pathlib</code> para montar
+              caminhos!
+            </p>
+
+            <div style='font-size: .9em;'>
+              No Linux:
+              <div class='python-repl'><!--
+              >>> import os.path
+              >>> os.path.join('notes', 'todo-list.txt')
+              >>> print(caminho)
+              notes/todo-list.txt
+              --></div>
+
+              <br/>
+
+              No Windows:
+              <div class='python-repl'><!--
+              >>> import os.path
+              >>> caminho = os.path.join('notes', 'todo-list.txt')
+              >>> print(caminho)
+              notes\todo-list.txt
+              --></div>
+            </div>
+          </template>
+          <template data-append>
+            <div class='fragment local-standout-box' style='bottom: 1em;'>
+              Isso deixa seu código mais <strong>portável</strong>!
+            </div>
+          </template>
+        </template>
+
+
+
+        <section data-auto-animate data-reusable>
+          <div data-id='open-call'>
+              <div style='display: inline-block'>
+                <code>f = open(caminho, <strong>modo</strong>)</code>
+              </div>
+          </div>
+          <div
+            data-reusable-tag='description'
+            style='margin-top: 1em; font-size: .9em;'
+          >
+            <p>
+              <code>modo</code>: o modo de abertura
+            </p>
+            <p>
+             É uma string contendo combinação de caracteres para definir o modo
+             de abertura.
+            </p>
+          </div>
+        </section>
+
+
+
+        <template data-reuse>
+          <template data-tag='description'>
+            <p>
+              <code>modo</code> - Configurando <strong>Escrita/Leitura</strong>:
+            </p>
+            <p>
+              <code>r</code>(padrão): abre para leitura, falha se o arquivo
+              não existir.
+            </p>
+            <p>
+              <code>w</code>: abre para escrita, trunca o arquivo se o mesmo
+              existir.
+            </p>
+            <p>
+              <code>w+</code>: abre para leitura e escrita, e trunca o arquivo
+              original.
+            </p>
+            <p>
+              <code>w+</code>: abre para leitura e escrita, e não trunca o
+              arquivo original.
+            </p>
+          </template>
+        </template>
+
+
+
+        <template data-reuse>
+          <template data-tag='description'>
+            <p>
+              <code>modo</code> - Configurando <strong>Escrita/Leitura</strong>:
+            </p>
+            <p>
+              <code>a</code>: adicionar conteúdo ao final do arquivo, cria o
+              arquivo se o mesmo não existir.
+            </p>
+            <p>
+              <code>a+</code>: mesmo que <code>a</code>, mas também permite
+              leitura do arquivo.
+            </p>
+            <p>
+              <code>x</code>: abrir para escrita e criação exclusiva, falhando
+              se o arquivo existir.
+            </p>
+            <p>
+              <code>x+</code>: mesmo que <code>x</code>, mas também permite
+              leitura do arquivo.
+            </p>
+          </template>
+        </template>
+
+
+
+        <template data-reuse>
+          <template data-tag='description'>
+            <p>
+              <code>modo</code> - Escolhendo formato <strong>Texto ou Binário</strong>
+            </p>
+            <p>
+              <code>t</code>(padrão): abre em formato texto.
+            </p>
+            <p>
+              <code>b</code>: abre em formato binário.
+            </p>
+          </template>
+        </template>
+
+
+
+        <section data-auto-animate>
+          <p>
+            Agora que aprendemos sobre a função <code>open()</code>, vamos ver
+            como escrever conteúdos em arquivo.
+          </p>
+        </section>
+
+
+
+        <section data-auto-animate>
+          <p>
+            Agora que aprendemos sobre a função <code>open()</code>, vamos ver
+            como escrever conteúdos em arquivo.
+          </p>
+          <div class='ace-brython' data-components='code'
+               style='font-size: .8em;'
+          >
+            <script type='text/x.ace-brython'>
+              arq1 = open('res.txt', 'w')
+
+              # Escrever em arquivo os números de 0 a 9
+              for i in range(10):
+                  arq1.write(str(i))
+
+              arq1.close() # Muito importante fechar o arquivo depois de usado
+            </script>
+          </div>
+        </section>
+
+
+        <section data-auto-animate>
+          <p>
+            Agora vamos ler o que acabamos de escrever.
+          </p>
+          <div class='ace-brython' data-components='code'
+               style='font-size: .8em;'
+          >
+            <script type='text/x.ace-brython'>
+              arq2 = open('res.txt', 'r')
+
+              # Ler o conteúdo do arquivo escrito anteriormente
+              conteudo = arq2.read()
+              print(conteudo)
+
+              arq2.close()
+            </script>
+          </div>
+          <div class='fragment local-standout-box'>
+            Estranho, não?
+          </div>
+        </section>
+
+
+
+        <section data-auto-animate>
+          <p>
+            Isso porque esquecemos de colocar a quebra de linha.
+            Reescrevendo o código de escrita temos:
+          </p>
+          <div class='ace-brython' data-components='code'
+               style='font-size: .8em;'
+          >
+            <script type='text/x.ace-brython'>
+              arq3 = open('res2.txt', 'w')
+
+              # Escrever em arquivo os números de 0 a 9
+              for i in range(10):
+                arq1.write(str(i)+'\n')
+
+              arq3.close()
+            </script>
+          </div>
+        </section>
+
+
+
+        <section data-auto-animate>
+          <p>
+            Podemos também utilizar a função <code>print()</code> (e suas
+            conveniências):
+          </p>
+          <div class='ace-brython' data-components='code'
+               style='font-size: .8em;'
+          >
+            <script type='text/x.ace-brython'>
+              arq3 = open('res2.txt', 'w')
+
+              # Escrever em arquivo os números de 0 a 9
+              for i in range(10):
+                  print(i, file=arq3)
+
+              arq3.close()
+            </script>
+          </div>
+        </section>
+
+
+
+        <section data-auto-animate>
+          <p>
+            Lendo o arquivo que acabamos de escrever:
+          </p>
+          <div class='ace-brython' data-components='code'
+               style='font-size: .8em;'
+          >
+            <script type='text/x.ace-brython'>
+              arq4 = open('res2.txt', 'r')
+              # Ler o conteúdo do arquivo reescrito
+              conteudo = arq4.read()
+              print(conteudo)
+              arq4.close()
+            </script>
+          </div>
+        </section>
+
+
+
+        <section data-auto-animate>
+          <p>
+            Podemos ler <strong>linha a linha</strong> para economizarmos o uso
+            de memória:
+          </p>
+          <div class='ace-brython' data-components='code'
+               style='font-size: .8em;'
+          >
+            <script type='text/x.ace-brython'>
+              arq5 = open('res2.txt', 'r')
+              # Ler o conteúdo do arquivo uma linha por vez
+              for linha in arq5:
+                print(linha)
+              arq5.close()
+            </script>
+          </div>
+        </section>
+
+
+
+        <section data-auto-animate>
+          <p>
+            Utilizando palavra-chave <code>with</code> para que o arquivo seja
+            <strong>fechado automaticamente</strong>:
+          </p>
+          <div class='ace-brython' data-components='code'
+               style='font-size: .8em;'
+          >
+            <script type='text/x.ace-brython'>
+              with open('res2.txt', 'r') as arq6:
+                  for linha in arq5:
+                      print(linha)
+            </script>
+          </div>
+        </section>
+
+
+
+        <section data-auto-animate>
+          <h3>
+            Para casa:
+          </h3>
+          <ul style='font-size: .9em'>
+            <li>Aprender mais sobre a função <code>open()</code> e manipulação
+              de arquivos em:
+              <ul>
+                <li>
+                  <a
+                    href='https://docs.python.org/3/library/functions.html#open'
+                    target='_blank'
+                  >
+                    https://docs.python.org/3/library/functions.html#open
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href='https://docs.python.org/3/tutorial/inputoutput.html#tut-files'
+                    target='_blank'
+                  >
+                    https://docs.python.org/3/tutorial/inputoutput.html#tut-files
+                  </a>
+                </li>
+              </ul>
+            </li>
+            <li>
+              Aprender a manipular arquivos utilizando <code>pathlib</code>:
+              <a
+                href='https://docs.python.org/3/library/pathlib.html'
+                target='_blank'
+              >
+                https://docs.python.org/3/library/pathlib.html
+              </a>
+            </li>
+          </ul>
+        </section>
+
+
+        <section data-auto-animate>
+          <p data-auto-frag>
+            E agora...
+          </p>
+          <p data-auto-frag>
+            Vamos adicionar persistência de dados no nosso jogo!
+          </p>
+          <p data-auto-frag>
+            Deixar o estado do jogo 2048 salvo em arquivo para permitir
+            continuá-lo em uma nova execução.
+          </p>
+        </section>
+
+
+        <section>
+          <p>Essa é nossa última aula...</p>
+          <img data-src='images/sad-goodby.gif' alt='Triste adeus' />
+        </section>
+
+
+
+        <section data-auto-animate>
+          <p class='r-fit-text' data-auto-frag>
             That's
             <span style='
                 transform: rotate(-20deg) translateY(-.6ex);
@@ -593,6 +1167,32 @@
             &nbsp;
             all folks!
           </p>
+          <p data-auto-frag>Há muita coisa para se aprender sobre Python!</p>
+          <div data-auto-frag>
+            <p>Recomendações:</p>
+            <ul>
+              <li>
+                Automate the Boring Stuff with Python, por Al Sweigart:
+                <a
+                  href='https://automatetheboringstuff.com/'
+                  target='_blank'
+                >https://automatetheboringstuff.com/</a>
+              </li>
+              <li>
+                The Python Tutorial
+                <a
+                  href='https://docs.python.org/3/tutorial/'
+                  target='_blank'
+                >https://docs.python.org/3/tutorial/</a>
+              </li>
+            </ul>
+          </div>
+        </section>
+
+
+
+        <section>
+          <div class='r-fit-text'>Obrigado!</div>
         </section>
       </div>
     </div>
