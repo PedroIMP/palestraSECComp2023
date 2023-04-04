@@ -1,0 +1,3978 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+    <title>SECComp 2023</title>
+
+    <!-- Revealjs styles -->
+    <link rel="stylesheet" href="../revealjs/dist/reset.css">
+    <link rel="stylesheet" href="../revealjs/dist/reveal.css">
+    <link rel="stylesheet" href="../revealjs/dist/theme/serif.css" id="theme">
+    <link rel="stylesheet" href="../revealjs/plugin/highlight/monokai.css" id="highlight-theme">
+
+    <link rel="stylesheet" href="../asciinema/asciinema-player.css">
+
+    <link rel="stylesheet" href="python-repl/python-repl.css">
+
+    <!-- Fonts -->
+    <link rel='stylesheet' href='fonts/definitions.css'>
+
+    <!-- Local styles -->
+    <link rel="stylesheet" href="css/common.css">
+    <link rel="stylesheet" href="css/ace-brython-customization.css">
+    <link rel="stylesheet" href="css/python-repl-customization.css">
+    <link rel="stylesheet" href="css/highlightjs-customization.css">
+  </head>
+  <body>
+    <div class="reveal">
+      <div class="slides">
+
+
+
+        <section data-markdown>
+            # Python 101
+            ## Introdução
+        </section>
+
+
+
+        <section data-auto-animate>
+            <h2 style='display: flex; align-items: center;'>
+                O que é &nbsp;<img src='images/python-logo-generic.svg' alt='Python' />?
+            </h2>
+        </section>
+
+
+
+        <section data-auto-animate>
+            <h2 style='display: flex; align-items: center;'>
+                O que é &nbsp;<img src='images/python-logo-generic.svg' alt='Python' />?
+            </h2>
+
+            <span>É uma linguagem de programação</span><span class='fragment' data-fragment-index="1">, multiplataforma...</span>
+            <br/>
+            <div class='r-stack'>
+                <div class='fragment fade-out' data-fragment-index="1">
+                    <img data-src='images/programming-language.svg' />
+                </div>
+                <div class='fragment fade-in-then-out' data-fragment-index="1">
+                    <div
+                         style="display: flex; height: 10ex; justify-content: center;"
+                    >
+                        <img style='flex: none' data-src="images/Tux.svg" />
+                        <img style='flex: none; margin-left: 1ex' data-src="images/apple.png" />
+                        <img style='flex: none; margin-left: 1ex' data-src="images/windows.png" />
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+
+        <section data-auto-animate>
+            <h2 style='display: flex; align-items: center;'>
+                O que é &nbsp;<img src='images/python-logo-generic.svg' alt='Python' />?
+            </h2>
+
+            <div>... e com amplo domínio de aplicação:</div>
+            <div class="r-stack">
+                <div class="fragment fade-in-then-out">
+                    <div class='local-grid'>
+                        <img data-src='images/django-logo-positive.svg' style='height: 1.5em' />
+                        <img data-src='images/flask.png' style='height: 3em' />
+                        <img data-src='images/tornado.png' style='height: 1.6em' />
+                    </div>
+                    Desenvolvimento Web
+                </div>
+                <div class="fragment fade-in-then-out">
+                    <div class='local-grid'>
+                        <img data-src='images/pygobject.svg' alt='PyGObject' style='height: 1.5em' />
+                        <img data-src='images/WxPython-logo.png' alt='wxPython' style='height: 2.5em; border: .2ex solid #484848; filter: saturate(.6);' />
+                        <img data-src='images/Python_and_Qt.svg.png' alt='PyQt' style='height: 2em' />
+                    </div>
+                    Desenvolvimento Desktop
+                </div>
+                <div class="fragment fade-in-then-out">
+                    <div class='local-grid' style='margin-bottom: 0;'>
+                        <img data-src='images/Scikit_learn_logo_small.svg' alt='Scikit-learn' style='height: 1.8em' />
+                        <img data-src='images/PyTorch_logo_black.svg' alt='PyTorch' style='height: 1.4em' />
+                        <img data-src='images/Tensorflow_logo.svg' alt='Tensorflow' style='height: 1.6em' />
+                    </div>
+                    <div class='local-grid' style='margin-top: 0;'>
+                        <img data-src='images/Pandas-logo.svg' alt='Pandas' style='height: 2em' />
+                        <img data-src='images/Matplotlib_logo.svg' alt='Matplotlib' style='height: 1em' />
+                        <img data-src='images/NumPy_logo_2020.svg' alt='NumPy' style='height: 2em' />
+                    </div>
+                    Data Science
+                </div>
+                <div class="fragment fade-in">
+                    <div class='local-grid'>
+                        <div style='display: flex; align-items: center'>
+                            <img data-src='images/ArcGIS-Pro.png' alt='PyGObject' style='height: 1.8em' /><span style='font-size: .8em; margin-left: 1ex;'>ArcGIS Pro</span>
+                        </div>
+                    </div>
+                    Extensões e Plugins para aplicações
+                </div>
+            </div>
+        </section>
+
+
+
+        <section data-auto-animate>
+            <h1 class='r-fit-text'>Vamos escrever nosso primeiro programa!</h1>
+        </section>
+        <section data-auto-animate>
+            <h1 class='r-fit-text'>Vamos escrever nosso primeiro programa!</h1>
+
+            <div class='ace-brython' data-readonly data-components='code' style='z-index: 0; position: relative; height: 3em;'>
+                <script type='text/x.ace-brython'>
+                    print('hello world')
+                </script>
+            </div>
+            <h5 class='fragment local-standout-box'>
+                Como podemos executar este código?
+            </h5>
+        </section>
+        <section data-auto-animate>
+            <h1 class='r-fit-text'>Invocando o intepretador!</h1>
+            <div style='display: flex; justify-content: center;'>
+                <div style='flex: none'>
+                    <img
+                        src='images/stickman-worship.png'
+                        style='height: 6em; vertical-align: bottom; margin-top: 3em;'
+                    />
+                    <img
+                        src='images/python-logo-3d.png'
+                        style='
+                            vertical-align: top;
+                            height: 7.5em;
+                            margin-top: 0;
+                            animation: local-glowing 3s infinite ease-in-out;
+                            '
+                    />
+                </div>
+            </div>
+        </section>
+        <section data-auto-animate>
+            <h1 class='r-fit-text'>Invocando o intepretador!</h1>
+            <div style='display: flex; justify-content: center;'>
+                <div style='flex: none'>
+                    <img
+                        src='images/stickman-worship.png'
+                        style='height: 6em; vertical-align: bottom; margin-top: 3em;'
+                    />
+                    <img
+                        src='images/python-logo-3d.png'
+                        style='
+                            vertical-align: top;
+                            height: 7.5em;
+                            margin-top: 0;
+                            animation: local-glowing 3s infinite ease-in-out;
+                            '
+                    />
+                </div>
+                <div style='margin-right: auto;'>
+                    Usando o shell do seu sistema, podemos utilizar o seguinte
+                    comando: <code>python hello.py</code>
+                    <asciinema-player
+                        src='misc/python-hello.cast'
+                        autoplay
+                        loop
+                        rows='3'
+                        cols='20'
+                        font-size='1em'
+                    />
+                </div>
+            </div>
+        </section>
+
+
+        <section>
+            <h1 class='r-fit-text'>O que acontece durante a execução?</h1>
+            <div style='display: grid; grid-template-columns: repeat(5, auto); align-items: center'>
+                <div class='fragment' data-fragment-index='0'>
+                    <div
+                        style='
+                            border: .2ex dashed;
+                            font-family: monospace;
+                            background-color: #fff;
+                            padding: 1ex;
+                            font-size: .6em;
+                            display: inline-block;
+                            width: max-content;
+                        '
+                     >print('hello world')</div>
+                </div>
+                <div class='fragment' data-fragment-index='1'>&nbsp;─▶&nbsp;</div>
+                <div class='fragment' data-fragment-index='1'>
+                    <img
+                        data-src='images/python-logo-3d.png'
+                        style='width: 100%; margin-bottom: -1em; grid-row: 1;'
+                    />
+                </div>
+                <div class='fragment' data-fragment-index='2'>&nbsp;─▶&nbsp;</div>
+                <div class='fragment' data-fragment-index='2'>
+                    <div
+                        style='
+                            border: .2ex dashed;
+                            font-family: monospace;
+                            background-color: #fff;
+                            font-size: .5em;
+                            padding: 1ex;
+                            width: auto;
+                            display: inline flex;
+                            flex-direction: column;
+                        '
+                    >
+                        <span>1010110100101110</span>
+                        <span>0011110101101001</span>
+                        <span>0101001011111000</span>
+                        <span>1010000111001000</span>
+                        <span>0111111111100001</span>
+                    </div>
+                </div>
+
+                <div
+                    class='fragment' data-fragment-index='0'
+                    style='font-size: .6em; margin: .2ex;'
+                >Código fonte</div>
+                <div></div>
+                <div
+                    class='fragment' data-fragment-index='1'
+                    style='font-size: .6em; margin: .2ex'
+                >Interpretador Python</div>
+                <div></div>
+                <div
+                    class='fragment' data-fragment-index='2'
+                    style='font-size: .6em; margin: .2ex'
+                >Instruções para o processador</div>
+            </div>
+        </section>
+
+
+
+        <section data-auto-animate>
+            <h1 class='r-fit-text'>
+                Podemos também rodar códigos diretamente nesta apresentação!
+                <span
+                    data-reusable='moving-face'
+                    style='
+                        animation: local-back-and-forth .6s infinite;
+                        display: inline-block;'
+                >🙂</span>
+            </h1>
+        </section>
+        <section data-auto-animate>
+            <h1 class='r-fit-text'>
+                Podemos também rodar códigos diretamente nesta apresentação!
+                <template data-reuse='moving-face'></template>
+            </h1>
+            <p>
+            O código abaixo é editável e executável:
+            </p>
+            <div class='ace-brython' data-max-lines='6'>
+                <script type='text/x.ace-brython'>
+                    print('edit me')
+                </script>
+            </div>
+        </section>
+
+
+
+
+        <section data-auto-animate>
+            <h1 class='r-fit-text'>
+                E em ambientes de fácil interação e visualização, como o Google Colab
+            </h1>
+
+            <div style='display: flex; justify-content: center;'>
+                <div style='flex: none'>
+                    <a href="https://colab.research.google.com/">
+                        <img
+                            src='images/google-colab.png'
+                            style='height: 5em; vertical-align: bottom; margin-top: 3em;'
+                        />
+                    </a>
+                    <a href="https://colab.research.google.com/">
+                        <img
+                            src='images/colab-print.png'
+                            style='
+                                height: 5em;
+                                vertical-align: bottom;
+                                margin-top: 3em;
+                                border: .2ex dashed;
+                                padding: 2px;
+                            '
+                        />
+                    </a>
+                </div>
+            </div>
+        </section>
+
+
+        <section>
+            <h4>Vamos começar pelo básico</h4>
+        </section>
+
+
+        <section data-auto-animate>
+            <h3>Expressões</h3>
+        </section>
+        <section data-auto-animate>
+            <h3>Expressões</h3>
+            <p>Um dos tipos mais básicos de instruções da linguagem</p>
+            <div class='python-repl fragment' style='margin-top: 1ex'><!--
+                >>> 10 + 32
+                42
+                >>> 5 * 4 * (3 + 9)
+                240
+                >>> 1 - 1 + 1 - 1
+                0
+                >>> 127
+                127
+            --></div>
+            <p class='fragment'>
+                Combinam <strong>valores</strong> e
+                <strong>operadores</strong>, e possuem como resultado um outro
+                <strong>valor</strong>
+            </p>
+            </ul>
+        </section>
+        <section data-auto-animate>
+            <h3>Expressões</h3>
+            <p>
+                Como para qualquer outra instrução Python, expressões precisam
+                estar bem definidas <strong>sintaticamente</strong>:
+            </p>
+            <div class='python-repl fragment'><!--
+                >>> 20 +
+                  File "<stdin>", line 1
+                    20 +
+                       ^
+                SyntaxError: invalid syntax
+            --></div>
+            <p class='fragment local-standout-box'
+               style='font-size: .8em;'>
+                Diferentemente das linguagens naturais, uma linguagem de
+                programação <strong>requer</strong> o uso estritamente correto
+                de uma sintaxe para que ambas as partes
+                (🤓 e
+                 <img data-src='images/python-logo.svg'
+                      alt='interpretador Python'
+                      style='height: 1em; display: inline; margin: 0;
+                             vertical-align: middle' />)
+                possam se entender.
+            </p>
+        </section>
+        <section data-auto-animate>
+            <h3>Expressões</h3>
+            <p>Uma expressão é geralmente formada como uma composição de outras
+            expressões</p>
+            <div class='python-repl'><!--
+                >>> 1 + 4 * (10 - 2)
+                33
+            --></div>
+            <div style='font-size: .8em;'>
+                <p>
+                De acordo com as regras de precedência, temos a seguinte ordem
+                de execução realizada pelo Python:
+                </p>
+                <ol>
+                    <li>
+                        A <strong>expressão</strong> <code>10 - 2</code> é
+                        resolvida;
+                    </li>
+                    <li>
+                        O resultado é utilizando para resolver a
+                        <strong>expressão</strong> de multiplicação <code>4 *
+                        ...</code>;
+                    </li>
+                    <li>
+                        Enfim, o resultado é utilizado para resolver a
+                        <strong>expressão</strong> de soma <code>1 + ...</code>,
+                        que é a expressão "original"
+                    </li>
+                </ol>
+            </div>
+        </section>
+
+
+
+        <section data-auto-animate>
+            <p>Uma noção muito importante relacionada aos valores de uma
+            expressão é o conceito de <strong>Tipos de Dados</strong></p>
+        </section>
+        <section data-auto-animate>
+            <h3>Tipos de Dados</h3>
+            <p style='text-align: left; font-size: .7em;'>Considere a seguinte expressão:</p>
+            <div data-id="exemplo-expressao-tipo-dados"
+                 class='python-repl'><!--
+                >>> 192 / 1.5
+                128.0
+            --></div>
+            <ul>
+                <li>A expressão acima está dividindo um
+                    <em data-id='numero-inteiro'>número inteiro</em> por um <em
+                        data-id='numero-quebrado'>número "quebrado"</em>
+                </li>
+                <li>E o resultado é um <em>número
+                "quebrado"</em></li>
+            </ul>
+        </section>
+        <section data-auto-animate>
+            <h3>Tipos de Dados</h3>
+            <div data-id='exemplo-expressao-tipo-dados'
+                 class='python-repl'><!--
+                >>> 192 / 1.5
+                128.0
+            --></div>
+            <div style='display: flex; margin-top: 1ex; justify-content: center;'>
+                <em data-id='numero-inteiro'>número inteiro</em>&nbsp;&nbsp;
+                <em data-id='numero-quebrado' style='margin-left: 4ex'>número "quebrado"</em>
+            </div>
+            <p>
+                Utilizamos esses termos para nos referir às
+                <strong>categorias</strong> dos valores!
+            </p>
+            <p>
+                Em termos mais técnicos estamos falando de <strong>tipos de
+                dados</strong> da linguagem de programação
+            </p>
+        </section>
+        <section data-auto-animate>
+            <h3>Tipos de Dados</h3>
+            <p>
+                Em termos mais técnicos estamos falando de <strong>tipos de
+                dados</strong> da linguagem de programação
+            </p>
+            <div style='
+                    display: grid;
+                    margin-top: 1ex;
+                    grid-template-columns: repeat(2, max-content);
+                    justify-content: center;
+                    gap: .5ex;
+                    '
+            >
+                <em data-id='numero-inteiro' style='text-align: right'>número inteiro:</em>
+                <div style='text-align: left'><code>int</code></div>
+                <em data-id='numero-quebrado' style='text-align: right'>número "quebrado":</em>
+                <div style='text-align: left'><code>float</code></div>
+            </div>
+            <p>
+                Esses não são os únicos tipos de dados da
+                linguagem!
+            </p>
+        </section>
+        <section data-auto-animate>
+            <h3>Tipos de Dados</h3>
+            <table style='font-size: .8em;'>
+                <tr>
+                    <td>
+                        <code>int</code>
+                    </td>
+                    <td>
+                        <em>número inteiro</em>
+                    </td>
+                    <td style='font-size: .8em;'>
+                        <code>98</code>
+                        <code>0</code>
+                        <code>-39</code>,
+                        <code>124582</code>
+                        <code>-441</code>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>
+                        <code>float</code>
+                    </td>
+                    <td>
+                        <em>número de ponto flutuante</em>
+                    </td>
+                    <td style='font-size: .8em;'>
+                        <code>98.0</code>
+                        <code>-21.9281</code>
+                        <code>5e-4</code>
+                        <code>1.618034</code>
+                        <code>3.14</code>
+                        <code>918372.1</code>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>
+                        <code>bool</code>
+                    </td>
+                    <td>
+                        <em>booleano: verdadeiro ou falso</em>
+                    </td>
+                    <td style='font-size: .8em;'>
+                        <code>False</code>
+                        <code>True</code>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>
+                        <code>str</code>
+                    </td>
+                    <td>
+                        <em>string: cadeia de caracteres</em>
+                    </td>
+                    <td style='font-size: .8em;'>
+                        <code>'hello world'</code>
+                        <code>'outra string'</code>
+                        <code>'Luke, I am your father'</code>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>
+                        <code>list</code>
+                    </td>
+                    <td>
+                        <em>lista</em>
+                    </td>
+                    <td style='font-size: .8em;'>
+                        <code>[1, 2, 3, 4]</code>
+                        <code>['banana', 'abacaxi', 'uva']</code>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>
+                        <code>dict</code>
+                    </td>
+                    <td><em>dicionário: estruturas com pares chave➝valor</em>
+                    </td>
+                    <td style='font-size: .8em;'>
+                        <code style='vertical-align: top'>{'nome': 'Jonh Doe', 'idade': 27, 'profissão': 'Agente Secreto'}</code>
+                    </td>
+                </tr>
+            </table>
+            <p> ... e vários outros! </p>
+            <div class='local-standout-box' style='top: 50%'>
+                 Além disso, podemos criar nossos próprios tipos!
+                 <template data-reuse='moving-face'></template>
+            </div>
+        </section>
+        <section data-auto-animate>
+            <p>
+                Por que é importante a distinção entre os tipos de dados em uma
+                linguagem de programação?
+            </p>
+            <div class='local-standout-box fragment' data-id='answer'>
+                Um tipo de dado define e dá o significado das
+                <strong>operações</strong> que podem ser realizadas com seus
+                <strong>valores</strong>!
+            </div>
+        </section>
+        <section data-auto-animate>
+            <p>Exemplo: o significado do operador <code>+</code> muda de acordo
+            com os tipos dos operandos: </p>
+            <div class='python-repl'><!--
+                >>> 99 + 1
+                100
+                >>> 9.9 + 1
+                10.9
+                >>> [1, 2, 3] + [4, 5]
+                [1, 2, 3, 4, 5]
+                >>> 'esta string será concatenada' + ' com esta outra'
+                'esta string será concatenada com esta outra'
+            --></div>
+        </section>
+
+
+        <section>
+            <p>Vamos ver agora alguns tipos básicos...</p>
+        </section>
+
+
+        <section data-auto-animate>
+            <h3>Tipos Numéricos</h3>
+            <div>
+                Os tipos <code data-id='int'>int</code> e
+                <code data-id='float'>float</code>
+            </div>
+        </section>
+        <section data-auto-animate>
+            <h3>Tipos Numéricos</h3>
+            <p>
+                <code data-id='int'>int</code><span>: números inteiros</span>
+            </p>
+            <p>
+                Os inteiros podem ser representados utilizando diferentes
+                bases:
+            </p>
+            <div
+                style='
+                    display: grid;
+                    grid-template-columns: max-content repeat(5, 1fr);
+                    font-size: .8em;
+                    justify-items: right;
+                    gap: .5ex;
+                '
+            >
+                <span>Decimal (base 10):</span>
+                <code>1</code> <code>-1</code> <code>42</code> <code>16</code>
+                <code>-16</code>
+
+                <span>Hexadecimal (base 16):</span>
+                <code>0x1</code> <code>-0x1</code> <code>0x2A</code> <code>0x10</code>
+                <code>-0x10</code>
+
+                <span>Octal (base 8):</span>
+                <code>0o1</code> <code>-0o1</code> <code>0o52</code> <code>0o20</code>
+                <code>-0o20</code>
+
+                <span>Binários (base 2):</span>
+                <code>0b1</code> <code>-0b1</code> <code>0b101010</code> <code>0b10000</code>
+                <code>-0b10000</code>
+            </div>
+        </section>
+        <section data-auto-animate>
+            <h3>Tipos Numéricos</h3>
+            <p>
+                <code data-id='float'>float</code><span>: números de ponto flutuante</span>
+            </p>
+            <p>
+                Números que possuem uma parte fracionária.
+            </p>
+            <p data-fragment-index='0'>
+                Alguns exemplos de representações:
+            </p>
+            <div data-fragment-index='0'
+                style='
+                    display: grid;
+                    grid-template-columns: repeat(2, max-content);
+                    font-size: .8em;
+                    gap: .5ex;
+                '>
+                <code style='justify-self: right'>3.14</code>
+                <div>Utilizando partes inteira e facionária</div>
+
+                <code style='justify-self: right'>10.</code>
+                <div>Omitindo parte fracionária, equivalente a <code>10.0</code></div>
+
+                <code style='justify-self: right'>.001</code>
+                <div>Omitindo a parte inteira, equivalente a <code>0.001</code></div>
+
+                <code style='justify-self: right'>3.14e-10</code>
+                <div>Forma exponencial, representando o valor
+                    <em>3,14 ⋅ 10<sup> -10</sup></em>
+                </div>
+            </div>
+        </section>
+        <section data-auto-animate>
+            <h3>Tipos Numéricos</h3>
+            <p>
+                <code data-id='float'>float</code><span>: números de ponto flutuante</span>
+            </p>
+            <p style='font-size: .8em'>
+                Note que a representação precisa pelo menos ter o ponto
+                decimal (i.e. <code>.</code>) ou a parte exponencial (i.e.
+                <code>e</code>), senão o valor será considerado um
+                <code>int</code>:
+            </p>
+            <p>
+                <code>789.0</code> é um <code>float</code>
+            </p>
+            <p>
+                <code>789e0</code> é um <code>float</code>
+            </p>
+            <p>
+                <code>789</code> é um <code>int</code>
+            </p>
+        </section>
+
+
+
+        <section data-auto-animate>
+            <h3>Operações com valores numéricos</h3>
+            <p>
+                Python define operadores matemáticos como vimos na escola.
+            </p>
+        </section>
+        <section data-auto-animate data-reusable='operations-numbers'>
+            <h3>Operações com valores numéricos</h3>
+            <p
+                data-reusable-tag='operation-title'
+                style='text-align: left; margin-bottom: .2ex;'>
+                <code>+</code> Soma de dois números
+            </p>
+            <div class='python-repl'><!--
+                >>> 1 + 4
+                5
+                >>> 156.1 + 9.2
+                165.29999999999998
+                >>> .491 + 10
+                10.491
+            --></div>
+        </section>
+        <template data-reuse='operations-numbers'>
+            <template data-selector='.python-repl' data-replace-content><!--
+                >>> 156.1 + 9.2
+                165.29999999999998
+            --></template>
+            <template data-append>
+                <p style='font-size: .8em; text-align: justify'>
+                    Note que, embora no campo dos números reais, <code>156.1 + 9.2
+                    = 165.3</code>, Python não chega a esse resultado com exatidão
+                    por erros de arredondamento. O formato binário de <em>floating
+                    pointers</em> não consegue representar alguns números com exata
+                    precisão.
+                </p>
+                <div class='local-standout-box fragment'>
+                    Por isso que não é tecnicamente correto chamar um
+                    <code>float</code> de <em>número real</em>.
+                </div>
+            </template>
+        </template>
+        <template data-reuse='operations-numbers'>
+            <template data-tag='operation-title'>
+                <code>-</code> Subtração de um número do outro
+            </template>
+            <template data-selector='.python-repl' data-replace-content><!--
+                >>> 65 - 9.13
+                55.87
+                >>> 5e10 - 1
+                49999999999.0
+                >>> 0 - 128
+                -128
+            --></template>
+        </template>
+        <template data-reuse='operations-numbers'>
+            <template data-tag='operation-title'>
+                <code>*</code> Multiplação de dois números
+            </template>
+            <template data-selector='.python-repl' data-replace-content><!--
+                >>> 0.1 * 99
+                9.9
+                >>> 10000 * 100
+                1000000
+                >>> 3.14 * 5 * 5
+                78.5
+            --></template>
+        </template>
+        <template data-reuse='operations-numbers'>
+            <template data-tag='operation-title'>
+                <code>/</code> Divisão de um número por outro
+            </template>
+            <template data-selector='.python-repl' data-replace-content><!--
+            >>> 5 / 2
+            2.5
+            >>> 15 / 0.5
+            30.0
+            >>> 9e10 / 10
+            9000000000.0
+            >>> 10 / 5
+            2.0
+            --></template>
+            <template data-append>
+                <div class='local-standout-box fragment'>
+                    Note que o resultado de <code>10 / 5</code> é um
+                    <code>float</code>, mesmo os operandos sendo do tipo
+                    <code>int</code>.
+                </div>
+            </template>
+        </template>
+        <template data-reuse='operations-numbers'>
+            <template data-tag='operation-title'>
+                <code>//</code> Divisão inteira de um número por outro
+            </template>
+            <template data-selector='.python-repl' data-replace-content><!--
+            >>> 5 // 2
+            2
+            >>> 10 // 1.8
+            5.0
+            >>> 11.98 // 1
+            11.0
+            --></template>
+            <template data-append>
+                <ul style='font-size: .8em;'>
+                    <li>O resultado da divisão é "arredondado para baixo"</li>
+                    <li>
+                        A parte fracionária é descartada:
+                        <div
+                            data-reusable='example-5-div-2'
+                            style='
+                                display: inline grid;
+                                grid-template-columns: repeat(2, max-content);
+                                gap: .5ex;
+                                background-color: #fff;
+                                color: #555;
+                                padding: .5ex;
+                                border-radius: .2ex;
+                                align-items: end;
+                                box-shadow: inset .1ex .1ex 1ex #0003;
+                                border-left: 1px solid #0004;
+                                border-top: 1px solid #0004;
+                                border-right: 1px solid #fff;
+                                border-bottom: 1px solid #fff;
+                                margin-left: 1ex;
+                            '
+                        >
+                            <div
+                                style='
+                                    padding-left: .5ex;
+                                '
+                            >5</div>
+                            <div
+                                style='
+                                    border-left: 2px solid;
+                                    border-bottom: 2px solid;
+                                    width: 1.5em;
+                                    padding-left: .5ex;
+                                '
+                            >2</div>
+                            <div
+                                data-reusable-tag='remainder'
+                                style='
+                                    padding-left: .5ex;
+                                '
+                            >1</div>
+                            <div
+                                data-reusable-tag='quotient'
+                                style='
+                                    padding-left: .5ex;
+                                    font-weight: bold;
+                                    color: #2271ec;
+                                '
+                            >2</div>
+                    </li>
+                    <li>
+                        Se ambos os operandos são <code>int</code>, então o
+                        resultado é um <code>int</code>
+                    </li>
+                    <li>
+                        Se um dos os operandos é <code>float</code>, então o
+                        resultado é um <code>float</code>
+                    </li>
+                </ul>
+            </template>
+        </template>
+        <template data-reuse='operations-numbers'>
+            <template data-tag='operation-title'>
+                <code>%</code> Módulo: resto da divisão inteira
+            </template>
+            <template data-selector='.python-repl' data-replace-content><!--
+            >>> 5 % 2
+            1
+            >>> 10 % 1.8
+            0.9999999999999998
+            >>> 11.98 % 1
+            0.9800000000000004
+            --></template>
+            <template data-append>
+                <ul style='font-size: .8em'>
+                    <li>Em vez do quociente, o resultado é o resto da divisão:
+                        <template data-reuse='example-5-div-2'>
+                            <template
+                                data-tag='remainder'
+                                data-attr='style'
+                                data-value='
+                                    padding-left: .5ex;
+                                    font-weight: bold;
+                                    color: #2271ec;
+                                '
+                            ></template>
+                            <template
+                                data-tag='quotient'
+                                data-attr='style'
+                                data-value='
+                                    padding-left: .5ex;
+                                '
+                            ></template>
+                        </template>
+                    </li>
+                </ul>
+            </template>
+        </template>
+        <template data-reuse='operations-numbers'>
+            <template data-tag='operation-title'>
+                <code>**</code> Exponenciação
+            </template>
+            <template data-selector='.python-repl' data-replace-content><!--
+            >>> 3**2
+            9
+            >>> 2**3
+            8
+            >>> 16**0.5
+            4.0
+            >>> 3419**0
+            1
+            --></template>
+            <template data-append>
+                <ul style='font-size: .8em'>
+                    <li>
+                        O primeiro operando é a <em>base</em> e o segundo, o
+                        <em>expoente</em>:
+                        <code>3**2</code> →
+                        <span style='display: inline-block'>3<sup>2</sup></span>
+                    </li>
+                    <li>
+                        Note que o expoente pode ser um <code>float</code>:
+                        <code>16**0.5</code> → √16
+                    </li>
+                </ul>
+            </template>
+        </template>
+
+
+        <section data-auto-animate>
+            <h3>Precedência de operadores</h3>
+            <p style='font-size: .7em;'>
+            Lista resumida de precedência de operadores ordenada da maior
+            para a menor:
+            </p>
+            <div
+                style='
+                display: grid;
+                grid-template-columns: repeat(2, max-content);
+                justify-content: center;
+                justify-items: left;
+                align-items: center;
+                font-size: .8em;
+                gap: 1ex 3ex;
+                '
+            >
+                <div>
+                    <code>(...)</code>
+                </div>
+                <div>
+                    Expressão entre parênteses
+                </div>
+
+                <div>
+                    <code>**</code>
+                </div>
+                <div>
+                    Exponenciação
+                </div>
+
+                <div>
+                    <code>+x</code>, <code>-x</code>
+                </div>
+                <div>
+                    Operadores unários de sinal
+                </div>
+
+                <div>
+                    <code>*</code>, <code>/</code>, <code>//</code>, <code>%</code>
+                </div>
+                <div>
+                    Operadores multiplicativos
+                </div>
+
+                <div>
+                    <code>+</code>, <code>-</code>
+                </div>
+                <div>
+                    Operadores aditivos
+                </div>
+            </div>
+            <p style='font-size: .5em;'>
+                Tabela completa em:
+                <a
+                    href='https://docs.python.org/3/reference/expressions.html#operator-precedence'
+                    target='_blank'
+                >https://docs.python.org/3/reference/expressions.html#operator-precedence</a>
+            </p>
+            <p style='font-size: .8em'>
+                Quando operadores são do mesmo nível, a resolução é feita da
+                esquerda para a direita.
+            </p>
+        </section>
+
+
+
+        <section data-auto-animate>
+            <h3>Strings</h3>
+        </section>
+        <section data-auto-animate>
+            <h3>Strings</h3>
+            <p>
+                Strings são <strong>sequências de caracteres</strong> e são
+                geralmente utilizados para representarem conteúdo textual:
+            </p>
+            <div style='
+                font-size: .9em;
+                display: flex;
+                gap: 1ex;
+                flex-wrap: wrap;
+                justify-content: center;
+            '>
+                <code>"Charles"</code>
+                <code>'Lorem Ipsum dolor sit amet'</code>
+                <code>'0800-1111-0000'</code>
+                <code>"Avenida 24A, número 1515"</code>
+            </div>
+        </section>
+        <section data-auto-animate>
+            <h3>Strings</h3>
+            <p style='font-size: .9em; text-align: left;'>
+                Strings podem ser concatenadas através do operador
+                <code>+</code>:
+            </p>
+            <div class='python-repl'><!--
+                >>> 'Parale' + 'lepípedo'
+                'Paralelepípedo'
+                >>> 'Wherever you go...' + ' There you are.'
+                'Wherever you go... There you are.'
+            --></div>
+            <p data-fragment-index='0'
+                style='font-size: .9em; text-align: left;'
+            >
+                E podem ser multiplicadas através do operador
+                <code>*</code>:
+            </p>
+            <div class='python-repl'
+                 data-fragment-index='0'
+            ><!--
+                >>> 'Para' + 'le' * 2 + 'pípedo'
+                'Paralelepípedo'
+                >>> 'haha' * 10
+                'hahahahahahahahahahahahahahahahahahahaha'
+            --></div>
+        </section>
+        <section data-auto-animate>
+            <h3>Strings</h3>
+            <p style='font-size: .9em; text-align: left'>
+                Strings só podem ser concatenadas com outras strings:
+            </p>
+            <div class='python-repl'><!--
+                >>> 'O resto da divisão de 23 por 7 é ' + (23 % 7)
+                Traceback (most recent call last):
+                  File "<stdin>", line 1, in <module>
+                TypeError: can only concatenate str (not "int") to str
+            --></div>
+            <p style='font-size: .9em; text-align: left'>
+                Para usarmos outros tipos, precisaremos da função
+                <code>str()</code>!
+            </p>
+        </section>
+        <section data-auto-animate>
+            <h3>Strings</h3>
+            <p style='font-size: .9em; text-align: left'>
+                A função <code>str()</code> pode ser utilizada para converter
+                outros tipos (não apenas numéricos) para strings:
+            </p>
+            <div class='python-repl'><!--
+                >>> str(0.1234)
+                '0.1234'
+            --></div>
+            <p data-fragment-index='0'
+               style='font-size: .9em; text-align: left'
+            >
+                Assim, o exemplo anterior pode ser arrumado da seguinte forma:
+            </p>
+            <div class='python-repl'
+                 data-fragment-index='0'
+            ><!--
+                >>> 'O resto da divisão de 23 por 7 é ' + str(23 % 7)
+                'O resto da divisão de 23 por 7 é 2'
+            --></div>
+        </section>
+        <section data-auto-animate>
+            <h3>Strings</h3>
+            <p style='font-size: .9em; text-align: left'>
+                Também é possível converter strings para um tipo numérico
+                utilizando as funções <code>int()</code> ou
+                <code>float()</code>:
+            </p>
+            <div class='python-repl'><!--
+                >>> float('0.1234')
+                0.1234
+                >>> int('124')
+                124
+                >>> 13 + int('31')
+                44
+            --></div>
+            <p data-fragment-index='0'
+               style='font-size: .9em; text-align: left'
+            >
+                Se o conteúdo da string não for um número válido, ocorre um
+                erro:
+            </p>
+            <div class='python-repl'
+                 data-fragment-index='0'
+            ><!--
+                >>> int('treze')
+                Traceback (most recent call last):
+                  File "<stdin>", line 1, in <module>
+                ValueError: invalid literal for int() with base 10: 'treze'
+            --></div>
+        </section>
+
+
+
+        <section data-auto-animate>
+            <h3>Variáveis</h3>
+        </section>
+
+
+        <section data-auto-animate>
+            <h3>Variáveis</h3>
+            <p>
+                Uma <strong>variável</strong> é um espaço que reservamos na
+                <strong>memória</strong> do computador para podermos armazenar
+                um <strong>valor</strong>
+            </p>
+        </section>
+        <section data-auto-animate>
+            <h3>Variáveis</h3>
+            <div>
+                <div
+                    data-reusable='memory'
+                    data-id='memory'
+                    style='
+                    --local-hue: 253deg;
+                    font-size: .5em;
+                    font-family: monospace;
+                    color: hsl(var(--local-hue), 50%, 95%)
+                    '
+                >
+                    <div
+                        style='
+                        background-color: hsl(var(--local-hue), 50%, 55%);
+                        border: 3px solid hsl(var(--local-hue), 50%, 40%);
+                        border-radius: 3px;
+                        height: max-content;
+                        position: relative;
+                        display: flex;
+                        gap: 1ex;
+                        padding: 2ex;
+                        '
+                    >
+                        <div>
+                            Memória
+                        </div>
+                        <div
+                            class='fragment'
+                            data-fragment-index='0'
+                            style='
+                            margin-left: 3em;
+                            display: flex;
+                            flex-flow: column;
+                            padding: .5ex;
+                            background-color: hsl(var(--local-hue), 50%, 48%);
+                            '
+                        >
+                            <div
+                                data-reusable-tag='value'
+                                style='
+                                color: hsl(var(--local-hue), 50%, 40%);
+                                border: 2px solid hsl(var(--local-hue), 50%, 40%);
+                                padding: 1ex;
+                                background-color: #fff;
+                                '
+                            >
+                                <div class='r-stack'>
+                                    <div
+                                        class='fragment fade-in-then-out'
+                                        data-fragment-index='0'
+                                    >
+                                        42
+                                    </div>
+                                    <div
+                                        class='fragment'
+                                        data-fragment-index='1'
+                                    >
+                                        57
+                                    </div>
+                                </div>
+                            </div>
+                            <div data-reusable-tag='name'>
+                                convidados
+                            </div>
+                        </div>
+                        <div
+                            class='fragment'
+                            data-fragment-index='2'
+                            style='
+                            margin-left: 3em;
+                            display: flex;
+                            flex-flow: column;
+                            padding: .5ex;
+                            background-color: hsl(var(--local-hue), 50%, 48%);
+                            '
+                        >
+                            <div
+                                data-reusable-tag='value'
+                                style='
+                                color: hsl(var(--local-hue), 50%, 40%);
+                                border: 2px solid hsl(var(--local-hue), 50%, 40%);
+                                padding: 1ex;
+                                background-color: #fff;
+                                '
+                            >
+                                <div class='r-stack'>
+                                    <div>
+                                        85.5
+                                    </div>
+                                </div>
+                            </div>
+                            <div data-reusable-tag='name'>
+                                num_hamburgueres
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class='r-stack'>
+                    <div
+                        class='python-repl fragment fade-in-then-out'
+                        data-fragment-index='0'
+                        style='margin: unset; margin-top: 2ex; margin-bottom: auto;'><!--
+                            >>> convidados = 42
+                    --></div>
+                    <div
+                        class='python-repl fragment fade-in-then-out'
+                        data-fragment-index='1'
+                        style='margin: unset; margin-top: 2ex; margin-bottom: auto;'><!--
+                            >>> convidados = 42
+                            >>> convidados = 57
+                    --></div>
+                    <div
+                        class='python-repl fragment'
+                        data-fragment-index='2'
+                        style='margin: unset; margin-top: 2ex; margin-bottom: auto;'><!--
+                            >>> convidados = 42
+                            >>> convidados = 57
+                            >>> num_hamburgueres = convidados * 1.5
+                    --></div>
+                </div>
+            </div>
+            <p
+                style='text-align: left; font-size: .9em;'
+            >
+                <ul>
+                    <li class='fragment' data-fragment-index='0'>
+                        Nós criamos uma variável através de uma instrução de
+                        <strong>atribuição</strong> (<code>=</code>)
+                    </li>
+                    <li class='fragment' data-fragment-index='1'>
+                        Podemos alterar seu valor através de subsequentes
+                        atribuições
+                    </li>
+                    <li class='fragment' data-fragment-index='2'>
+                        E podemos utilizá-la em outras expressões
+                    </li>
+                </ul>
+            </p>
+        </section>
+
+
+        <section data-auto-animate>
+            <div style='
+                height: var(--slide-height);
+                display: flex;
+                flex-direction: column;
+                position: relative;
+                z-index: 0;
+                '
+            >
+                <h4 style='flex: none;'>Programa utilizando variáveis</h4>
+                <div class='ace-brython'
+                     style='
+                        font-size: .5em;
+                        flex: 1;
+                        margin-bottom: 2em;
+                     '
+                     data-min-lines='15'
+                     data-max-lines='20'
+                >
+                    <script type='text/x.ace-brython'>
+                        # Hambúrguer por convidado: 1.5
+                        # Receita
+                        #   Carne Magra: 120g
+                        #   Carne Gorda:  80g
+                        #        Queijo:  22g
+                        #         Bacon:  20g
+                        #         Tomate: 30g (2 rodelas)
+
+                        convidados = 42
+                        num_hamburgueres = convidados * 1.5
+
+                        print('Olá, Alice!')
+                        print('Você precisará fazer ' + str(num_hamburgueres) + ' hambúrgueres, certo?')
+                        print('Para isso, você precisará comprar:')
+                        print(str(num_hamburgueres * 120 / 1000) + ' kg de carne moída magra')
+                        print(str(num_hamburgueres * 80 / 1000) + ' kg de carne moída magra')
+                        print(str(num_hamburgueres * 22 / 1000) + ' kg de queijo')
+                        print(str(num_hamburgueres * 20 / 1000) + ' kg de bacon')
+
+                        # Vamos considerar que apenas 85% do tomate possa
+                        # ser aproveitado para fazer as rodelas
+                        print(str(num_hamburgueres * 30 / 0.85 / 1000) + ' kg de tomate')
+                    </script>
+                </div>
+            </div>
+            <div class='fragment local-standout-box fade-in-then-out' style='bottom: 2em; z-index: 1;'>
+                Fácil refazer os cálculos,
+                <br/>
+                basta modificar o valor da variável <code>convidados</code>
+            </div>
+        </section>
+
+
+        <section data-auto-animate>
+            <h3>Variáveis</h3>
+            <p>
+                Algumas observações sobre nomes de variáveis:
+            </p>
+            <ul>
+                <li>
+                    É recomendável que o nome da variável seja uma boa
+                    "descrição" do seu conteúdo
+                </li>
+                <li>
+                    O nome pode apenas conter letras, dígitos e o
+                    caracter <em>underscore</em> (<code>_</code>)
+                </li>
+                <li>
+                    O nome não pode ser iniciado por um dígito
+                </li>
+            </ul>
+        </section>
+
+        <section data-auto-animate>
+            <h3>Variáveis</h3>
+            <p>
+                Exemplos de nomes <strong>válidos</strong>:
+            </p>
+            <div style='
+                display: flex;
+                gap: 1ex;
+                flex-wrap: wrap;
+                justify-content: center;
+                font-size: .9em;
+                --code-color: #2459f9;
+                '
+            >
+                <code>convidados</code>
+                <code>x1</code>
+                <code>x2</code>
+                <code>nome_cliente</code>
+                <code>_gramas_por_fatia</code>
+            </div>
+            <p style='margin-top: 1.5em;'>
+                Exemplos de nomes <strong>inválidos</strong>:
+            </p>
+            <div style='
+                display: flex;
+                gap: 1ex;
+                flex-wrap: wrap;
+                justify-content: center;
+                font-size: .9em;
+                --code-color: #f92424;
+                '
+            >
+                <code>"convidados"</code>
+                <code>1x</code>
+                <code>nome do cliente</code>
+                <code>'nome do cliente'</code>
+                <code>nome-cliente</code>
+            </div>
+        </section>
+
+        <section data-auto-animate>
+          <h3>Funções</h3>
+        </section>
+
+
+
+        <section data-auto-animate>
+          <h3>Funções</h3>
+          <div class='r-stack'>
+            <p class='fragment fade-out' data-fragment-index='0'>
+              Lá em nossas aulas de matemática, nós aprendemos sobre
+              <em>funções</em>:
+            </p>
+            <p class='fragment' data-fragment-index='0'>
+              De forma semelhante, Python também possui o conceito de
+              <strong>funções</strong>:
+            </p>
+          </div>
+          <div style='display: flex; gap: 1ex; margin-top: 1ex;'>
+            <div
+              style='
+                display: flex;
+                flex-flow: column;
+                gap: 2ex;
+                text-align: left;
+                font-size: .9em;
+                background-color: #fff;
+                color: #555;
+                padding: 1ex;
+              '
+            >
+              <div>
+                Definição de <span class='local-math-font'>f</span>:
+                &nbsp;<span class='local-math-font'>f(x) = x²</span>
+              </div>
+              <div style='font-size: .8em;'>
+                Função <span class='local-math-font'>f</span> aplicada:
+                <div class='local-math-font'>
+                  f(0) = 0<br/>
+                  f(1) = 1<br/>
+                  f(3.14) = 9.8596<br/>
+                  f(-12) = 144
+                </div>
+              </div>
+            </div>
+            <div class='fragment' style='flex: 1' data-fragment-index='0'>
+              <div class='python-repl'><!--
+                >>> def f(x):
+                ...     return x**2
+                ... 
+                >>> f(0)
+                0
+                >>> f(1)
+                1
+                >>> f(3.14)
+                9.8596
+                >>> f(-12)
+                144
+              --></div>
+            </div>
+          </div>
+        </section>
+
+
+
+        <section data-auto-animate>
+          <h3>Funções</h3>
+          <p>
+            Uma <strong>função</strong> pode ser vista como um "mini-programa"
+            que é executado toda vez que ela é <strong>chamada</strong>
+          </p>
+        </section>
+
+
+
+        <section data-auto-animate>
+          <h3>Funções</h3>
+          <p style='font-size: .8em'>
+            Por exemplo, vamos definir uma função para calcular o Índice de
+            Massa Corporal:
+          </p>
+          <div class='ace-brython' data-readonly data-components='code'>
+            <script type='text/x.ace-brython' data-id='imc-def'>
+              def imc(massa, altura):
+                  return massa / altura**2
+            </script>
+          </div>
+
+          <div style='text-align: left; font-size: .7em;'>
+            <ul>
+              <li>
+                A palavra-chave <code>def</code> indica que estamos definindo
+                uma nova função
+              </li>
+              <li>
+                O <strong>nome</strong> de nossa função é <code>imc</code>
+              </li>
+              <li>
+                Nossa função possui dois <strong>parâmetros</strong>,
+                <code>massa</code> e <code>altura</code>, que são utilizados
+                como variáveis dentro do seu corpo
+              </li>
+              <li>
+                O <strong>corpo</strong> de nossa função é formado pelas
+                instruções que a função executará
+                <ul>
+                  <li>
+                    Neste exemplo, temos apenas a instrução
+                    <code>return massa / altura**2</code>, que define o
+                    <strong>valor de retorno</strong> da função
+                  </li>
+                  <li>
+                    Note que há um nível de <strong>indentação</strong>
+                    (espaços à esquerda) requerido no corpo da função
+                  </li>
+                </ul>
+              </li>
+            </ul>
+          </div>
+        </section>
+
+
+
+
+        <section data-auto-animate>
+          <h3>Funções</h3>
+          <p style='font-size: .8em'>
+            Agora podemos utilizar nossa função:
+          </p>
+          <div class='ace-brython' style='height: 5em;' data-readonly>
+            <script type='text/x.ace-brython' data-parent='imc-def'>
+              imc_gustavo = imc(60, 1.63)
+              print('O IMC de Gustavo é ' + str(imc_gustavo))
+            </script>
+          </div>
+          <div style='text-align: left; font-size: .7em;'>
+            <ul>
+              <li>
+                Na linha 1, estamos <strong>chamando</strong> (ou
+                <strong>invocando</strong>) a função <code>imc</code>
+              </li>
+              <li>
+                Os valores <code>60</code> e <code>1.63</code> são os
+                <strong>argumentos</strong> desta chamada. Esses argumentos são
+                respectivamente atribuídos aos parâmetros <code>massa</code> e
+                <code>altura</code> da função
+              </li>
+              <li>
+                Esta chamada faz com que as instruções do corpo da função sejam
+                executadas.
+              </li>
+              <li>
+                Quando a execução da função é executada, seu valor de retorno
+                será o resultado da chamada.
+              </li>
+            </ul>
+        </section>
+
+
+
+
+        <section data-auto-animate>
+          <h3>Funções</h3>
+          <div class='ace-brython' style='height: 12em;'>
+            <div class='ace-brython'
+                style='
+                font-size: .8em;
+                flex: 1;
+                margin-bottom: 2em;
+                '
+            >
+                <script type='text/x.ace-brython' data-parent='imc-def'>
+                  def imc(massa, altura):
+                      return massa / altura**2
+
+
+                  print('O IMC de Gustavo é ' + str(imc(60, 1.63)))
+                  print('O IMC de Juvenal é ' + str(imc(98, 1.90)))
+                  print('O IMC de Antônia é ' + str(imc(54, 1.65)))
+                </script>
+            </div>
+          </div>
+        </section>
+
+
+
+        <section data-auto-animate>
+          <h3>Funções</h3>
+          <p>Funções não precisam necessariamente retornar um valor:</p>
+          <div class='ace-brython'>
+            <script type='text/x.ace-brython'>
+              def say_hello(name):
+                  print('Hello ' + name)
+                  print('Goodbye ' + name)
+
+              say_hello('Alice')
+              say_hello('Bob')
+            </script>
+          </div>
+        </section>
+
+
+
+        <section data-auto-animate>
+          <h3>Funções</h3>
+          <p>E também não precisam obrigatoriamente definir parâmetros:</p>
+          <div class='ace-brython'>
+            <script type='text/x.ace-brython'>
+              def say_hello():
+                  print('Hello stranger')
+                  print('Goodbye stranger')
+
+              say_hello()
+              say_hello()
+            </script>
+          </div>
+        </section>
+
+
+
+        <section data-auto-animate>
+          <h3>Funções</h3>
+          <p>Os parâmetros podem ser definidos com valores padrões:</p>
+          <div class='ace-brython'>
+            <script type='text/x.ace-brython'>
+              def say_hello(name='stranger'):
+                  print('Hello ' + name)
+                  print('Goodbye ' + name)
+
+              say_hello('Alice')
+              say_hello()
+            </script>
+          </div>
+        </section>
+
+
+
+        <section data-auto-animate>
+          <h3>Funções</h3>
+          <p>É possível passar argumentos através da sintaxe de
+          <strong>palavras-chave</strong>:</p>
+          <div class='ace-brython' style='font-size: .58em'>
+            <script type='text/x.ace-brython'>
+              def say_hello(name, age):
+                  print('Hello ' + name)
+                  print('Hopefully, in one year you will be ' + str(age + 1))
+
+              say_hello('Alice', 27)
+              say_hello(name='Bob', age=25)
+              say_hello(age=90, name='Ricardo')
+            </script>
+          </div>
+        </section>
+
+
+        <section>
+          <p style='font-size: .55em'>Python já vem com diversas funções
+          <em>built-in</em> (pré-definidas) para nossa conveniência:</p>
+          <div class='python-repl' style='font-size: .45em;'><!--
+          >>> abs(-9) # Valor absoluto de um número
+          9
+          >>> divmod(10, 3) # Quociente e o resto da divisão de 10 por 3
+          (3, 1)
+          >>> float("5.62") # Conversão para float
+          5.62
+          >>> input('Digite seu nome: ') # Leitura de entrada do usuário
+          Digite seu nome: Meu nome é Alice
+          'Meu nome é Alice'
+          >>> int(3.14) # Conversão para inteiro
+          3
+          >>> len('Python') # Tamanho de um objeto
+          6
+          >>> max(5, 8, -1) # Valor máximo de um conjunto de números
+          8
+          >>> min(5, 8, -1) # Valor mínimo de um conjunto de números
+          -1
+          >>> print("Olá Mundo") # Imprimir algo na tela
+          Olá Mundo
+          >>> round(45.678703, 3) # Arredondar um número
+          45.679
+          --></div>
+          <div style='font-size: .45em'>
+            Lista completa em
+            <a href="https://docs.python.org/3/library/functions.html" target='_blank'>
+              https://docs.python.org/3/library/functions.html</a>
+          </div>
+        </section>
+
+
+        <section>
+            <div style='
+                height: var(--slide-height);
+                display: flex;
+                flex-direction: column;
+                position: relative;
+                z-index: 0;
+                '
+            >
+                <h4 style='flex: none; font-style: italic;'>Usando funções</h4>
+                <div class='ace-brython'
+                     style='
+                        font-size: .4em;
+                        flex: 1;
+                        margin-bottom: 2em;
+                     '
+                     data-min-lines='22'
+                     data-max-lines='28'
+                >
+                    <script type='text/x.ace-brython' data-id='using-vars-resp'>
+                        # Hambúrguer por convidado: 1.5
+                        # Receita
+                        #   Carne Magra: 120g
+                        #   Carne Gorda:  80g
+                        #        Queijo:  22g
+                        #         Bacon:  20g
+                        #         Tomate: 30g (2 rodelas)
+
+                        def calc_medida(gramas_por_unidade, fator_aproveitamento=1):
+                            medida = num_hamburgueres * gramas_por_unidade
+                            # Note o operator *=
+                            medida *= fator_aproveitamento
+                            # Converter para kg
+                            medida = medida / 1000
+                            # Arredondar para que esteja na escala de 100 gramas
+                            medida = round(medida, 1)
+                            return medida
+
+                        convidados = 42
+                        num_hamburgueres = convidados * 1.5
+
+                        print('Olá, Alice!')
+                        print('Você precisará fazer ' + str(num_hamburgueres) + ' hambúrgueres, certo?')
+                        print('Para isso, você precisará comprar:')
+                        print(calc_medida(120), ' kg de carne moída magra')
+                        print(calc_medida(80), ' kg de carne moída gorda')
+                        print(calc_medida(22), ' kg de queijo')
+                        print(calc_medida(20), ' kg de bacon')
+
+                        # Vamos considerar que apenas 85% do tomate possa
+                        # ser aproveitado para fazer as rodelas
+                        print(calc_medida(30, 0.85), ' kg de tomate')
+                    </script>
+                </div>
+            </div>
+        </section>
+
+        <section data-auto-animate>
+          <h3>Controle de fluxo e valores booleanos</h3>
+          <p style='font-style: italic;'>
+            A vida é feita de decisões...
+          </p>
+          <p class='fragment' style='font-style: italic; font-size: .4em;'>
+            (e eu sempre escolho a pior)
+          </p>
+        </section>
+
+
+
+        <section data-auto-animate>
+          <p>
+            Programa simples, que segue uma
+            sequência definida de instruções:
+          </p>
+          <div class='ace-brython' style='font-size: .6em'>
+            <script type='text/x.ace-brython' data-id='imc-linear'>
+              def imc(massa, altura):
+                  return massa / altura**2
+
+              def calcule_imc(name, massa, altura):
+                print('Olá, ' + name)
+                valor_imc = imc(massa, altura)
+                print('Seu índice de massa corporal é: ' + str(round(valor_imc, 3)))
+                print('Tchau, ' + name)
+
+              calcule_imc('John', 90, 1.80)
+            </script>
+          </div>
+          <p>
+            Porém, apenas executar uma instrução após a outra em uma sequência
+            fixa de instruções é bem <strong>limitante</strong>.
+          </p>
+        </section>
+
+
+
+        <section data-auto-animate>
+          <h4>Fluxogramas para <code>calcule_imc()</code></h4>
+          <div style='display: flex;'>
+            <div class='fade-in-then-semi-out' style='flex: 1 0'>
+              <img data-src='images/imc-flowchart-linear.svg' />
+              <p style='font-size: .6em'><strong>Fluxo</strong> atual de nossa
+              função</p>
+            </div>
+            <div style='flex: 1 0'>
+              <img data-src='images/imc-flowchart-one-condition.svg' />
+              <p style='font-size: .6em;'>Como queremos que nossa função se
+              comporte</p>
+            </div>
+          </div>
+        </section>
+
+
+
+        <section data-auto-animate>
+          <h4><code>calcule_imc()</code></h4>
+          <div style='display: flex;'>
+            <div
+              class='ace-brython' data-prev='imc-linear'
+              style='
+                font-size: .4em;
+                flex: none;
+                width: 40em;
+              '
+            >
+              <script type='text/x.ace-brython' data-id='imc-one-condition'>
+                def imc(massa, altura):
+                    return massa / altura**2
+
+                def calcule_imc(name, massa, altura):
+                  print('Olá, ' + name)
+                  valor_imc = imc(massa, altura)
+                  print('Seu índice de massa corporal é: ' + str(round(valor_imc, 3)))
+
+                  if valor_imc >= 25:
+                    print('Você está acima do "peso ideal"')
+
+                  print('Tchau, ' + name)
+
+                calcule_imc('John', 90, 1.80)
+                calcule_imc('Jack', 69, 1.70)
+              </script>
+            </div>
+            <div style='flex: 1'>
+              <object
+                  type='image/svg+xml'
+                  data='images/imc-flowchart-one-condition.svg'
+                  style='height: 10em;'
+              ></object>
+              <p style='font-size: .6em;'>Como queremos que nossa função se
+              comporte</p>
+            </div>
+          </div>
+        </section>
+
+
+
+        <section data-auto-animate>
+          <h4><code>calcule_imc()</code></h4>
+          <div style='display: flex; height: 10em;'>
+            <div style='flex: 1; font-size: .8em;'>
+              <p class='fade-in-then-semi-out' data-fragment-index='0'>
+                Note que caso a condição for falsa, o nossa função vai direto
+                para a instrução de despedida.
+              </p>
+              <p data-fragment-index='1'>
+                E se quisermos realizar uma ação diferente para casos
+                negativos?
+              </p>
+              <p data-fragment-index='2'>
+                Utilizamos a palavra-chave <code>else</code>
+              </p>
+            </div>
+            <div class='r-stack' style='flex: 1'>
+              <object
+                class='fragment fade-out'
+                type='image/svg+xml'
+                data='images/imc-flowchart-one-condition.svg'
+                style='width: 100%; height: 100%;'
+                data-fragment-index='1'
+              ></object>
+              <object
+                class='fragment'
+                type='image/svg+xml'
+                data='images/imc-flowchart-with-else.svg'
+                style='width: 100%; height: 100%;'
+                data-fragment-index='1'
+              ></object>
+            </div>
+          </div>
+        </section>
+
+
+
+        <section data-auto-animate>
+          <h4><code>calcule_imc()</code></h4>
+          <div style='display: flex; gap: 1ex;'>
+            <div
+              class='ace-brython' data-prev='imc-one-condition'
+              style='
+                font-size: .4em;
+                flex: none;
+                width: 40em;
+              '
+            >
+              <script type='text/x.ace-brython' data-id='imc-with-else'>
+                def imc(massa, altura):
+                    return massa / altura**2
+
+                def calcule_imc(name, massa, altura):
+                  print('Olá, ' + name)
+                  valor_imc = imc(massa, altura)
+                  print('Seu índice de massa corporal é: ' + str(round(valor_imc, 3)))
+
+                  if valor_imc >= 25:
+                    print('Você está acima do "peso ideal"')
+                  else:
+                    print('Você não está acima do "peso ideal"')
+                    print('Porém deve se cuidar mesmo assim!')
+
+                  print('Tchau, ' + name)
+
+                calcule_imc('John', 90, 1.80)
+                calcule_imc('Jack', 69, 1.70)
+              </script>
+            </div>
+            <div style='flex: 1'>
+              <object
+                type='image/svg+xml'
+                data='images/imc-flowchart-with-else.svg'
+                style='height: 12em;'
+              ></object>
+            </div>
+          </div>
+          <div class='fragment local-standout-box' style='bottom: 2em;'>
+            Hm... Mas também há os casos de pessoas que ficam
+            <strong>abaixo</strong> do "peso ideal". 🤔
+          </div>
+        </section>
+
+
+
+        <section data-auto-animate>
+          <h4><code>calcule_imc()</code></h4>
+          <p style='font-size: .8em;'>Podemos utilizar mais uma condição!</p>
+          <div style='display: flex; gap: 1ex;'>
+            <div style='flex: 1'>
+              <object
+                type='image/svg+xml'
+                data='images/imc-flowchart-with-elif.svg'
+                style='height: 12em;'
+              ></object>
+            </div>
+          </div>
+        </section>
+
+        <section data-auto-animate>
+          <h4><code>calcule_imc()</code></h4>
+          <div style='display: flex; gap: 1ex; height: calc(var(--slide-height) - 3em);'>
+            <div
+              class='ace-brython' data-prev='imc-with-else'
+              style='
+                font-size: .4em;
+                flex: none;
+                width: 40em;
+              '
+            >
+              <script type='text/x.ace-brython' data-id='imc-with-elif'>
+                def imc(massa, altura):
+                    return massa / altura**2
+
+                def calcule_imc(name, massa, altura):
+                  print('Olá, ' + name)
+                  valor_imc = imc(massa, altura)
+                  print('Seu índice de massa corporal é: ' + str(round(valor_imc, 3)))
+
+                  if valor_imc >= 25:
+                    print('Você está acima do "peso ideal"')
+                  elif valor_imc >= 18.5:
+                    print('Você está dentro da "faixa ideal"!')
+                  else:
+                    print('Você está abaixo do "peso ideal"')
+
+                  print('Tchau, ' + name)
+
+                calcule_imc('John', 90, 1.80)
+                calcule_imc('Jack', 69, 1.70)
+                calcule_imc('Joana', 46, 1.64)
+              </script>
+            </div>
+            <div style='flex: 1'>
+              <object
+                type='image/svg+xml'
+                data='images/imc-flowchart-with-elif.svg'
+                style='height: 8em;'
+              ></object>
+            </div>
+          </div>
+        </section>
+
+
+
+        <section data-auto-animate>
+          <h4><code>calcule_imc()</code></h4>
+          <p style='font-size: .8em;'>Podemos ser bem detalhistas se quisermos! 😅</p>
+          <div style='display: flex; gap: 1ex;'>
+            <div
+              class='ace-brython'
+              data-readonly
+              data-components='code'
+              style='
+                font-size: .4em;
+                width: 44em;
+              '
+            >
+              <script type='text/x.ace-brython'>
+                def calcule_imc(name, massa, altura):
+                  print('Olá, ' + name)
+
+                  valor_imc = imc(massa, altura)
+                  print('Seu índice de massa corporal é: ' + str(round(valor_imc, 3)))
+
+                  if valor_imc < 17:
+                    print('Você está muito abaixo do "peso ideal"!')
+                  elif valor_imc < 18.5:
+                    print('Você está abaixo do "peso ideal"')
+                  elif valor_imc < 25:
+                    print('Você está dentro da "faixa ideal"')
+                  elif valor_imc < 30:
+                    print('Você está acima do "peso ideal"')
+                  elif valor_imc < 35:
+                    print('Você está com obesidade')
+                  elif valor_imc < 40:
+                    print('Você está com obesidade severa!')
+                  else:
+                    print('Você está com obesidade mórbida!')
+
+                  print('Tchau, ' + name)
+              </script>
+            </div>
+            <div>
+              <table style='font-size: .5em;'>
+                <thead>
+                  <tr>
+                    <th>IMC</th>
+                    <th>Situação</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                      <td>
+                          Abaixo de 17
+                      </td>
+                      <td>
+                        Muito abaixo do peso
+                      </td>
+                  </tr>
+                  <tr>
+                      <td>
+                        Entre 17 e 18,49
+                      </td>
+                      <td>
+                        Abaixo do peso
+                      </td>
+                  </tr>
+                  <tr>
+                      <td>
+                        Entre 18,50 e 24,99
+                      </td>
+                      <td>
+                        Peso normal
+                      </td>
+                  </tr>
+                  <tr>
+                      <td>
+                        Entre 25 e 29,99
+                      </td>
+                      <td>
+                        Acima do peso
+                      </td>
+                  </tr>
+                  <tr>
+                      <td>
+                        Entre 30 e 34,99
+                      </td>
+                      <td>
+                        Obesidade I
+                      </td>
+                  </tr>
+                  <tr>
+                      <td>
+                        Entre 35 e 39,99
+                      </td>
+                      <td>
+                        Obesidade II (severa)
+                      </td>
+                  </tr>
+                  <tr>
+                      <td>
+                        Acima de 40
+                      </td>
+                      <td>
+                        Obesidade III (mórbida)
+                      </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </section>
+
+
+
+        <section data-auto-animate>
+          <div style='display: flex; gap: 3ex; align-items: center;'>
+            <img
+                style='height: 7em; box-shadow: 0 0 2ex #0002;'
+                data-src='images/hadouken-indentation.jpg'
+            />
+
+            <p style='font-size: .8em; text-align: justify;'>Apesar de ser uma
+            solução para bastante problemas, o uso demasiado de <code>if</code>
+            pode atrapalhar a legibilidade de um código, principalmente quando
+            as condições são mais complexas. (Código Hadouken)</p>
+          </div>
+        </section>
+
+
+
+        <section data-auto-animate>
+          <h3>As condições do <code>if</code></h3>
+        </section>
+
+        <section data-auto-animate>
+          <h3>As condições do <code>if</code></h3>
+          <p style='font-size: .8em;'>Como vimos, a instrução <code>if</code>
+          sempre requer uma <strong>condição</strong>, que é escrita em forma
+          de expressão:</p>
+
+          <div
+              data-id='if-syntax'
+              style='
+                font-size: .8em;
+                margin-top: 1em;
+                text-align: left;
+                display: flex;
+                flex-direction: column;
+              '
+          >
+            <code>if <strong>{condicao}</strong>:</code>
+          </div>
+        </section>
+
+
+
+        <section data-auto-animate>
+          <div
+              data-id='if-syntax'
+              style='
+                font-size: .8em;
+                margin-top: 1em;
+                text-align: left;
+                display: flex;
+                flex-direction: column;
+              '
+          >
+            <code>if <strong>{condicao}</strong>:</code>
+          </div>
+
+          <p style='font-size: 1em; margin-top: 2em;'>
+            O valor resultante dessa expressão é um
+            <code>bool</code>
+          </p>
+          <p style='font-size: .8em; margin-top: 2em;'>
+            (Mesmo se a expressão não for originalmente um valor booleano,
+            Python faz a "conversão" no momento de verificar a condição)
+          </p>
+        </section>
+
+        <section data-auto-animate>
+          <h3>Valores booleanos</h3>
+          <p>Valores booleanos admitem apenas dois possíveis valores:</p>
+          <div class='python-repl'><!--
+          >>> True
+          True
+          >>> False
+          False
+          --></div>
+        </section>
+
+
+
+        <section data-auto-animate>
+          <h3>Expressões booleanas</h3>
+
+          <p>Python possui diversos operadores de <strong>comparação</strong></p>
+
+          <p>Os resultados das comparações são do tipo <code>bool</code></p>
+          <div class='python-repl'><!--
+          >>> imc(120, 1.9) < 30
+          False
+          >>> len('Cabeleireira Leila') == 18
+          True
+          >>> 2 >= 1
+          True
+          --></div>
+        </section>
+
+
+        <section data-auto-animate data-reusable>
+          <h3>Expressões booleanas</h3>
+
+          <div style='font-size: .8em; text-align: left; margin-bottom: 1ex;' data-reusable-tag='title'>
+            <code>==</code> → Igualdade
+            <br/>
+            <code>!=</code> → Diferença
+          </div>
+
+          <div data-reusable-tag='code'>
+            <div class='python-repl'><!--
+            >>> 3 == 8
+            False
+            >>> 81 == 9**2
+            True
+            >>> 'Dracula' == 'Edward'
+            False
+            >>> 1 != 1.0
+            False
+            >>> 450 != '450'
+            True
+            --></div>
+          </div>
+        </section>
+
+
+        <template data-reuse>
+          <template data-tag='title'>
+            <code>&lt;</code>
+            <code>&lt;=</code>
+            <code>&gt;</code>
+            <code>&gt;=</code>
+            → Desigualdades
+          </template>
+
+          <template data-tag='code'>
+            <div class='python-repl'><!--
+            >>> abs(-2) >= 1
+            True
+            >>> 10 >= 10
+            True
+            >>> 10 > 10
+            False
+            >>> 87 ** .5 < 9
+            False
+            >>> 80 ** .5 < 9
+            True
+            --></div>
+          </template>
+        </template>
+
+
+
+        <template data-reuse>
+          <template data-tag='title'>
+            <code>and</code>
+            <code>or</code>
+            → Operadores binários booleanos
+          </template>
+
+          <template data-tag='code'>
+            <div class='python-repl'><!--
+            >>> abs(-2) >= 1 and 'Alice' + 'Robert' == 'Love'
+            False
+            >>> abs(-2) >= 1 or 'Alice' + 'Robert' == 'Love'
+            True
+            --></div>
+
+            <div class='python-repl' style='margin-top: 1em;'><!--
+            >>> False and print('hello') # Early stop
+            False
+            >>> True or print('hello') # Early stop
+            True
+            >>> True and print('hello') # Agora print é executado
+            hello
+            >>> False or print('hello') # Agora print é executado
+            hello
+            --></div>
+          </template>
+        </template>
+
+
+
+        <template data-reuse>
+          <template data-tag='title'>
+            <code>not</code>
+            → Operador de negação
+          </template>
+
+          <template data-tag='code'>
+            <div class='python-repl'><!--
+            >>> not len('Alice') > 5
+            True
+            >>> not True
+            False
+            >>> not not True  # Dupla negação
+            True
+            --></div>
+          </template>
+        </template>
+
+
+
+        <section data-auto-animate>
+          <h3>Valores "Truthy" e "Falsey"</h3>
+
+          <p>
+          A função <code>bool()</code> converte valores para o tipo
+          <code>bool</code>.
+          </p>
+
+          <div class='python-repl'><!--
+          >>> bool(0)  # Zero é falsey
+          False
+          >>> bool(0.1)  # Qualquer número diferente de zero é truthy
+          True
+          >>> bool(45)
+          True
+          >>> bool("")  # A string vazia
+          False
+          >>> bool("uma string não vazia")
+          True
+          >>> bool("  ")  # Uma string com espaços em brancos não é vazia
+          True
+          --></div>
+
+        </section>
+
+        <section data-auto-animate>
+          <h3>Valores "Truthy" e "Falsey"</h3>
+
+          <p>Esta conversão é implicitamente realizada por Python em lugares
+          onde se espera um <code>bool</code>:</p>
+
+          <div class='ace-brython' style='font-size: .5em;'>
+            <script type='text/x.ace-brython'>
+              nome = 'Bilbo'
+              sobrenome = ''
+
+              if nome:
+                  print('Olá, ' + nome)
+
+                  if sobrenome:
+                      print('Já sei tudo sobre você, ' + nome + ' ' + sobrenome)
+                  else:
+                      print('Qual é seu sobrenome?')
+
+              else:
+                  print('Olá, desconhecido')
+                  print('Qual é o seu nome?')
+            </script>
+          </div>
+        </section>
+
+        <section data-auto-animate>
+          <h3>Expressões Booleanas</h3>
+
+          <p style='font-size: .7em'> Os operadores booleanos nos ajudam a
+          escrever condições mais expressivas.</p>
+
+          <p style='font-size: .7em'> Exemplo: vamos escrever
+          um programa que diz se um dado ano é bissexto ou não.</p>
+
+
+          <div>
+            <div style='display: flex; flex-direction: column;'>
+              <div style='flex: 1'>
+                <p style='font-size: .7em;'>Sem operadores booleanos: </p>
+                <div
+                  class='ace-brython' style='font-size: .5em;'
+                  data-readonly
+                  data-components='code'
+                >
+                  <script type='text/x.ace-brython'>
+                    def ano_eh_bissexto(ano):
+                        if ano % 400 == 0:
+                          return True
+                        elif ano % 4 == 0:
+                          if ano % 100 != 0:
+                            return True
+                        return False
+                  </script>
+                </div>
+              </div>
+
+              <div style='flex: 1'>
+                <p style='font-size: .7em;'>Com operadores booleanos: </p>
+                <div
+                  class='ace-brython' style='font-size: .5em;'
+                  data-readonly
+                  data-components='code'
+                >
+                  <script type='text/x.ace-brython'>
+                    def ano_eh_bissexto(ano):
+                        if ano % 400 == 0 or (ano % 4 == 0 and ano % 100 != 0):
+                          return True
+                        return False
+                  </script>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+
+
+        <section data-auto-animate>
+          <p>A instrução <code>if</code> não é a única que utiliza expressões
+          booleanas como condição!</p>
+        </section>
+
+        <section data-auto-animate>
+          <h3>Laços de Repetição</h3>
+
+          Quando queremos executar um mesmo conjunto de instrução
+          <strong>repetidamente</strong> até que uma <strong>condição</strong>
+          seja satisfeita.</p>
+        </section>
+
+
+        <section data-auto-animate>
+          <p style='font-size: .8em'>Vamos escrever uma função responsável por
+          somar os primeiros <code>n</code> números naturais:</p>
+        </section>
+
+
+        <section data-auto-animate>
+          <p style='font-size: .8em'>Vamos escrever uma função responsável por
+          somar os primeiros <code>n</code> números naturais:</p>
+          <img src='images/soma-flowchart.svg' />
+        </section>
+
+
+        <section data-auto-animate>
+          <p style='font-size: .8em'>Vamos escrever uma função responsável por
+          somar os primeiros <code>n</code> números naturais:</p>
+
+          <div class='ace-brython' style='font-size: .5em; height: 14em;'>
+            <script type='text/x.ace-brython' data-id='first-loop-while'>
+              def soma_n(n):
+                  i = 0
+                  soma = 0
+
+                  while i < n:
+                      soma += i
+                      i += 1
+
+                  return soma
+
+
+              print(soma_n(10))
+              print(soma_n(4))
+            </script>
+          </div>
+
+         <div class='fragment local-standout-box'><code>while</code> é uma das
+            duas estruturas de repetição de Python. A outra é <code>for</code>.
+          </div>
+        </section>
+
+        <section data-auto-animate>
+          <p style='font-size: .8em'>O mesmo programa utilizando
+          <code>for</code>:</p>
+
+          <div>
+            <div
+              class='ace-brython'
+              style='font-size: .5em; height: 14em;'
+              data-prev='first-loop-while'
+              >
+              <script type='text/x.ace-brython'>
+                def soma_n(n):
+                    soma = 0
+                    for i in range(0, n):
+                      soma += i
+
+                    return soma
+
+
+                print(soma_n(10))
+                print(soma_n(4))
+              </script>
+            </div>
+
+            <div style='font-size: .8em; text-align: left;'>
+              <ul>
+                <li>
+                  A chamada de função <code>range(0, n)</code> retorna um
+                  <strong>iterável</strong> que produz números de
+                  <span class='math-font'>0</span> a
+                  <span class='math-font'>n - 1</span>
+                </li>
+                <li>
+                  Valores do tipo <strong>iterável</strong> representam objetos
+                  que permitem ser usados com a instrução <code>for</code>,
+                  iterando sobre seus itens
+                </li>
+              </ul>
+            </div>
+          </div>
+        </section>
+
+        <section data-auto-animate>
+          <p>
+            Exemplo: um jogo onde o usuário precisa descobrir
+            um número que está entre 1 e 100.
+          </p>
+          <br/>
+          <p>
+            Estratégia: repetidamente ler um palpite do usuário até ele
+            acertar.
+          </p>
+        </section>
+
+
+        <section data-auto-animate>
+          <div class='ace-brython' data-components='code'>
+            <script type='text/x.ace-brython'>
+              import random
+
+              numero_secreto = random.randint(1, 100)
+              palpite = int(input('Qual seu palpite? '))
+
+              while palpite != numero_secreto:
+                  if palpite > numero_secreto:
+                    print('Número secreto é menor que o palpite')
+                  else:
+                    print('Número secreto é maior que o palpite')
+
+                  palpite = int(input('Qual seu novo palpite? '))
+
+              print('Parabéns, você acertou!')
+            </script>
+          </div>
+        </section>
+
+
+
+        <section data-auto-animate>
+          <h4>Instrução <code>break</code></h4>
+          <p>
+            Muitas vezes é comum querermos sair imediatamente de um
+            laço caso alguma condição seja satisfeita, ignorando o
+            restante das linhas presentes no bloco.
+          </p>
+          <p>
+            Chamamos isto de <strong>quebrar</strong> o laço e utilizamos a
+            instrução <code>break</code> para fazê-lo.
+          </p>
+        </section>
+
+
+
+        <section data-auto-animate>
+          <h4>Instrução <code>break</code></h4>
+          <p>
+            Um exemplo de quebrando <code>while</code>:
+            <br/>
+            <em>Um programa papagaio</em>: repete cada entrada do
+            usuário até que o mesmo diga "tchau".
+          </p>
+
+          <div class='ace-brython' data-components='code'
+               style='font-size: .6em; flex: 1;'
+          >
+            <script type='text/x.ace-brython'>
+              print('Conversa com papagaio')
+
+              while True:
+                frase = input('Usuário: ')
+
+                if frase == 'tchau':
+                  break
+                  print('Esta linha de código nunca será executada!')
+
+                print('Papagaio:', frase)
+
+              print('Fim')
+            </script>
+          </div>
+        </section>
+
+
+
+        <section data-auto-animate>
+          <h4>Instrução <code>continue</code></h4>
+          <p>
+            Assim como o <code>break</code>, a instrução <code>continue</code>
+            também para a execução do bloco.
+          </p>
+          <p>
+            Porém, em vez de sair do laço, a instrução move o fluxo do programa
+            para a <strong>próxima iteração</strong>.
+          </p>
+        </section>
+
+
+
+        <section data-auto-animate>
+          <h4>Instrução <code>continue</code></h4>
+          <p style='font-size: .8em;'>
+            Exemplo com um <code>while</code>: Um programa para pedir a senha
+            do usuário até ele acertar.
+          </p>
+          <div class='ace-brython' data-components='code'
+               style='font-size: .5em; flex: 1;'
+          >
+            <script type='text/x.ace-brython'>
+              # Exemplo que só executa o bloco inteiro quando a senha não
+              # está vazia e está correta
+              print('Digite seu nome')
+              nome = input()
+              print('Olá,' + nome + '!')
+
+              while True:
+                  senha = input('Por favor, digite a senha: ')
+
+                  if not senha:
+                    print('Senha vazia')
+                    continue
+
+                  if senha != '1234':
+                    print('Senha incorreta!')
+                    continue
+
+                  break
+
+              print('Senha correta, login efetuado com sucesso!')
+              print('Até a próxima!')
+            </script>
+          </div>
+        </section>
+
+
+
+        <section data-auto-animate>
+          <p style='font-size: .8em;'>Note que <code>break</code> e
+          <code>continue</code> também podem ser utilizados em laços do tipo
+          <code>for</code>.</p>
+
+          <p>Exemplo: permitir no máximo 5 tentativas de
+          login.</p>
+
+          <div class='ace-brython' data-components='code'
+               style='font-size: .6em;'
+          >
+            <script type='text/x.ace-brython'>
+              sucesso = False
+              # Pedir senha no máximo 5 vezes
+              for i in range(5):
+                  senha = input('Digite a senha: ')
+                  if senha == '1234':
+                    sucesso = True
+                    break
+
+              if sucesso:
+                  print('Login realizado com sucesso')
+              else:
+                  print('Login bloqueado')
+
+            </script>
+          </div>
+        </section>
+
+
+
+        <section data-auto-animate>
+          <h4>Usando <code>else</code> em laços</h4>
+
+          <p>
+            Python permite definir um bloco para ser executado quando o laço é
+            finalizado "<em>normalmente</em>":
+          </p>
+
+          <ul>
+            <li>
+              <code>while</code>: quando o laço para por causa da condição
+            </li>
+            <li>
+              <code>for</code>: quando o laço para por ter consumido todos os
+              items do iterável
+            </li>
+          </ul>
+
+          <p class='local-standout-box fragment' style='bottom: 2em;'>
+            Em outras palavras: quando o laço <strong>não é interrompido por um
+            <code>break</code></strong>  🙂
+          </p>
+        </section>
+
+
+        <section data-auto-animate>
+          <h4>Usando <code>else</code> em laços</h4>
+
+          <p style='font-size: .9em;'>
+            Isso é feito adicionando <code>else:</code> seguido de um bloco:
+          </p>
+
+          <div class='ace-brython' data-readonly data-components='code'>
+            <script type='text/x.ace-brython'>
+              while condicao:
+                  ...
+              else:
+                  ...
+            </script>
+          </div>
+          <br/>
+          <div class='ace-brython' data-readonly data-components='code'>
+            <script type='text/x.ace-brython'>
+              for i in iteravel:
+                  ...
+              else:
+                  ...
+            </script>
+          </div>
+        </section>
+
+
+
+        <section data-auto-animate>
+          <h4>Usando <code>else</code> em laços</h4>
+
+          <p>Exemplo: modificar o exemplo de permitir no máximo 5 tentativas de
+          login.</p>
+
+          <div class='ace-brython' data-components='code'
+               style='font-size: .6em;'
+          >
+            <script type='text/x.ace-brython'>
+              # Pedir senha no máximo 5 vezes
+              for i in range(5):
+                  senha = input('Digite a senha: ')
+                  if senha == '1234':
+                    print('Login realizado com sucesso')
+                    break
+              else:
+                  print('Login bloqueado')
+            </script>
+          </div>
+          <br/>
+          <div style='font-size: .8em; text-align: left;'>
+            Prós:<br/>
+            <ul style='margin-top: .2ex;'>
+              <li>Variável <code>sucesso</code> não mais necessária!</li>
+              <li>Código mais simples</li>
+            </ul>
+          </div>
+        </section>
+
+
+        <section data-auto-animate>
+          <h4>Tratamento de erros</h4>
+
+          <p>O que acontecerá ao executarmos o seguinte código?</p>
+
+          <div class='ace-brython'>
+            <script type='text/x.ace-brython'>
+              a = int('treze')
+            </script>
+          </div>
+        </section>
+
+
+        <section data-auto-animate>
+          <h4>Tratamento de erros</h4>
+
+          <p>
+            O código anterior causou Python a lançar uma
+            <strong>exceção</strong>!
+          </p>
+          <p'>
+            <strong>Exceções</strong> são objetos utilizados por Python para
+            representar erros.
+          </p>
+          <p>
+            Se elas não são capturadas pelo nosso código, Python
+            <strong>aborta</strong> a execução do resto do programa.
+          </p>
+        </section>
+
+
+
+        <section data-auto-animate>
+          <p style='font-size: .9em;'>
+            Como capturar exceções?
+          </p>
+
+          <p>
+            Através da instrução <code>try</code>:
+          </p>
+
+          <div class='ace-brython' style='font-size: .6em;'>
+              <script type='text/x.ace-brython'>
+                def quadrado(n):
+                    try:
+                        n = int(n)
+                    except:
+                        print('Número inválido:', n)
+
+
+                quadrado('treze')
+                quadrado(13)
+              </script>
+          </div>
+        </section>
+
+
+
+        <section data-auto-animate>
+          <p style='font-size: .9em;'>
+            Podemos utilizar a cláusula <code>else</code> para adicionar código
+            a ser executado apenas se o bloco definido por <code>try</code> for
+            executado com sucesso:
+          </p>
+
+          <div class='ace-brython' style='font-size: .6em;'>
+              <script type='text/x.ace-brython'>
+                def quadrado(n):
+                    try:
+                        n = int(n)
+                    except:
+                        print('Número inválido:', n)
+                    else:
+                        print(n, 'ao quadrado é', n**2)
+
+
+                quadrado('treze')
+                quadrado(13)
+              </script>
+          </div>
+        </section>
+
+
+
+        <section data-auto-animate>
+          <p style='font-size: .9em;'>
+            Podemos utilizar a cláusula <code>finally</code> para adicionar
+            código a ser executado em ambos os casos (erro ou não erro):
+          </p>
+
+          <div class='ace-brython' style='font-size: .6em;'>
+              <script type='text/x.ace-brython'>
+                def quadrado(n):
+                    try:
+                        n = int(n)
+                    except:
+                        print('Número inválido:', n)
+                    else:
+                        print(n, 'ao quadrado é', n**2)
+                    finally:
+                        print('Tchau!')
+
+
+                quadrado('treze')
+                quadrado(13)
+              </script>
+          </div>
+        </section>
+
+
+
+        <section data-auto-animate>
+          <p style='font-size: .8em; margin-bottom: 0;'>
+            Há diversos tipos de erros:
+          </p>
+
+          <ul style='font-size: .8em; margin-top: 0;'>
+            <li>
+              <code>ValueError</code>: Ocorre quando um valor utilizado em uma
+              operação é inválido. Esse tipo de exceção é lançada pela função
+              <code>int()</code>, por exemplo.
+            </li>
+
+            <li>
+              <code>TypeError</code>: Ocorre quando um valor utilizado em uma
+              operação não é de um tipo esperado. Esse tipo de exceção é
+              lançada quando tentamos executar <code>1 + 'a'</code>, por
+              exemplo.
+            </li>
+
+            <li>
+              <code>ZeroDivisionError</code>: Ocorre quando tentamos dividir um
+              número por zero.
+            </li>
+
+            <li>
+              E <strong>muitos</strong> outros. A lista de exceções
+              pré-definidas de Python pode ser vista em
+              <a
+                href='https://docs.python.org/3/library/exceptions.html#bltin-exceptions'
+                target='_blank'>
+                https://docs.python.org/3/library/exceptions.html#bltin-exceptions
+              </a>.
+            </li>
+          </ul>
+        </section>
+
+
+
+        <section data-auto-animate>
+          <p style='font-size: .8em;'>
+            É sempre boa prática definirmos o tipo de exceção que queremos
+            capturar.
+          </p>
+
+          <p style='font-size: .8em;'>
+            Fazemos isso passando o tipo na cláusula <code>except</code>:
+          </p>
+
+          <div class='ace-brython' style='font-size: .6em;'>
+              <script type='text/x.ace-brython'>
+                def quadrado(n):
+                    try:
+                        n = int(n)
+                    except ValueError:
+                        print('Número inválido:', n)
+                    else:
+                        print(n, 'ao quadrado é', n**2)
+                    finally:
+                        print('Tchau!')
+
+
+                quadrado('treze')
+                quadrado(13)
+              </script>
+          </div>
+        </section>
+
+
+
+        <section data-auto-animate>
+          <p style='font-size: .8em;'>
+            É possível capturar mais de um tipo de exceção:
+          </p>
+
+          <div class='ace-brython' data-components='code' style='font-size: .6em;'>
+              <script type='text/x.ace-brython'>
+                def potencia(base, expoente):
+                    try:
+                        base = float(base)
+                        expoente = float(expoente)
+                        resultado = base ** expoente
+                    except ValueError:
+                        print('Algum dos argumentos não é um número válido')
+                    except OverflowError:
+                        print('O resultado é muito grande')
+                    else:
+                        print(base, 'elevado a', expoente, 'é', resultado)
+
+
+                potencia('três', '3')
+                potencia('3', '3')
+                potencia('2.4', '1000')
+              </script>
+          </div>
+        </section>
+
+        <section>
+          <h3>Coleções</h3>
+        </section>
+
+
+        <section data-auto-animate>
+          <h3>Coleções</h3>
+
+          <p>
+          Coleções são <strong>estruturas de dados</strong> que
+          <strong>armazenam</strong> múltiplos valores na memória do computador
+          e provêem formas convenientes de <strong>acessarmos</strong> esses
+          valores em algum momento do programa em execução.
+          </p>
+        </section>
+
+
+        <section data-auto-animate>
+          <h3>Coleções</h3>
+
+          <p style='font-size: .8em'>
+            Listamos aqui quatro tipos básicos de coleções:
+          </p>
+
+          <div style='
+              margin: auto;
+              text-align: left;
+              font-size: .7em;
+              display: inline-block;
+              '
+          >
+            <div>Tupla: <code>(2, 3, 5, 'Alice', False, 5)</code></div>
+            <div>Lista: <code>[2, 3, 5, 'Alice', False, 5]</code></div>
+            <div>Conjunto: <code>{2, 3, 5, 'Alice', False}</code></div>
+            <div>Dicionário: <code>{'idade': 35, 'nome': 'Alice', 'casada': False}</code></div>
+          </div>
+        </section>
+
+
+        <section data-auto-animate>
+          <h4>Tuplas</h4>
+
+          <p>Uma sequência de valores.</p>
+
+          <p>Os valores não precisam necessariamente ser do mesmo tipo.</p>
+          <div class='python-repl'><!--
+          >>> t = (2, 3, 5, 'Alice', False, 5)
+          >>> t
+          (2, 3, 5, 'Alice', False, 5)
+          --></div>
+        </section>
+
+
+        <section data-auto-animate data-reusable>
+          <h4>Tuplas</h4>
+          <p
+            style='font-size: .8em; text-align: left'
+            data-reusable-tag='title'
+          >
+          Alguns exemplos:
+          </p>
+          <div
+            style='display: flex; flex-flow: column; gap: 1ex; font-size: .8em;'
+            data-reusable-tag='repl'>
+            <div class='python-repl'><!--
+            >>> tupla1 = (1,5,1)
+            >>> tupla2 = ('Avenida','24A')
+            >>> tupla3 = ('A',32)
+            >>> tupla4 = (64.122,1)
+            --></div>
+            <div class='python-repl'><!--
+            >>> tupla2
+            ('Avenida', '24A')
+            >>> tupla3
+            ('A', 32)
+            --></div>
+            <div class='python-repl'><!--
+            >>> tupla5 = (tupla1, tupla4, tupla1) # Tupla de tuplas
+            >>> print('Tupla de tuplas:', tupla5)
+            Tupla de tuplas: ((1, 5, 1), (64.122, 1), (1, 5, 1))
+            --></div>
+          </div>
+        </section>
+
+        <template data-reuse>
+          <template data-tag='title'>
+            Podemos acessar os elementos da tupla através de
+            <strong>indexação</strong>:
+          </template>
+
+          <template data-tag='repl'>
+            <div class='python-repl'><!--
+            >>> t = (4, 2, 6, 1)
+            >>> t[0]
+            4
+            >>> t[2]
+            6
+            >>> t[-1]
+            1
+            >>> t[-3]
+            2
+            --></div>
+            <div class='python-repl'><!--
+            >>> t = ((3, 5), (9, 1), (6, 1))
+            >>> t[0]
+            (3, 5)
+            >>> t[-1]
+            (6, 1)
+            >>> t[0][1]
+            5
+            --></div>
+          </template>
+        </template>
+
+
+
+        <template data-reuse>
+          <template data-tag='title'>
+            Podemos acessar regiões  da tupla através de
+            <strong>slices</strong> (fatias):
+          </template>
+
+          <template data-tag='repl'>
+            <div class='python-repl'><!--
+            >>> frutas = ('banana', 'abacaxi', 'limão', 'laranja', 'melancia')
+            >>> frutas[1:3]  # O segundo índice é exclusivo
+            ('abacaxi', 'limão')
+            >>> frutas[1:]   # Podemos omitir índices
+            ('abacaxi', 'limão', 'laranja', 'melancia')
+            >>> frutas[:2]   # Podemos omitir índices
+            ('banana', 'abacaxi')
+            >>> frutas[:-2]   # Índices negativos também funcionam
+            ('banana', 'abacaxi', 'limão')
+            --></div>
+          </template>
+        </template>
+
+
+
+        <template data-reuse>
+          <template data-tag='title'>
+            Podemos checar se um item está presente na tupla com o operador
+            <code>in</code>:
+          </template>
+
+          <template data-tag='repl'>
+            <div class='python-repl'><!--
+            >>> frutas = ('banana', 'abacaxi', 'limão', 'laranja', 'melancia')
+            >>> 'jabuticaba' in frutas
+            False
+            >>> 'laranja' in frutas
+            True
+            --></div>
+          </template>
+        </template>
+
+
+
+        <template data-reuse>
+          <template data-tag='title'>
+            Tuplas são <strong>imutáveis</strong> - não podem ser modificadas:
+          </template>
+
+          <template data-tag='repl'>
+            <div class='python-repl'><!--
+            >>> frutas = ('banana', 'abacaxi', 'limão', 'laranja', 'melancia')
+            >>> frutas[2] = 'pitaya'
+            Traceback (most recent call last):
+              File "<stdin>", line 1, in <module>
+            TypeError: 'tuple' object does not support item assignment
+            --></div>
+          </template>
+        </template>
+
+
+
+        <section data-auto-animate>
+          <h4>Listas</h4>
+          <p>Podemos olhar para listas como "tuplas mutáveis"</p>
+          <p>São sequências de valores que podem ser alteradas</p>
+        </section>
+
+
+
+        <section data-auto-animate data-reusable>
+          <h4>Listas</h4>
+          <p
+            style='font-size: .8em; text-align: left'
+            data-reusable-tag='title'
+          >
+          Listas usam <code>[</code> e <code>]</code> em sua construção e
+          possuem praticamente a mesma interface de acesso de tuplas:
+          </p>
+          <div
+            style='display: flex; flex-flow: column; gap: 1ex; font-size: .8em;'
+            data-reusable-tag='repl'>
+            <div class='python-repl'><!--
+            >>> frutas = ['banana', 'abacaxi', 'limão', 'laranja', 'melancia']
+            >>> frutas[1:3]
+            ['abacaxi', 'limão']
+            >>> frutas[-1]
+            'melancia'
+            >>> 'morango' in frutas
+            False
+            >>> 'limão' in frutas
+            True
+            --></div>
+          </div>
+        </section>
+
+
+
+        <template data-reuse>
+          <template data-tag='title'>
+            Listas são mutáveis!
+          </template>
+
+          <template data-tag='repl'>
+            <div class='python-repl'><!--
+              >>> frutas = ['banana', 'abacaxi', 'limão', 'laranja', 'melancia']
+            --></div>
+            <div class='python-repl'><!--
+              >>> frutas[1] = 'morango'
+              >>> frutas
+              ['banana', 'morango', 'limão', 'laranja', 'melancia']
+            --></div>
+            <div class='python-repl'><!--
+              >>> frutas[-1] = 'uva'
+              >>> frutas
+              ['banana', 'morango', 'limão', 'laranja', 'uva']
+            --></div>
+            <div class='python-repl'><!--
+              >>> frutas[1:4] = ['abacate']
+              >>> frutas
+              ['banana', 'abacate', 'uva']
+            --></div>
+            <div class='python-repl'><!--
+              >>> del frutas[1]
+              >>> frutas
+              ['banana', 'uva']
+            --></div>
+          </template>
+        </template>
+
+
+
+        <template data-reuse>
+          <template data-tag='title'>
+            Listas possuem diversos <strong>métodos</strong>:
+          </template>
+
+          <template data-tag='repl'>
+            <div class='python-repl'><!--
+              >>> frutas = ['banana', 'abacaxi', 'limão', 'laranja', 'melancia']
+            --></div>
+            <div class='python-repl'><!--
+            >>> frutas.append('mamão')
+            >>> frutas
+            ['banana', 'abacaxi', 'limão', 'laranja', 'melancia', 'mamão']
+            --></div>
+            <div class='python-repl'><!--
+            >>> frutas.insert(3, 'uva')
+            >>> frutas
+            ['banana', 'abacaxi', 'limão', 'uva', 'laranja', 'melancia', 'mamão']
+            --></div>
+            <div class='python-repl'><!--
+            >>> frutas.pop()
+            'mamão'
+            >>> frutas
+            ['banana', 'abacaxi', 'limão', 'uva', 'laranja', 'melancia']
+            --></div>
+            <div class='python-repl'><!--
+            >>> frutas.remove('laranja')
+            >>> frutas
+            ['banana', 'abacaxi', 'limão', 'uva', 'melancia']
+            --></div>
+            <div class='python-repl'><!--
+            >>> frutas.sort()
+            >>> frutas
+            ['abacaxi', 'banana', 'limão', 'melancia', 'uva']
+            --></div>
+          </template>
+        </template>
+
+
+        <section data-auto-animate>
+          <h4>Conjuntos</h4>
+        </section>
+
+
+        <section data-auto-animate data-reusable>
+          <h4>Conjuntos</h4>
+          <p
+            style='font-size: .8em; text-align: left'
+            data-reusable-tag='title'
+          >
+          Conjuntos são construídos com <code>{</code> e <code>}</code>. E
+          e permitem adição, remoção e consulta de items.
+          </p>
+          <div
+            style='display: flex; flex-flow: column; gap: 1ex; font-size: .8em;'
+            data-reusable-tag='repl'>
+            <div class='python-repl'><!--
+            >>> frutas = {'banana', 'abacaxi', 'limão', 'laranja', 'melancia'}
+            --></div>
+            <div class='python-repl'><!--
+            >>> frutas.add('uva')
+            >>> frutas
+            {'banana', 'uva', 'abacaxi', 'melancia', 'laranja', 'limão'}
+            --></div>
+            <div class='python-repl'><!--
+            >>> frutas.add('abacaxi')  # Esta operação não possui efeito
+            >>> frutas
+            {'banana', 'uva', 'abacaxi', 'melancia', 'laranja', 'limão'}
+            --></div>
+            <div class='python-repl'><!--
+            >>> frutas.pop()  # Remove um elemento qualquer
+            'banana'
+            >>> frutas
+            {'uva', 'abacaxi', 'melancia', 'laranja', 'limão'}
+            --></div>
+            <div class='python-repl'><!--
+            >>> frutas.remove('laranja') # Remove um item específico
+            >>> frutas
+            {'uva', 'abacaxi', 'melancia', 'limão'}
+            --></div>
+            <div class='python-repl'><!--
+            >>> 'laranja' in frutas  # É muito mais rápido do que em listas
+            True
+            --></div>
+          </div>
+        </section>
+
+
+
+        <section data-auto-animate>
+          <h4>Dicionários</h4>
+        </section>
+
+
+
+        <section data-auto-animate>
+          <h4>Dicionários</h4>
+          <p>
+            Um <strong>dicionário</strong> faz um mapeamento de um conjunto de
+            chaves para respectivos valores.
+          </p>
+          <p>
+            Cada item do dicionário é um par <strong>chave→valor</strong>.
+          </p>
+          <p>
+            Qualquer tipo imutável (e.g. <code>str</code> <code>int</code>
+            <code>tuple</code>) pode ser utilizado como chave, e qualquer outro
+            tipo pode ser usado como valor.
+          </p>
+        </section>
+
+
+
+        <section data-auto-animate data-reusable>
+          <h4>Dicionários</h4>
+          <p
+            style='font-size: .8em; text-align: left'
+            data-reusable-tag='title'
+          >
+            Um uso comum de dicionários é para representação de alguma entidade
+            com diferentes atributos:
+          </p>
+          <div
+            style='display: flex; flex-flow: column; gap: 1ex; font-size: .8em;'
+            data-reusable-tag='repl'>
+            <div class='python-repl'><!--
+            >>> alice = {'name': 'Alice', 'age': 27, 'country': 'Australia'}
+            >>> alice['name'] # Acessando a chave 'name', cujo valor é 'Alice'
+            'Alice'
+            >>> alice['age']
+            27
+            >>> alice['age'] += 1
+            >>> alice
+            {'name': 'Alice', 'age': 28, 'country': 'Australia'}
+            --></div>
+          </div>
+        </section>
+
+
+        <template data-reuse>
+          <template data-tag='title'>
+            Uma ótima aplicação de dicionários é utilizá-los como tabela
+            <em>hash</em> para acesso rápido a elementos por alguma chave:
+          </template>
+
+          <template data-tag='repl'>
+            <div class='python-repl'><!--
+            >>> table = {'id1': {'name': 'Alice', 'age': 27}, 'id2': {'name': 'John', 'age': 67}}
+            --></div>
+            <div class='python-repl'><!--
+            >>> table['id1'] # Acessando o registro com id1
+            {'name': 'Alice', 'age': 27}
+            --></div>
+            <div class='python-repl'><!--
+            >>> table['id3'] = {'name': 'Josh', 'age': 18} # Adicionando um novo elemento
+            >>> table
+            {'id1': {'name': 'Alice', 'age': 27}, 'id2': {'name': 'John', 'age': 67}, 'id3': {'name': 'Josh', 'age': 18}}
+            --></div>
+            <div class='python-repl'><!--
+            >>> del table['id2']  # Removendo elemento com id2
+            >>> table
+            {'id1': {'name': 'Alice', 'age': 27}, 'id3': {'name': 'Josh', 'age': 18}}
+            --></div>
+            <div class='python-repl'><!--
+            >>> table['xyz']  # Acessado elemento inexistente
+            Traceback (most recent call last):
+              File "<stdin>", line 1, in <module>
+            KeyError: 'xyz'
+            --></div>
+            <div class='python-repl'><!--
+            >>> 'xyz' in table  # Verificando existência de chave, tão rápido quanto para conjuntos
+            False
+            --></div>
+          </template>
+        </template>
+
+
+
+        <section data-auto-animate data-reusable>
+          <h4>Coleções</h4>
+
+          <p style='font-size: .6em'>Todos esses tipos de coleções são
+          <strong>iteráveis</strong>, isso significa que é possível percorrer
+          seus valores utilizando <code>for</code>, por exemplo.</p>
+
+
+          <div class='ace-brython' style='font-size: .5em;' data-reusable-tag='code'>
+              <script type='text/x.ace-brython'>
+                frutas = ['banana', 'abacaxi', 'limão', 'laranja', 'melancia']
+
+                print('As frutas que temos na feira são:')
+                for fruta in frutas:
+                  print(fruta)
+              </script>
+          </div>
+        </section>
+
+        <template data-reuse>
+          <template data-tag='code'>
+            <script type='text/x.ace-brython'>
+              # Calcular perímetro do polígono
+              poligono = [(1.5, 0.0), (1.0, 1.0), (-1.0, 1.5), (0, -1)]
+              perimetro = 0
+
+              prev = poligono[-1]
+              for point in poligono:
+                  x, y = point # Equivalente a x = point[0] e y = point[1]
+                  prev_x, prev_y = prev
+
+                  dist = ((x - prev_x)**2 + (y - prev_y)**2)**.5
+                  perimetro += dist
+
+                  prev = point
+
+              print('Perímetro:', perimetro)
+
+            </script>
+          </template>
+        </template>
+
+
+        <section data-auto-animate>
+          <h4>Síntese de Coleções</h4>
+          <p>
+            Para todas as coleções é possível utilizar a função
+            <code>len()</code> para descobrir a quantidade de
+            elementos contidos nas mesmas.
+          </p>
+          <p>
+            Para as Listas e Tuplas, o acesso de um elemento ou uma
+            fatia de seus elementos é feito utilizando número
+            (ou slice) entre colchetes (e.g. lista[1], tupla[:3])
+          </p>
+        </section>
+
+
+        <section data-auto-animate>
+          <h4>Síntese de Coleções</h4>
+          <p'>
+            Tuplas: Recomendado quando a ordem dos valores tem
+            significado; permite acesso individual de itens
+            ou por slices; imutáveis
+          </p>
+          <p>
+            Listas: Recomendado quando se pretende alterar a ordem,
+            acrescentar ou remover itens; permite
+            acesso individual de itens ou por slices; mutáveis
+          </p>
+        </section>
+
+        <section data-auto-animate>
+          <h4>Síntese de Coleções</h4>
+          <p>
+            Dicionários: Recomendado quando se deseja indexar
+            pares de chave-valor; permite acesso individual
+            de itens; mutáveis
+          </p>
+          <p>
+            Conjuntos: Recomendado quando se deseja registrar ocorrência
+            de elementos sem  manter repetições; mutável
+          </p>
+
+          <p>
+          Tanto conjuntos quanto dicionários possuem rápido tempo de
+          <strong>busca</strong> por chave. Para esse propósito são preferíveis
+          em relação a tuplas e listas.
+          </p>
+        </section>
+
+
+        <section data-auto-animate>
+          <h3>Strings</h3>
+        </section>
+
+
+        <section data-auto-animate>
+          <h4>Strings</h4>
+          <p>Podemos enxergar strings como <em>coleções de caracteres</em>!
+          </p>
+          <p>
+            E desta maneira explorar os recursos disponíveis para este
+            tipo de dado.
+          </p>
+        </section>
+
+
+        <section data-auto-animate>
+          <p>
+            Podemos utilizar indexação em strings também!
+          </p>
+          <div class='ace-brython' style='font-size: .5em; height: 16em;'>
+            <script type='text/x.ace-brython' data-id='string-index'>
+              palavra = 'paralelepípedo'
+
+              print(palavra[2])   # caracter na posição 2
+              print(palavra[-2])  # caracter na penúltima posição
+              print(palavra[:5])  # fatia do começo até a posição 5
+              print(palavra[2:])  # fatia da posição 2 até o fim
+              print(palavra[:-6]) # fatia do começo à sexta posição reversa
+              print(palavra[-6:]) # fatia da sexta posição reversa até o fim
+            </script>
+          </div>
+        </section>
+
+
+        <section data-auto-animate>
+          <p>
+            Porém devemos lembrar que strings são <em>imutáveis</em>
+          </p>
+          <div class='ace-brython' style='font-size: .5em; height: 8em;'>
+            <script type='text/x.ace-brython' data-id='string-index2'>
+              solido = 'Octaedro'
+
+              print(solido[:4])
+              print('Dodeca' + solido[4:])
+            </script>
+          </div>
+        </section>
+
+
+
+        <section data-auto-animate>
+          <p>
+            Porém devemos lembrar que strings são <em>imutáveis</em>
+          </p>
+          <p>
+            Então não podemos alterar seu conteúdo
+          </p>
+          <div class='ace-brython' style='font-size: .5em; height: 16em;'>
+            <script type='text/x.ace-brython' data-id='string-index3'>
+              solido = 'Octaedro'
+
+              print(solido[:4])
+              print('Dodeca' + solido[4:])
+              solido[:4] = 'Dodeca'
+            </script>
+          </div>
+        </section>
+
+
+
+        <section data-auto-animate>
+          <p>
+            Porém devemos lembrar que strings são <em>imutáveis</em>
+          </p>
+          <p>
+            Então não podemos alterar seu conteúdo
+          </p>
+          <p>
+            Mas podemos atribuir um novo valor à variável!
+          </p>
+          <div class='ace-brython' style='font-size: .4em; height: 12em;'>
+            <script type='text/x.ace-brython' data-id='string-index4'>
+              solido = 'Octaedro'
+
+              print(solido[:4])
+              print('Dodeca' + solido[4:])
+              solido = 'Dodeca' + solido[4:]
+              print('Novo sólido:', solido)
+            </script>
+          </div>
+        </section>
+
+
+        <section data-auto-animate>
+          <p>
+            Podemos utilizar indexação de strings para identificação de
+            prefixos e sufixos
+          </p>
+          <div class='ace-brython' style='font-size: .5em; height: 20em;'>
+            <script type='text/x.ace-brython'>
+              poliedros_platonicos = ['Tetraedro', 'Hexaedro', 'Octaedro',
+                'Dodecaedro', 'Icosaedro']
+
+              significados = {
+                'Tetra':{ 'faces':4,'vertices':4,'arestas':6,'elemento':'fogo'},
+                'Hexa':{'faces':6,'vertices':8,'arestas':12,'elemento':'terra'},
+                'Octa':{'faces':8, 'vertices':6, 'arestas':12,'elemento':'ar'},
+                'Dodeca':{'faces':12, 'vertices':20, 'arestas':30,'elemento':'água'},
+                'Icosa':{'faces':20, 'vertices':12, 'arestas':30,'elemento':'universo'},
+              }
+
+              for p in poliedros_platonicos:
+                print(p,significados[p[:-4]])
+            </script>
+          </div>
+        </section>
+
+
+
+        <section data-auto-animate>
+          <p>
+            Além de indexação, existem métodos específicos de strings
+          </p>
+        </section>
+
+
+
+        <section data-auto-animate>
+          <p>
+            Divisão de strings
+          </p>
+          <div class='ace-brython' style='font-size: .5em; height: 22em;'>
+            <script type='text/x.ace-brython' data-id='string-split'>
+              estrofe = ('Minha terra tem palmeiras,/Onde canta o Sabiá;/'
+                        'As aves, que aqui gorjeiam,/Não gorjeiam como lá')
+
+              print(estrofe, '\n')
+
+              # Dividindo a estrofe em versos utilizando o separador /
+              versos = estrofe.split('/')
+              print(versos, '\n')
+              for v in versos:
+                print(v)
+            </script>
+          </div>
+        </section>
+
+
+
+
+        <section data-auto-animate>
+          <p>
+            União de strings presente em um iterável
+          </p>
+          <div class='ace-brython' style='font-size: .5em; height: 18em;'>
+            <script type='text/x.ace-brython' data-id='string-join-linebreak'>
+              versos = [
+                'Teus coqueiros que brilham ao Sol',
+                'São o emblema do grande valor',
+                'Dos teus filhos de dotes de escol,',
+                'Da lhaneza, do sincero amor.',
+              ]
+
+              # Unindo lista de strings em uma só string
+              estrofe = '\n'.join(versos)
+              print(estrofe)
+            </script>
+          </div>
+        </section>
+
+
+
+        <section data-auto-animate>
+          <p>
+            Verificação e manipulação de letras maiúsculas e minúsculas
+          </p>
+          <div class='ace-brython' style='font-size: .5em; height: 20em;'>
+            <script type='text/x.ace-brython' data-id='string-casing'>
+              obra = 'Memórias Póstumas de Brás Cubas'
+
+              print('Tudo minúsculo?',obra.islower())
+              print('Tudo maiúsculo?',obra.isupper())
+              print('Título?',obra.istitle())
+              print('')
+              print('Tudo minúsculo:',obra.lower())
+              print('Tudo maiúsculo:',obra.upper())
+              print('Título:',obra.title())
+              print('Invertidas:',obra.swapcase())
+            </script>
+          </div>
+        </section>
+
+
+
+        <section data-auto-animate>
+          <p>
+            Entre outras...
+          </p>
+          <div style='font-size: .7em'>
+            Lista completa<br>
+            <a href="https://docs.python.org/3/library/stdtypes.html#string-methods" target='_blank'>
+              aqui na documentação</a>
+          </div>
+        </section>
+
+
+
+
+        <section>
+          <h3>Módulos</h3>
+        </section>
+
+
+
+
+        <section data-auto-animate>
+          <p>
+            O que é um módulo?
+          </p>
+          <div style='text-align: left; margin-top: 1em;'>
+            <p>
+              De forma geral, um <strong>módulo</strong> é um arquivo:
+            </p>
+            <ul>
+              <li>
+                que possui código Python
+              </li>
+              <li>
+                e que pode ser utilizado (<strong>importado</strong>) em outros
+                programas ou módulos
+              </li>
+            </ul>
+          </div>
+        </section>
+
+
+        <section data-auto-animate>
+          <div style='font-size: .8em'>
+            <p>
+              Diversos módulos já são providos por padrão em uma instalação comum
+              de Python:
+            </p>
+            <div
+              style='
+                display: grid;
+                grid-template-columns: max-content auto;
+                justify-items: left;
+                align-items: baseline;
+                gap: .2ex 1ex;
+                text-align: left;
+              '
+            >
+              <code style='justify-self: end;'>collections</code>
+              <div>
+                Outros tipos de coleções além das que já conhecemos
+              </div>
+
+              <code style='justify-self: end;'>csv</code>
+              <div>
+                Leitura e escrita no formato CSV
+              </div>
+
+              <code style='justify-self: end;'>datetime</code>
+              <div>
+                Manipulação de data e hora
+              </div>
+
+              <code style='justify-self: end;'>json</code>
+              <div>
+                Leitura e escrita no formato JSON
+              </div>
+
+              <code style='justify-self: end;'>math</code>
+              <div>
+                Funções matemáticas
+              </div>
+
+              <code style='justify-self: end;'>os</code>
+              <div>
+                Interface com o sistema operacional
+              </div>
+
+              <code style='justify-self: end;'>pathlib</code>
+              <div>
+                Manipulação de caminhos e arquivos
+              </div>
+
+              <code style='justify-self: end;'>random</code>
+              <div>
+                Geração de números pseudo-aleatórios
+              </div>
+
+              <code style='justify-self: end;'>re</code>
+              <div>
+                Processamento de strings com expressões regulares!
+              </div>
+            </div>
+            <p>
+              Lista completa em
+              <a
+                href='https://docs.python.org/3/py-modindex.html'
+                target='_blank'
+              >
+                https://docs.python.org/3/py-modindex.html
+              </a>
+            </p>
+          </div>
+        </section>
+
+
+
+        <section data-auto-animate>
+          <p style='font-size: .8em;'>
+            Diversos módulos já são providos por padrão em uma instalação comum
+            de Python:
+          </p>
+
+          <br/>
+          <p>
+            Esses módulos pertencem ao que chamamos de
+            <strong>biblioteca padrão</strong> da linguagem Python
+          </p>
+          <br/>
+
+          <p style='font-size: .8em;'>
+            Documentação disponível em
+            <a
+              href='https://docs.python.org/3/library/index.html'
+              target='_blank'
+            >
+              https://docs.python.org/3/library/index.html
+            </a>
+          </p>
+        </section>
+
+
+        <section data-auto-animate>
+          <h4>Exemplo: utilizando o módulo <code>math</code></h4>
+
+          <div style='font-size: .9em;'>
+            <p>
+              Utilizamos <code>import</code> para importar o módulo em nosso
+              código:
+            </p>
+
+            <div class='ace-brython'>
+              <script type='text/x.ace-brython'>
+                import math
+              </script>
+            </div>
+          </div>
+        </section>
+
+
+
+        <section data-auto-animate>
+          <h4>Exemplo: utilizando o módulo <code>math</code></h4>
+
+          <div style='font-size: .9em;'>
+            <p>
+              Os objetos definidos pelo módulo podem ser acessados através do
+              operador de acesso de atributo (<code>.</code>):
+            </p>
+
+            <div class='ace-brython'>
+              <script type='text/x.ace-brython'>
+                import math
+
+                angulo = math.pi / 6 # Isto é, 30°
+
+                seno = math.sin(angulo)
+
+                print(f'O seno de {angulo} é {seno}')
+              </script>
+            </div>
+          </div>
+        </section>
+
+
+
+        <section data-auto-animate>
+          <h4>Exemplo: utilizando o módulo <code>math</code></h4>
+
+          <div style='font-size: .9em;'>
+            <p>
+              É possível redefenir o nome da variável que terá a referência ao
+              módulo utilizando a palavra-chave <code>as</code>:
+            </p>
+
+            <div class='ace-brython'>
+              <script type='text/x.ace-brython'>
+                import math as m
+
+                angulo = m.pi / 6 # Isto é, 30°
+
+                seno = m.sin(angulo)
+
+                print(f'O seno de {angulo} é {seno}')
+              </script>
+            </div>
+          </div>
+        </section>
+
+
+
+        <section data-auto-animate>
+          <h4>Exemplo: utilizando o módulo <code>math</code></h4>
+
+          <div style='font-size: .9em;'>
+            <p>
+              É possível importar objetos do módulo diretamente:
+            </p>
+
+            <div class='ace-brython'>
+              <script type='text/x.ace-brython'>
+                from math import pi, sin
+
+                angulo = pi / 6 # Isto é, 30°
+
+                seno = sin(angulo)
+
+                print(f'O seno de {angulo} é {seno}')
+              </script>
+            </div>
+          </div>
+        </section>
+
+
+
+        <section data-auto-animate>
+          <h4>Exemplo: utilizando o módulo <code>math</code></h4>
+
+          <div style='font-size: .9em;'>
+            <p>
+              ... e também é possível renomear os objetos na importação:
+            </p>
+
+            <div class='ace-brython'>
+              <script type='text/x.ace-brython'>
+                from math import pi as banana, sin
+
+                angulo = banana / 6 # Isto é, 30°
+
+                seno = sin(angulo)
+
+                print(f'O seno de {angulo} é {seno}')
+              </script>
+            </div>
+          </div>
+        </section>
+
+
+        <section data-auto-animate>
+          <p style='font-size: .8em;'>Nós podemos criar nossos próprios módulos!</p>
+          <div style='
+                font-size: .6em;
+                display: flex;
+                flex-direction: column;
+                gap: 2ex;
+               '
+           >
+            <div style='flex: 1;'>
+              Arquivo: <code>poligonos.py</code>
+              <div class='ace-brython' data-components='code'>
+                <script type='text/x.ace-brython'>
+                  def retangulo(x, y, largura, altura):
+                      return (
+                          (x, y), (x, y + altura),
+                          (x + largura, y + altura), (x + largura, y),
+                      )
+
+                  def quadrado(x, y, tamanho):
+                      return retangulo(x, y, tamanho, tamanho)
+
+                  def perimetro(pontos):
+                      p = 0
+                      prev = pontos[-1]
+                      for ponto in pontos:
+                          x, y = ponto
+                          prev_x, prev_y = prev
+                          dist = ((x - prev_x)**2 + (y - prev_y)**2)**.5
+                          p += dist
+                          prev = ponto
+                      return p
+                </script>
+              </div>
+            </div>
+            <div>
+              Arquivo: <code>main.py</code>
+              <div class='ace-brython' data-components='code'>
+                <script type='text/x.ace-brython'>
+                  import poligonos
+
+                  q = poligonos.quadrado(0, 0, 20)
+                  print('q:', q)
+                  print('perímetro de q:', poligonos.perimetro(q))
+
+                  r = poligonos.retangulo(12, -50, 60, 20)
+                  print('r:', r)
+                  print('perímetro de r:', poligonos.perimetro(r))
+                </script>
+              </div>
+            </div>
+          </div>
+        </section>
+
+
+        <section>
+            <div class='r-fit-text'>
+                <template data-reuse='moving-face'></template>
+                <br/>
+                <br/>
+                Muito obrigado, até mais!
+            </div>
+        </section>
+      </div>
+    </div>
+
+    <script src="../revealjs/dist/reveal.js"></script>
+    <script src="../revealjs/plugin/notes/notes.js"></script>
+    <script src="../revealjs/plugin/markdown/markdown.js"></script>
+    <script src="../revealjs/plugin/highlight/highlight.js"></script>
+    <script src="../revealjs-ace-brython/dist/main.js"></script>
+    <script src="../asciinema/asciinema-player.js"></script>
+    <script type='module' src="main.js"></script>
+  </body>
+</html>
